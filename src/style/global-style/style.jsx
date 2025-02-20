@@ -16,6 +16,11 @@ export const Style = createGlobalStyle`
         --error-color: hsl(354, 84%, 57%);
     }
 
+    html {
+        width: 100%;
+        overflow: hidden;
+    }
+
 
     body {
         height: 100vh;
@@ -27,6 +32,7 @@ export const Style = createGlobalStyle`
     #root {
         height: 100vh;
         width: 100%;
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;

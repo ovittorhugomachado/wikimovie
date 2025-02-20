@@ -4,7 +4,7 @@ export const ContainerLogo = styled.div`
     display: flex;
     justify-content: center;
     height: 200px;
-    width: 600px;
+    width: 300px;
     animation: scale 2s ease-in-out forwards;
     animation-delay: 2.5s;
     @keyframes scale {
