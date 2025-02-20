@@ -30,6 +30,7 @@ export const Style = createGlobalStyle`
     }
 
     #root {
+        min-height: 656px;
         height: 100vh;
         width: 100%;
         position: relative;
