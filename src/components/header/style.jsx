@@ -4,7 +4,10 @@ export const DivHeader = styled.header`
     width: 100%;
     height: 220px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: center;
     position: absolute;
     top: 0;
     background-color: var(--primary-color);

@@ -50,4 +50,10 @@ export const Style = createGlobalStyle`
     a {
         text-decoration: none;
     }
+
+    svg {
+        color: var(--secondary-color);
+        width: 40px;
+        height: 40px;
+    }
 `
