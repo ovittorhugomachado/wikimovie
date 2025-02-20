@@ -3,18 +3,26 @@ import styled from "styled-components";
 export const ContainerLogo = styled.div`
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: -25px;
     height: 200px;
-    width: 600px;
-    animation: scale 2s ease-in-out forwards;
-    animation-delay: 2.5s;
+    width: 300px;
+    animation: scale 4s ease-in-out forwards;
+    transform: scale(0.5);
     @keyframes scale {
     0% {
-        transform: scale(1);
+    top: -400px;
+    transform: scale(1.5);
     }
+    50%
     100% {
-        transform: scale(0.5) translateY(-600px);
+    transform: scale(0.5);
     }
+    
+ 
+
 `
+
 
 export const ImagePopcorn = styled.img`
     width: 125px;

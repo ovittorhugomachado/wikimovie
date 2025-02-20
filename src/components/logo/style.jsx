@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const ContainerLogo = styled.div`
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: -25px;
     height: 200px;
-    width: 600px;
-    transform: scale(0.5) translateY(-600px);
+    width: 300px;
+    transform: scale(0.5);
 `
 
 export const ImagePopcorn = styled.img`
