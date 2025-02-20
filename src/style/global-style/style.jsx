@@ -39,10 +39,7 @@ export const Style = createGlobalStyle`
         align-items: center;
         margin: 0 auto;
         text-align: center;
-        background-color: var(--primary-color);
-        background-image: linear-gradient(transparent 19px, #003838 20px), 
-                          linear-gradient(90deg, transparent 19px, #003838 20px);
-        background-size: 20px 20px;
+        background-color: var(--white);
     }
 
     h1 {
