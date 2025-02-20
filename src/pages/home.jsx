@@ -1,4 +1,4 @@
-import { ContainerHome } from "../components/container-home"
+import { ContainerHome } from "../components/home"
 
 const Home = () => {
     return (

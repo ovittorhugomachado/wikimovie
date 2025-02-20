@@ -1,4 +1,4 @@
-import { ContainerWelcome } from '../components/container-welcome'
+import { ContainerWelcome } from '../components/welcome'
 
 
 const Welcome = () => {
