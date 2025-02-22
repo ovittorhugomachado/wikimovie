@@ -89,16 +89,13 @@ const Carousel = () => {
                 {movies.map((movie, index) => (
                     <DivMovie 
                     key={index} 
-                    style={{
-                        transform: `translateX(-50%)`, // Centraliza o filme ativo
-                        transition: "transform 0.5s ease", // Adiciona uma transição suave
-                    }}>
+                    // style={{transform: `translate(calc(${currentMovie + 140}px))`}}
+                    >
                         <Image src={movie.image} className={index == currentMovie ? 'active' : ''}/>
                         <InfoMovie key={index} className={index == currentMovie ? 'active' : ''}>
                             <MovieName>{movie.name}</MovieName>
                             <MovieCategory>{movie.genre}</MovieCategory>
                             <MovieReview>{`NOTA: ${movie.rating}`}</MovieReview>
-
                         </InfoMovie>
 
                     </DivMovie>

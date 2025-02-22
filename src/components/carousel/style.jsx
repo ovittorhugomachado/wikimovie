@@ -30,14 +30,23 @@ export const DivMovie = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+        transform: translateX(-72px);
+        &.active {
+            transform: scale(1.28) translateX(-47%);
+            z-index: 2;
+            opacity: 1;
+        }
 `
 export const Image = styled.img`
     width: 128px;
     height: 200px;
     transition: 0.3s;
+    opacity: 0.6;
+
         &.active {
-            transform: scale(1.3) translateX(7px);
-            z-index: 2
+            transform: scale(1.28);
+            z-index: 2;
+            opacity: 1;
         }
 `
 
