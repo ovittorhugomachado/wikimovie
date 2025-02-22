@@ -12,12 +12,20 @@ export const DivHeader = styled.header`
     position: absolute;
     top: 0;
     background-color: var(--primary-color);
-        &.headerSmall {
+    @media (min-width: ${MediaSizes.desktopSmall}) {
+        padding-bottom: 30px;
+    }
+    &.headerSmall {
             height: 180px;
                 @media (min-width: ${MediaSizes.tablet}) {
                     height: 200px;
                 }
-        }
+                @media (min-width: ${MediaSizes.desktopSmall}) {
+                    height: 260px;
+                }       
+    }
+     
+        
 `
 
 export const Logo = styled.img`
@@ -36,8 +44,13 @@ export const Nav = styled.nav`
     visibility: hidden; 
     transition: opacity 0.3s ease, visibility 0.3s ease;
         &.menuActive {
-            opacity: 1; /* Torna o elemento visível */
-            visibility: visible; /* Mostra o elemento */
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
         }
 
 `
@@ -103,6 +116,9 @@ export const HamburgerContainer = styled.div`
         @media (min-width: ${MediaSizes.tablet}) {
                     transform: translateY(150px);
                 }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+                    display: none;
+        }
     `;
 
 export const HamburgerSpan = styled.span`

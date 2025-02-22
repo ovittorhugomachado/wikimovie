@@ -40,7 +40,7 @@ export const Style = createGlobalStyle`
         align-items: center;
         margin: 0 auto;
         text-align: center;
-        background-color: var(--white);
+        background-color: var(--background-main);
     }
 
     h1 {
