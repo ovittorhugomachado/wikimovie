@@ -8,12 +8,13 @@ export const Style = createGlobalStyle`
         font-family: big shoulders display, sans-serif;
         letter-spacing: 1px;
         transition: background-color 0.3s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Suaviza mudanças em bordas e sombras */
-        --primary-color: #012929;
-        --secondary-color: #00C892;
-        --yellow: #FFC610;
-        --coral: #FF9D42;  
-        --white: #FFFFFF;
-        --error-color: hsl(354, 84%, 57%);
+        --primary-color: #0C0C0C;
+        --secondary-color: #10E7C5;
+        --background-main: #141414;
+        --background-button: #222121;
+        --name-movie: #ffffff;
+        --subtitle: #868686;
+        --text: #ffffff;
     }
 
     html {
