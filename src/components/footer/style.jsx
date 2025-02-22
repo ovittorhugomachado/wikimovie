@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { MediaSizes } from "../../style/media-size";
 
 export const Container = styled.footer`
     width: 100%;
-    height: 200px;
+    height: 230px;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -11,6 +12,7 @@ export const Container = styled.footer`
     justify-content: center;
     align-items: center;
     background-color: var(--primary-color);
+    padding-bottom: 10px;
 `
 
 export const ContainerSocialMedia = styled.div`
@@ -23,5 +25,9 @@ export const ContainerSocialMedia = styled.div`
 
 export const Info = styled.h5`
     font-size: 20px;
-    color: #ffffff;
+    color: var(--text);
+    transform: translateY(16px);
+        @media (max-width:${MediaSizes.mobile}) {
+            font-size: 16px;
+        }
 `
