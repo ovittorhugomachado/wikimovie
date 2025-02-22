@@ -56,5 +56,6 @@ export const Style = createGlobalStyle`
         color: var(--secondary-color);
         width: 40px;
         height: 40px;
+
     }
 `
