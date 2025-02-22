@@ -76,6 +76,9 @@ export const Button = styled.a`
         &.active {
             color: var(--secondary-color);
             border: 2px solid var(--secondary-color);
+            &:hover {
+                color: var(--primary-color)
+            }
         }
 `
 
