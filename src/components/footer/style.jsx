@@ -24,10 +24,10 @@ export const ContainerSocialMedia = styled.div`
 `
 
 export const Info = styled.h5`
-    font-size: 20px;
+    font-size: 16px;
     color: var(--text);
-    transform: translateY(16px);
-        @media (max-width:${MediaSizes.mobile}) {
-            font-size: 16px;
+    transform: translateY(20px);
+        @media (min-width:${MediaSizes.mobile}) {
+            font-size: 20px;
         }
 `

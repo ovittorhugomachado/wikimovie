@@ -1,10 +1,11 @@
-import { DivHeader, Nav, Ul, Li, Button } from "./style";
-import { Logo } from "../logo";
+import { DivHeader, Logo, Nav, Ul, Li, Button } from "./style";
+
 
 const Header = () => {
     return (
         <DivHeader>
-            <Logo />
+            <Logo src="../logo.png" alt="logo" />
+
                 <Nav>
                     <Ul>
                         <Li>

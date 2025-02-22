@@ -5,15 +5,17 @@ export const DivHeader = styled.header`
     height: 220px;
     display: flex;
     flex-direction: column;
-
     justify-content: space-between;
     align-items: center;
     position: absolute;
     top: 0;
     background-color: var(--primary-color);
-        background-image: linear-gradient(transparent 19px, #003838 20px), 
-                          linear-gradient(90deg, transparent 19px, #003838 20px);
-        background-size: 20px 20px;
+        @media ()
+`
+
+export const Logo = styled.img`
+    transform: translateY(20px);
+    width: 175px;
 `
 
 export const Nav = styled.nav`
@@ -34,8 +36,8 @@ export const Li = styled.li`
 `
 
 export const Button= styled.a`
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
+    color: var(--text);
+    background-color: var(--background-button);
     white-space: nowrap;
     padding: 5px 15px;
     font-size: 25px;
@@ -43,11 +45,11 @@ export const Button= styled.a`
     cursor: pointer;
     transition: 0.3s ease-in-out;
         &:hover {
-            background-color:rgb(0, 100, 72)
+            background-color:var(--secondary-color);
+            color: var(--primary-color);
         }
         &.active {
-            background-color: transparent;
-            color: var(--yellow);
-            border: 2px solid var(--yellow);
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
         }
 `
