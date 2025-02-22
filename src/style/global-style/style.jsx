@@ -69,27 +69,10 @@ export const Style = createGlobalStyle`
                 transform: scale(1.2);     
             }
         &.arrow-left {
-            position: absolute;
-            left: -3px;
-            top: 100px;
-            transform: translateY(-50%);
-            cursor: pointer;
-            z-index: 5;
-                &:hover {
-                    transform: translateY(-50%) scale(1.2);     
-                }
+            cursor: pointer;   
         }
         &.arrow-right {
-            position: absolute;
-            right: -3px;
-            top: 100px;
-            transform: translateY(-50%);
             cursor: pointer;
-            z-index: 5;
-                &:hover {
-                    transform: translateY(-50%) scale(1.2);     
-                }
-                
         }
 
     }

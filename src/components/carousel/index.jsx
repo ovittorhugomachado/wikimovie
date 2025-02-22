@@ -1,7 +1,7 @@
-import { CarouselContainer, CategoryTitles, DivMovie, DivMovies, Image, InfoMovie, MovieCategory, MovieName, MovieReview } from "./style";
+import { ButtonLeft, ButtonRight, CarouselContainer, CategoryTitles, DivMovie, DivMovies, Image, InfoMovie, MovieCategory, MovieName, MovieReview } from "./style";
 import { BiSolidLeftArrow } from "react-icons/bi";
 import { BiSolidRightArrow } from "react-icons/bi";
-import { useState } from "react";
+import { use, useState } from "react";
 
 const Carousel = () => {
 
@@ -56,6 +56,12 @@ const Carousel = () => {
         },
         {
             image: "../images.jpeg",
+            name: "Dexter: Pecado Original",
+            genre: "Crime, Drama",
+            rating: 8.6
+        },
+        {
+            image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
             rating: 8.6
@@ -69,13 +75,16 @@ const Carousel = () => {
     ];
 
     const [currentMovie, setCurrentMovie] = useState(5)
+    const [positionCarousel, setPositionCarousel] = useState(0)
 
     const scrollRight = () => {
-        setCurrentMovie((prevMovie) => prevMovie + 1)
+        setCurrentMovie((prevMovie) => prevMovie + 1);
+        setPositionCarousel((prevPosition) => prevPosition - 140)
     }
 
     const scrollLeft = () => {
-        setCurrentMovie((prevMovie) => prevMovie - 1)
+        setCurrentMovie((prevMovie) => prevMovie - 1);
+        setPositionCarousel((prevPosition) => prevPosition + 140)
     }
 
     console.log(currentMovie)
@@ -85,13 +94,19 @@ const Carousel = () => {
 
             <CategoryTitles>Filmes em destaque</CategoryTitles>
             <DivMovies >
-                <BiSolidLeftArrow className="arrow-left" onClick={scrollLeft} />
+                <ButtonLeft 
+                onClick={scrollLeft} 
+                disabled={currentMovie == 0} 
+                >
+                    <BiSolidLeftArrow className="arrow-left" />
+                </ButtonLeft>
+
                 {movies.map((movie, index) => (
-                    <DivMovie 
-                    key={index} 
-                    // style={{transform: `translate(calc(${currentMovie + 140}px))`}}
+                    <DivMovie
+                        key={index}
+                        style={{ transform: `translateX(${positionCarousel}px)` }}
                     >
-                        <Image src={movie.image} className={index == currentMovie ? 'active' : ''}/>
+                        <Image src={movie.image} className={index == currentMovie ? 'active' : ''} />
                         <InfoMovie key={index} className={index == currentMovie ? 'active' : ''}>
                             <MovieName>{movie.name}</MovieName>
                             <MovieCategory>{movie.genre}</MovieCategory>
@@ -109,8 +124,12 @@ const Carousel = () => {
                     </InfoMovie>
                 </DivMovie> */}
 
-
-                <BiSolidRightArrow className="arrow-right" onClick={scrollRight} />
+                <ButtonRight
+                onClick={scrollRight} 
+                disabled={currentMovie == 9}>
+                    <BiSolidRightArrow className="arrow-right" />
+                </ButtonRight>
+                
             </DivMovies>
         </CarouselContainer>
     )

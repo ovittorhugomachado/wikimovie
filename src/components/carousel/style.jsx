@@ -9,6 +9,35 @@ export const CarouselContainer = styled.div`
     user-select: none;
 `
 
+export const ButtonLeft = styled.button`
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    left: -3px;
+    top: 100px;
+    transform: translateY(38%);
+    z-index: 2;
+    transition: 0.3s;
+        &:hover {
+            transform: translateY(38%) scale(1.1);     
+        }
+
+`
+export const ButtonRight = styled.button`
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: -3px;
+    top: 100px;
+    transform: translateY(38%);
+    z-index: 2;
+    transition: 0.3s;
+        &:hover {
+            transform: translateY(38%) scale(1.1);     
+        }
+
+`
+
 export const CategoryTitles = styled.h1`
     margin-bottom: 25px;
 
@@ -23,6 +52,7 @@ export const DivMovies = styled.div`
     overflow: hidden;
     position: relative;
 
+
 `
 
 export const DivMovie = styled.div`
@@ -30,7 +60,7 @@ export const DivMovie = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-        transform: translateX(-72px);
+        transition: 0.3s;
         &.active {
             transform: scale(1.28) translateX(-47%);
             z-index: 2;
@@ -41,8 +71,7 @@ export const Image = styled.img`
     width: 128px;
     height: 200px;
     transition: 0.3s;
-    opacity: 0.6;
-
+    opacity: 0.3;
         &.active {
             transform: scale(1.28);
             z-index: 2;
@@ -53,6 +82,7 @@ export const Image = styled.img`
 export const InfoMovie = styled.div`
     width: 300px;
     display: none;
+    margin-bottom: 50px;
         &.active {
             display: flex;
             flex-direction: column;

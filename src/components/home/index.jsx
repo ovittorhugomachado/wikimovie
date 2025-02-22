@@ -78,6 +78,9 @@ const ContainerHome = () => {
                 <Header />
                 <Main>
                 <Carousel />
+                <Carousel />
+                <Carousel />
+                <Carousel />
                 </Main>                
                 <Footer />
             </Container>

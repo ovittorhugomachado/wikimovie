@@ -12,6 +12,6 @@ export const Container = styled.div`
 
 export const Main = styled.main`
     width: 100%;
-    min-height: 500px;
+
 
 `
