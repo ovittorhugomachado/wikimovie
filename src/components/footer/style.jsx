@@ -4,7 +4,6 @@ import { MediaSizes } from "../../style/media-size";
 export const Container = styled.footer`
     width: 100%;
     height: 230px;
-    position: absolute;
     bottom: 0;
     display: flex;
     gap: 20px;

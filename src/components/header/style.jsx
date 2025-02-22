@@ -9,7 +9,6 @@ export const DivHeader = styled.header`
     align-items: center;
     gap: 20px;
     padding-bottom: 60px;
-    position: absolute;
     top: 0;
     background-color: var(--primary-color);
     @media (min-width: ${MediaSizes.desktopSmall}) {

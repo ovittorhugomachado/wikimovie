@@ -19,20 +19,19 @@ export const Style = createGlobalStyle`
 
     html {
         width: 100%;
-        overflow: hidden;
+        overflow: auto;
     }
 
-
     body {
-        height: 100vh;
+        min-height: 100vh; 
         width: 100%;
         margin: 0 auto;
-        overflow: hidden;
+        background-color: var(--background-main);
+        overflow-y: auto; 
     }
 
     #root {
-
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         position: relative;
         display: flex;
@@ -43,9 +42,18 @@ export const Style = createGlobalStyle`
         background-color: var(--background-main);
     }
 
+
     h1 {
-        font-size: 50px;
-        color: var(--yellow)
+        font-size: 45px;
+        color: var(--text)
+    }
+    h2 {
+        font-size: 35px;
+        color: var(--text)
+    }
+    h3 {
+        font-size: 20px;
+        color: var(--text)
     }
 
     a {
@@ -56,6 +64,33 @@ export const Style = createGlobalStyle`
         color: var(--secondary-color);
         width: 40px;
         height: 40px;
+        transition: 0.3s;
+            &:hover {
+                transform: scale(1.2);     
+            }
+        &.arrow-left {
+            position: absolute;
+            left: -3px;
+            top: 100px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 5;
+                &:hover {
+                    transform: translateY(-50%) scale(1.2);     
+                }
+        }
+        &.arrow-right {
+            position: absolute;
+            right: -3px;
+            top: 100px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 5;
+                &:hover {
+                    transform: translateY(-50%) scale(1.2);     
+                }
+                
+        }
 
     }
 `

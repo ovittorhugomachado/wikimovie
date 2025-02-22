@@ -1,4 +1,4 @@
-import { Container } from "./style";
+import { Container, Main } from "./style";
 import { Header } from "../header";
 import { Footer } from "../footer";
 import { Carousel } from "../carousel";
@@ -76,7 +76,9 @@ const ContainerHome = () => {
         <>
             <Container>
                 <Header />
+                <Main>
                 <Carousel />
+                </Main>                
                 <Footer />
             </Container>
         </>
