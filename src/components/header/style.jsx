@@ -65,7 +65,7 @@ export const Button = styled.a`
     background-color: var(--background-button);
     white-space: nowrap;
     padding: 5px 15px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease-in-out;
@@ -80,6 +80,9 @@ export const Button = styled.a`
                 color: var(--primary-color)
             }
         }
+    @media (min-width: ${MediaSizes.mobile}) {
+                    font-size: 25px;
+                }
 `
 
 
