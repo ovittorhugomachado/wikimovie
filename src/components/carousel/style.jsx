@@ -94,7 +94,7 @@ export const MovieCategory = styled.h3`
 `
 
 export const MovieReview = styled.h2`
-    width: 120px;
+    width: 168px;
     border: 2px solid var(--secondary-color);
     padding: 5px;
     font-size: 25px;

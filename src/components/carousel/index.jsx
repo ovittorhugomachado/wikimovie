@@ -10,67 +10,67 @@ const Carousel = () => {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '100%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter: Pecado Original",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter: Pecado Original",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter: Pecado Original",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         },
         {
             image: "../images.jpeg",
             name: "Dexter",
             genre: "Crime, Drama",
-            rating: 8.6
+            rating: '89%'
         }
     ];
 
@@ -106,7 +106,7 @@ const Carousel = () => {
                         <InfoMovie key={index} className={index == currentMovie ? 'active' : ''}>
                             <MovieName>{movie.name}</MovieName>
                             <MovieCategory>{movie.genre}</MovieCategory>
-                            <MovieReview>{`NOTA: ${movie.rating}`}</MovieReview>
+                            <MovieReview>{`AVALIAÇÃO: ${movie.rating}`}</MovieReview>
                         </InfoMovie>
 
                     </DivMovie>
