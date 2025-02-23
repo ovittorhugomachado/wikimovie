@@ -9,7 +9,7 @@ export const Style = createGlobalStyle`
         letter-spacing: 1px;
         transition: background-color 0.3s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Suaviza mudanças em bordas e sombras */
         --primary-color: #0C0C0C;
-        --secondary-color: #10E7C5;
+        --secondary-color: #005AF2;
         --background-main: #141414;
         --background-button: #222121;
         --name-movie: #ffffff;
