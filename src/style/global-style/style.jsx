@@ -59,6 +59,7 @@ export const Style = createGlobalStyle`
 
     a {
         text-decoration: none;
+        cursor: pointer;
     }
 
     svg {
