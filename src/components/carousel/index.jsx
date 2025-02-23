@@ -87,20 +87,16 @@ const Carousel = () => {
         setPositionCarousel((prevPosition) => prevPosition + 140)
     }
 
-    console.log(currentMovie)
-
     return (
         <CarouselContainer>
-
             <CategoryTitles>Filmes em destaque</CategoryTitles>
             <DivMovies >
-                <ButtonLeft 
-                onClick={scrollLeft} 
-                disabled={currentMovie == 0} 
+                <ButtonLeft
+                    onClick={scrollLeft}
+                    disabled={currentMovie == 0}
                 >
                     <BiSolidLeftArrow className="arrow-left" />
                 </ButtonLeft>
-
                 {movies.map((movie, index) => (
                     <DivMovie
                         key={index}
@@ -115,21 +111,11 @@ const Carousel = () => {
 
                     </DivMovie>
                 ))}
-                {/* <DivMovie>
-                    <Image src="../images.jpeg" />
-                    <InfoMovie index='1' className={index == currentMovie ? 'active' : ''}>
-                        <MovieName>Dexter</MovieName>
-                        <MovieCategory>crime, drama</MovieCategory>
-                        <MovieReview>nota: 7/9</MovieReview>
-                    </InfoMovie>
-                </DivMovie> */}
-
                 <ButtonRight
-                onClick={scrollRight} 
-                disabled={currentMovie == 9}>
+                    onClick={scrollRight}
+                    disabled={currentMovie == 19}>
                     <BiSolidRightArrow className="arrow-right" />
                 </ButtonRight>
-                
             </DivMovies>
         </CarouselContainer>
     )

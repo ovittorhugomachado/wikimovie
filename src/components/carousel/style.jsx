@@ -10,37 +10,34 @@ export const CarouselContainer = styled.div`
 `
 
 export const ButtonLeft = styled.button`
+    height: 220px;
+    width: 40px;
     border: none;
-    background-color: transparent;
+    background-color: var(--background-main);
     position: absolute;
-    left: -3px;
-    top: 100px;
-    transform: translateY(38%);
+    left: 0px;
     z-index: 2;
     transition: 0.3s;
-        &:hover {
-            transform: translateY(38%) scale(1.1);     
-        }
-
+    display: flex
+    justify-content: start;
+    align-items: center;
 `
 export const ButtonRight = styled.button`
+    height: 220px;
+    width: 40px;
     border: none;
-    background-color: transparent;
+    background-color: var(--background-main);
     position: absolute;
-    right: -3px;
-    top: 100px;
-    transform: translateY(38%);
+    right: 0px;
     z-index: 2;
     transition: 0.3s;
-        &:hover {
-            transform: translateY(38%) scale(1.1);     
-        }
-
+    display: flex
+    justify-content: start;
+    align-items: center;
 `
 
 export const CategoryTitles = styled.h1`
     margin-bottom: 25px;
-
 `
 
 export const DivMovies = styled.div`
@@ -51,8 +48,6 @@ export const DivMovies = styled.div`
     gap: 12px;
     overflow: hidden;
     position: relative;
-
-
 `
 
 export const DivMovie = styled.div`

@@ -69,7 +69,7 @@ export const Style = createGlobalStyle`
                 transform: scale(1.2);     
             }
         &.arrow-left {
-            cursor: pointer;   
+            cursor: pointer;
         }
         &.arrow-right {
             cursor: pointer;
