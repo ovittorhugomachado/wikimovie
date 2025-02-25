@@ -1,4 +1,4 @@
-import { Container, Main } from "./style";
+import { Main } from "./style";
 import { Header } from "../header";
 import { Footer } from "../footer";
 import { Carousel } from "../carousel";
@@ -74,7 +74,6 @@ const ContainerHome = () => {
     //     .catch(err => console.error(err));
     return (
         <>
-            <Container>
                 <Header />
                 <Main>
                 <Carousel />
@@ -83,7 +82,6 @@ const ContainerHome = () => {
                 <Carousel />
                 </Main>                
                 <Footer />
-            </Container>
         </>
     )
 }
