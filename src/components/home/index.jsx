@@ -13,7 +13,6 @@ const ContainerHome = () => {
     const [ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(null);
 
-
     useEffect(() => {
         const getPopularMovies = async () => {
             try {
@@ -56,7 +55,6 @@ const ContainerHome = () => {
                 setLoading(false);
             }
         };
-
 
         getPopularMovies();
         getShowingMovies();
@@ -112,14 +110,12 @@ const ContainerHome = () => {
  
     return (
         <>
-            <Header />
             <Main>
                 <Carousel nameCarousel={"MELHORES FILMES"} listMovies={bestRatedMoviesSlice} />
                 <Carousel nameCarousel={"EM CARTAZ"} listMovies={showingMoviesSlice} />
                 <Carousel nameCarousel={"PRÓXIMOS LANÇAMENTOS"} listMovies={comingSoonMoviesSlice} />
                 <Carousel nameCarousel={"EM ALTA"} listMovies={popularMoviesSlice} />
             </Main>
-            <Footer />
         </>
     );
 };

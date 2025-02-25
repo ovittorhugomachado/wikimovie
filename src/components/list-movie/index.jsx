@@ -5,51 +5,60 @@ import { Footer } from "../footer";
 import list from '../../../json/movies.json';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { fetchBestRated, fetchListByGenre } from "../../services/getMovies";
 
 
 const ContainerListMovie = () => {
-    const { genre } = useParams();
 
-    
-    
+    const { genre, id } = useParams();
+    const [ listMovies, setListMovies] = useState([])
+    const [ isLoading, setIsLoading ] = useState(true);
 
-    const [genreFilter, setGenreFilter] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-
-    
 
     useEffect(() => {
 
-        const filteredGenre = list.generos.find(genero => genero.slug === genre);
+        setIsLoading(true);
 
-        if (filteredGenre) {
-            setGenreFilter(filteredGenre);
-            setIsLoading(false);
-        } else {
-            setIsLoading(false);
-        }
-    }, [genre]);
+        const getListMovies = async () => {
+            try {
+                const data = await fetchListByGenre(id);
+                setListMovies(data.results);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        getListMovies()
+    }, [id]);
+
+    const list = listMovies.map((movie) => ({
+        id: movie.id,
+        name: movie.title,
+        date: movie.release_date.split('-')[0],
+        image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+        rating: movie.vote_average.toFixed(1),
+    }));
+
+    console.log(list)
+
+    console.log(listMovies)
 
     if (isLoading) {
         return <LoadingOrError>Carregando...</LoadingOrError>;
     }
 
-    if (!genreFilter) {
-        return <LoadingOrError>Página não encontrada!</LoadingOrError>;
-    }
-
     return (
         <>
-            <Header />
             <Main>
-                <PageTitle>{genreFilter.nome}</PageTitle>
+                <PageTitle>{}</PageTitle>
                 <ListMovies>
-                    {genreFilter.filmes.map((movie, index) => (
-                        <Link to={`/details/${movie.nome}`}>
-                            <Movie key={index}>
-                                <MovieCover src={movie.imagem} />
-                                <MovieName>{movie.nome}</MovieName>
-                                <MovieScore>{movie.avaliacao}</MovieScore>
+                    {list.map((movie, index) => (
+                        <Link key={index} to={`/details/${movie.id}`}>
+                            <Movie >
+                                <MovieCover src={movie.image} />
+                                <MovieName>{movie.name}</MovieName>
+                                <MovieScore>{movie.rating}</MovieScore>
                             </Movie>
                         </Link>
 
@@ -57,7 +66,6 @@ const ContainerListMovie = () => {
                 </ListMovies>
                 <LeadMoreButton>CARREGAR MAIS</LeadMoreButton>
             </Main>
-            <Footer />
         </>
     );
 };

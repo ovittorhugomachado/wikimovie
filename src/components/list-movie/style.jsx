@@ -24,6 +24,7 @@ export const ListMovies = styled.div`
 
 export const Movie = styled.div`
     width: 163px;
+    height: 336px;
     background-color: var(--primary-color);
     margin: 20px 15px;
     position: relative;

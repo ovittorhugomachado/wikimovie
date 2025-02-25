@@ -1,6 +1,7 @@
 import { DivHeader, Logo, Nav, Ul, Li, Button, HamburgerContainer, HamburgerSpan, DivLogo } from "./style";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import genre from "../../../json/genre.json"
 
 import list from '../../../json/movies.json';
 
@@ -12,16 +13,9 @@ const Header = () => {
         setMenuActive(!menuActive);
     };
 
-    const OpenListPerGenre = (genre) => {
-        setCurrentGenre(genre)
-    };
+    console.log(genre[0].slug)
 
-    const listGenre = list.generos
 
-    const genres = [
-        "AÇÃO", "AVENTURA", "ANIMAÇÃO", "COMÉDIA", "FAMÍLIA", "DRAMA",
-        "FICÇÃO CIENTÍFICA", "CRIME", "GUERRA", "MISTÉRIO", "TERROR", "THRILLER"
-    ];
 
     return (
         <DivHeader className={`${menuActive ? '' : 'headerSmall'}`}>
@@ -37,11 +31,11 @@ const Header = () => {
 
             <Nav className={`${menuActive ? 'menuActive' : ''}`}>
                 <Ul>
-                    {genres.map((genre, index) => (
+                    {genre.map((genre, index) => (
                         <Li key={index}>
-                            <Link to={`/${listGenre[index].slug}`} style={{ textDecoration: 'none' }}>
-                                <Button onClick={() => OpenListPerGenre(genre)}>
-                                    {genre}
+                            <Link to={`/${genre.slug}/${genre.id}`} style={{ textDecoration: 'none' }}>
+                                <Button>
+                                    {genre.name}
                                 </Button>
                             </Link>
                         </Li>

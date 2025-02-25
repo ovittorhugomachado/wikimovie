@@ -10,7 +10,6 @@ const ContainerDetails = () => {
     const [movieData, setMovieData] = useState(null);
 
     useEffect(() => {
-        // Percorre todos os gêneros e filmes para encontrar o filme correspondente
         const foundMovie = list.generos.flatMap((genero) => genero.filmes)
             .find((filme) => filme.nome === movie);
 
@@ -27,13 +26,12 @@ const ContainerDetails = () => {
     console.log(movieData)
     return (
         <>
-            <Header />
             <Main>
                 <PageTitle>{movieData.nome}</PageTitle>
                 <ContainerMovie>
                     <MovieCover src={movieData.imagem} />
-                    <MovieTime>1h 42min</MovieTime> {/* Exemplo de duração */}
-                    <MovieCategory>Terror, Thriller</MovieCategory> {/* Exemplo de categorias */}
+                    <MovieTime>1h 42min</MovieTime>
+                    <MovieCategory>Terror, Thriller</MovieCategory> 
                     <MovieReview>Avaliação {movieData.avaliacao}%</MovieReview>
                 </ContainerMovie>
                 <ContainerColumn>
@@ -54,11 +52,9 @@ const ContainerDetails = () => {
                     </ContainerRow>
                     <Title>Elenco</Title>
                     <ContainerActors>
-                        
                     </ContainerActors>
                 </ContainerColumn>
             </Main>
-            <Footer />
         </>
     );
 };
