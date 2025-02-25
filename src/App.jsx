@@ -1,11 +1,14 @@
 import { GlobalStyle } from './style/global-style'
 import { AppRoutes } from './pages/routes'
+import { GenreProvider } from './context/genre-context'
 
 function App() {
- return (
+    return (
         <>
-            <GlobalStyle />
-            <AppRoutes />
+            <GenreProvider>
+                <GlobalStyle />
+                <AppRoutes />
+            </GenreProvider>
         </>
     )
 }

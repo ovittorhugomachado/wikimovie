@@ -10,7 +10,7 @@ export const Main = styled.main`
 export const PageTitle = styled.h2`
     background-color: var(--secondary-color);
     padding: 7px 20px;
-    margin: 50px 0 20px
+    margin: 50px 0 20px;
 `
 
 export const ListMovies = styled.div`
@@ -20,7 +20,6 @@ export const ListMovies = styled.div`
     flex-wrap: wrap;
     margin-bottom: 40px;
 ` 
-
 
 export const Movie = styled.div`
     width: 163px;

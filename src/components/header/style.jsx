@@ -86,7 +86,7 @@ export const Li = styled.li`
     flex-grow: 1;
 `
 
-export const Button = styled.a`
+export const Button = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;

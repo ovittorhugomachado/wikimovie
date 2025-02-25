@@ -1,16 +1,35 @@
 import { DivHeader, Logo, Nav, Ul, Li, Button, HamburgerContainer, HamburgerSpan, DivLogo } from "./style";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { GenreContext } from "../../context/genre-context";
+
 
 
 const Header = () => {
 
-    const [menuActive, setMenuAcive] = useState(false);
+    const { setCurrentGenre } = useContext(GenreContext)
+    const [menuActive, setMenuActive] = useState(false);
 
     const handleClick = () => {
-        setMenuAcive(!menuActive)
+        setMenuActive(!menuActive);
     };
 
+    const OpenListPerGenre = (genre) => {
+        setCurrentGenre(genre)
+    };
 
+    const genres = [
+        "AÇÃO", "AVENTURA", "ANIMAÇÃO", "COMÉDIA", "FAMÍLIA", "DRAMA",
+        "FICÇÃO CIENTÍFICA", "CRIME", "GUERRA", "MISTÉRIO", "TERROR", "THRILLER"
+    ];
+
+    //para a url ficar sem espaço e acentos
+    const slugify = (text) => 
+        text
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") 
+            .toLowerCase() 
+            .replace(/\s+/g, "-"); 
 
     return (
         <DivHeader className={`${menuActive ? '' : 'headerSmall'}`}>
@@ -23,46 +42,19 @@ const Header = () => {
 
             <Nav className={`${menuActive ? 'menuActive' : ''}`}>
                 <Ul>
-                    <Li>
-                        <Button>AÇÃO</Button>
-                    </Li>
-                    <Li>
-                        <Button>AVENTURA</Button>
-                    </Li>
-                    <Li>
-                        <Button>ANIMAÇÃO</Button>
-                    </Li>
-                    <Li>
-                        <Button>COMÉDIA</Button>
-                    </Li>
-                    <Li>
-                        <Button>FAMÍLIA</Button>
-                    </Li>
-                    <Li>
-                        <Button>DRAMA</Button>
-                    </Li>
-                    <Li>
-                        <Button className="active">FICÇÃO CIENTÍFICA</Button>
-                    </Li>
-                    <Li>
-                        <Button>CRIME</Button>
-                    </Li>
-                    <Li>
-                        <Button>GUERRA</Button>
-                    </Li>
-                    <Li>
-                        <Button>MISTÉRIO</Button>
-                    </Li>
-                    <Li>
-                        <Button>TERROR</Button>
-                    </Li>
-                    <Li>
-                        <Button>THRILLER</Button>
-                    </Li>
+                    {genres.map((genre, index) => (
+                        <Li key={index}>
+                            <Link to={`/${slugify(genre)}`} style={{ textDecoration: 'none' }}>
+                                <Button onClick={() => OpenListPerGenre(genre)}>
+                                    {genre}
+                                </Button>
+                            </Link>
+                        </Li>
+                    ))}
                 </Ul>
             </Nav>
         </DivHeader>
-    )
-}
+    );
+};
 
-export { Header }
+export { Header };

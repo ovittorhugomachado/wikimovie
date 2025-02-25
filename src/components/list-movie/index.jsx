@@ -1,21 +1,26 @@
 import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, PageTitle, LeadMoreButton } from "./style";
 import { Header } from "../header";
 import { Footer } from "../footer";
-import movies from '../../../json/movies.json';
+import list from '../../../json/movies.json';
+import { useContext } from "react";
+import { GenreContext } from "../../context/genre-context";
 
 const ContainerListMovie = () => {
+    const { currentGenre } = useContext(GenreContext)
+
+    const listMovie = list.generos[10].filmes
 
     return (
         <>
             <Header />
             <Main>
-                <PageTitle>TERROR</PageTitle>
+                <PageTitle>{currentGenre}</PageTitle>
                 <ListMovies>
-                    {movies.map((movie, index) => (
+                    {listMovie.map((movie, index) => (
                         <Movie key={index}>
-                            <MovieCover src={movie.image} />
-                            <MovieName>{movie.name}</MovieName>
-                            <MovieScore>78%</MovieScore>
+                            <MovieCover src={movie.imagem} />
+                            <MovieName>{movie.nome}</MovieName>
+                            <MovieScore>{movie.avaliacao}</MovieScore>
                         </Movie>
                     ))}
                 </ListMovies>
