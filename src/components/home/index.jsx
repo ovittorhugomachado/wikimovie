@@ -2,15 +2,13 @@ import { Main } from "./style";
 import { Header } from "../header";
 import { Footer } from "../footer";
 import { Carousel } from "../carousel";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { fetchPopularMovies } from "../../services/getMovies";
 
-
 const ContainerHome = () => {
-    const [ popularMovies, setPopularMovies] = useState([]);
-    const [ loading, setLoading] = useState(true);
-    const [ error, setError] = useState(null);
+    const [popularMovies, setPopularMovies] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const getPopularMovies = async () => {
@@ -24,26 +22,38 @@ const ContainerHome = () => {
             }
         };
 
-        
-
         getPopularMovies();
-        
     }, []);
 
-    console.log(popularMovies)
+    if (loading) {
+        return <div>Carregando...</div>;
+    }
+
+    if (error) {
+        return <div>Erro ao carregar os filmes: {error.message}</div>;
+    }
+
+    const listPopularMovies = popularMovies.map((movie) => ({
+        id: movie.id,
+        name: movie.title,
+        image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+        rating: movie.vote_average.toFixed(1),
+    }));
+
+    const popularMoviesSlice = listPopularMovies.slice(0, 19)
 
     return (
         <>
-                <Header />
-                <Main>
-                <Carousel />
-                <Carousel />
-                <Carousel />
-                <Carousel />
-                </Main>                
-                <Footer />
+            <Header />
+            <Main>
+                <Carousel nameCarousel={"Populares"} listMovies={popularMoviesSlice} />
+                <Carousel listMovies={popularMoviesSlice} />
+                <Carousel listMovies={popularMoviesSlice} />
+                <Carousel listMovies={popularMoviesSlice} />
+            </Main>
+            <Footer />
         </>
-    )
-}
+    );
+};
 
-export { ContainerHome }
+export { ContainerHome };

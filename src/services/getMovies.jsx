@@ -1,3 +1,4 @@
+
 const fetchPopularMovies = async () => {
     const options = {
         method: 'GET',
@@ -8,15 +9,15 @@ const fetchPopularMovies = async () => {
     };
 
     try {
-        const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options);
+        const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1', options);
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
         }
         const data = await response.json();
-        return data; // Retorna os dados da API
+        return data;
     } catch (error) {
         console.error('Erro na requisição:', error);
-        throw error; // Lança o erro para ser tratado onde a função for chamada
+        throw error; 
     }
 };
 

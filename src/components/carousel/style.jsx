@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MediaSizes } from "../../style/media-size";
 
 export const CarouselContainer = styled.div`
     width: 100%;
@@ -75,13 +76,22 @@ export const Image = styled.img`
 `
 
 export const InfoMovie = styled.div`
-    width: 300px;
+    width: 270px;
     display: none;
     margin-bottom: 50px;
         &.active {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+        @media (min-width: ${MediaSizes.mobile}) {
+        width: 390px;
+        }
+        @media (min-width: ${MediaSizes.tablet}) {
+        width: 650px;
+        }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+        width: 750px;
         }
 `
 
