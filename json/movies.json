@@ -1,74 +1,184 @@
-[
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "100%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter: Pecado Original",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter: Pecado Original",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter: Pecado Original",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    },
-    {
-        "image": "../images.jpeg",
-        "name": "Dexter",
-        "genre": "Crime, Drama",
-        "rating": "89%"
-    }
-]
+{
+    "generos": [
+      {
+        "nome": "Ação",
+        "filmes": [
+          { "nome": "Vingadores: Ultimato", "imagem": "vingadores_ultimato.jpg", "avaliacao": 8.4 },
+          { "nome": "Mad Max: Estrada da Fúria", "imagem": "mad_max.jpg", "avaliacao": 8.1 },
+          { "nome": "John Wick 3: Parabellum", "imagem": "john_wick_3.jpg", "avaliacao": 7.4 },
+          { "nome": "Duro de Matar", "imagem": "duro_de_matar.jpg", "avaliacao": 8.2 },
+          { "nome": "Missão Impossível: Efeito Fallout", "imagem": "missao_impossivel.jpg", "avaliacao": 7.7 },
+          { "nome": "O Exterminador do Futuro 2: O Julgamento Final", "imagem": "exterminador_2.jpg", "avaliacao": 8.5 },
+          { "nome": "Gladiador", "imagem": "gladiador.jpg", "avaliacao": 8.5 },
+          { "nome": "Matrix", "imagem": "matrix.jpg", "avaliacao": 8.7 },
+          { "nome": "Velozes e Furiosos 7", "imagem": "velozes_furiosos_7.jpg", "avaliacao": 7.1 },
+          { "nome": "Kingsman: Serviço Secreto", "imagem": "kingsman.jpg", "avaliacao": 7.7 }
+        ]
+      },
+      {
+        "nome": "Aventura",
+        "filmes": [
+          { "nome": "O Senhor dos Anéis: O Retorno do Rei", "imagem": "senhor_dos_aneis_3.jpg", "avaliacao": 8.9 },
+          { "nome": "Piratas do Caribe: A Maldição do Pérola Negra", "imagem": "piratas_caribe.jpg", "avaliacao": 8.0 },
+          { "nome": "Jurassic Park", "imagem": "jurassic_park.jpg", "avaliacao": 8.1 },
+          { "nome": "Indiana Jones e Os Caçadores da Arca Perdida", "imagem": "indiana_jones.jpg", "avaliacao": 8.4 },
+          { "nome": "Avatar", "imagem": "avatar.jpg", "avaliacao": 7.8 },
+          { "nome": "A Origem", "imagem": "origem.jpg", "avaliacao": 8.8 },
+          { "nome": "Harry Potter e as Relíquias da Morte - Parte 2", "imagem": "harry_potter.jpg", "avaliacao": 8.1 },
+          { "nome": "Star Wars: O Império Contra-Ataca", "imagem": "star_wars_5.jpg", "avaliacao": 8.7 },
+          { "nome": "As Crônicas de Nárnia: O Leão, a Feiticeira e o Guarda-Roupa", "imagem": "narnia.jpg", "avaliacao": 6.9 },
+          { "nome": "Jumanji: Bem-Vindo à Selva", "imagem": "jumanji.jpg", "avaliacao": 6.9 }
+        ]
+      },
+      {
+        "nome": "Animação",
+        "filmes": [
+          { "nome": "Toy Story 4", "imagem": "toy_story_4.jpg", "avaliacao": 7.8 },
+          { "nome": "Frozen: Uma Aventura Congelante", "imagem": "frozen.jpg", "avaliacao": 7.4 },
+          { "nome": "Procurando Nemo", "imagem": "procurando_nemo.jpg", "avaliacao": 8.1 },
+          { "nome": "Shrek 2", "imagem": "shrek_2.jpg", "avaliacao": 7.2 },
+          { "nome": "Os Incríveis 2", "imagem": "incriveis_2.jpg", "avaliacao": 7.6 },
+          { "nome": "Zootopia", "imagem": "zootopia.jpg", "avaliacao": 8.0 },
+          { "nome": "Up: Altas Aventuras", "imagem": "up.jpg", "avaliacao": 8.2 },
+          { "nome": "Viva: A Vida é uma Festa", "imagem": "viva.jpg", "avaliacao": 8.4 },
+          { "nome": "Kung Fu Panda", "imagem": "kung_fu_panda.jpg", "avaliacao": 7.6 },
+          { "nome": "Wall-E", "imagem": "wall_e.jpg", "avaliacao": 8.4 }
+        ]
+      },
+      {
+        "nome": "Comédia",
+        "filmes": [
+          { "nome": "Se Beber, Não Case!", "imagem": "se_beber_nao_case.jpg", "avaliacao": 7.7 },
+          { "nome": "As Branquelas", "imagem": "as_branquelas.jpg", "avaliacao": 6.9 },
+          { "nome": "Debi & Lóide", "imagem": "debi_loide.jpg", "avaliacao": 7.3 },
+          { "nome": "Todo Mundo em Pânico", "imagem": "todo_mundo_panico.jpg", "avaliacao": 6.2 },
+          { "nome": "Superbad: É Hoje", "imagem": "superbad.jpg", "avaliacao": 7.6 },
+          { "nome": "Escola de Rock", "imagem": "escola_rock.jpg", "avaliacao": 7.1 },
+          { "nome": "Gente Grande", "imagem": "gente_grande.jpg", "avaliacao": 6.9 },
+          { "nome": "O Mentiroso", "imagem": "o_mentiroso.jpg", "avaliacao": 6.9 },
+          { "nome": "O Grande Lebowski", "imagem": "grande_lebowski.jpg", "avaliacao": 8.1 },
+          { "nome": "Borat", "imagem": "borat.jpg", "avaliacao": 7.3 }
+        ]
+      },
+      {
+        "nome": "Família",
+        "filmes": [
+          { "nome": "O Rei Leão", "imagem": "rei_leao.jpg", "avaliacao": 8.5 },
+          { "nome": "Matilda", "imagem": "matilda.jpg", "avaliacao": 6.9 },
+          { "nome": "A Fantástica Fábrica de Chocolate", "imagem": "fabrica_chocolate.jpg", "avaliacao": 6.6 },
+          { "nome": "Mary Poppins", "imagem": "mary_poppins.jpg", "avaliacao": 7.8 },
+          { "nome": "Jumanji", "imagem": "jumanji_classico.jpg", "avaliacao": 7.0 },
+          { "nome": "O Lar das Crianças Peculiares", "imagem": "lar_peculiar.jpg", "avaliacao": 6.7 },
+          { "nome": "Hotel Transilvânia", "imagem": "hotel_transilvania.jpg", "avaliacao": 7.1 },
+          { "nome": "Meu Malvado Favorito", "imagem": "meu_malvado_favorito.jpg", "avaliacao": 7.6 },
+          { "nome": "Frozen 2", "imagem": "frozen_2.jpg", "avaliacao": 6.9 },
+          { "nome": "Aladdin", "imagem": "aladdin.jpg", "avaliacao": 7.0 }
+        ]
+      },
+      {
+        "nome": "Drama",
+        "filmes": [
+          { "nome": "O Poderoso Chefão", "imagem": "poderoso_chefao.jpg", "avaliacao": 9.2 },
+          { "nome": "Cidadão Kane", "imagem": "cidadao_kane.jpg", "avaliacao": 8.3 },
+          { "nome": "Um Sonho de Liberdade", "imagem": "sonho_liberdade.jpg", "avaliacao": 9.3 },
+          { "nome": "Titanic", "imagem": "titanic.jpg", "avaliacao": 7.8 },
+          { "nome": "O Resgate do Soldado Ryan", "imagem": "resgate_soldado_ryan.jpg", "avaliacao": 8.6 },
+          { "nome": "Forrest Gump", "imagem": "forrest_gump.jpg", "avaliacao": 8.8 },
+          { "nome": "Cisne Negro", "imagem": "cisne_negro.jpg", "avaliacao": 8.0 },
+          { "nome": "A Lista de Schindler", "imagem": "lista_schindler.jpg", "avaliacao": 8.9 },
+          { "nome": "Clube da Luta", "imagem": "clube_luta.jpg", "avaliacao": 8.8 },
+          { "nome": "O Lobo de Wall Street", "imagem": "lobo_wall_street.jpg", "avaliacao": 8.2 }
+        ]
+      },
+      {
+        "nome": "Ficção Científica",
+        "filmes": [
+          { "nome": "Interestelar", "imagem": "interestelar.jpg", "avaliacao": 8.6 },
+          { "nome": "Blade Runner 2049", "imagem": "blade_runner_2049.jpg", "avaliacao": 8.0 },
+          { "nome": "Matrix", "imagem": "matrix.jpg", "avaliacao": 8.7 },
+          { "nome": "O Exterminador do Futuro 2: O Julgamento Final", "imagem": "exterminador_2.jpg", "avaliacao": 8.5 },
+          { "nome": "De Volta para o Futuro", "imagem": "de_volta_futuro.jpg", "avaliacao": 8.5 },
+          { "nome": "Inception", "imagem": "inception.jpg", "avaliacao": 8.8 },
+          { "nome": "O Predador", "imagem": "predador.jpg", "avaliacao": 7.8 },
+          { "nome": "Alien: O Oitavo Passageiro", "imagem": "alien.jpg", "avaliacao": 8.4 },
+          { "nome": "2001: Uma Odisseia no Espaço", "imagem": "2001_odisseia.jpg", "avaliacao": 8.3 },
+          { "nome": "E.T. - O Extraterrestre", "imagem": "et.jpg", "avaliacao": 7.8 }
+        ]
+      },
+      {
+        "nome": "Crime",
+        "filmes": [
+          { "nome": "Os Bons Companheiros", "imagem": "bons_companheiros.jpg", "avaliacao": 8.7 },
+          { "nome": "Scarface", "imagem": "scarface.jpg", "avaliacao": 8.3 },
+          { "nome": "Cães de Aluguel", "imagem": "caes_aluguel.jpg", "avaliacao": 8.3 },
+          { "nome": "O Irlandês", "imagem": "irlandes.jpg", "avaliacao": 7.8 },
+          { "nome": "Pulp Fiction: Tempo de Violência", "imagem": "pulp_fiction.jpg", "avaliacao": 8.9 },
+          { "nome": "Os Infiltrados", "imagem": "infiltrados.jpg", "avaliacao": 8.5 },
+          { "nome": "O Segredo dos Seus Olhos", "imagem": "segredo_olhos.jpg", "avaliacao": 8.2 },
+          { "nome": "Seven: Os Sete Crimes Capitais", "imagem": "seven.jpg", "avaliacao": 8.6 },
+          { "nome": "O Profissional", "imagem": "o_profissional.jpg", "avaliacao": 8.5 },
+          { "nome": "Cidade de Deus", "imagem": "cidade_deus.jpg", "avaliacao": 8.6 }
+        ]
+      },
+      {
+        "nome": "Guerra",
+        "filmes": [
+          { "nome": "O Resgate do Soldado Ryan", "imagem": "resgate_soldado_ryan.jpg", "avaliacao": 8.6 },
+          { "nome": "Dunkirk", "imagem": "dunkirk.jpg", "avaliacao": 7.8 },
+          { "nome": "1917", "imagem": "1917.jpg", "avaliacao": 8.3 },
+          { "nome": "Platoon", "imagem": "platoon.jpg", "avaliacao": 8.1 },
+          { "nome": "Apocalypse Now", "imagem": "apocalypse_now.jpg", "avaliacao": 8.4 },
+          { "nome": "O Franco-Atirador", "imagem": "franco_atirador.jpg", "avaliacao": 7.2 },
+          { "nome": "A Lista de Schindler", "imagem": "lista_schindler.jpg", "avaliacao": 8.9 },
+          { "nome": "Nascido para Matar", "imagem": "nascido_matar.jpg", "avaliacao": 8.1 },
+          { "nome": "O Grande Ditador", "imagem": "grande_ditador.jpg", "avaliacao": 8.4 },
+          { "nome": "A Queda! As Últimas Horas de Hitler", "imagem": "queda.jpg", "avaliacao": 8.2 }
+        ]
+      },
+      {
+        "nome": "Mistério",
+        "filmes": [
+          { "nome": "Garota Exemplar", "imagem": "garota_exemplar.jpg", "avaliacao": 8.1 },
+          { "nome": "Seven: Os Sete Crimes Capitais", "imagem": "seven.jpg", "avaliacao": 8.6 },
+          { "nome": "O Sexto Sentido", "imagem": "sexto_sentido.jpg", "avaliacao": 8.1 },
+          { "nome": "Os Outros", "imagem": "os_outros.jpg", "avaliacao": 7.6 },
+          { "nome": "Zodíaco", "imagem": "zodiaco.jpg", "avaliacao": 7.7 },
+          { "nome": "O Iluminado", "imagem": "iluminado.jpg", "avaliacao": 8.4 },
+          { "nome": "Corra!", "imagem": "corra.jpg", "avaliacao": 7.7 },
+          { "nome": "O Segredo dos Seus Olhos", "imagem": "segredo_olhos.jpg", "avaliacao": 8.2 },
+          { "nome": "Shutter Island", "imagem": "shutter_island.jpg", "avaliacao": 8.2 },
+          { "nome": "Prisoners", "imagem": "prisoners.jpg", "avaliacao": 8.1 }
+        ]
+      },
+      {
+        "nome": "Terror",
+        "filmes": [
+          { "nome": "O Iluminado", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/7ceEaLciLfksJkSHqp0vLE5eLyy.jpg", "avaliacao": 8.4 },
+          { "nome": "O Exorcista", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/bYTMDg3eGFuO7emXbQip02a8zvQ.jpg", "avaliacao": 8.0 },
+          { "nome": "Hereditário", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/ysdkXpoeDYLpgodiNGBW29S4o2U.jpg", "avaliacao": 7.3 },
+          { "nome": "O Babadook", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/3dnkHdiyvdUK3oHkxTnjjnNXaq.jpg", "avaliacao": 6.8 },
+          { "nome": "Invocação do Mal", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/otILeHmcY6wc64DNXi0T7YYATZK.jpg", "avaliacao": 7.5 },
+          { "nome": "O Massacre da Serra Elétrica", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/peL5G7S7KER4y5fUAGgtGxRccbv.jpg", "avaliacao": 7.4 },
+          { "nome": "Sexta-Feira 13", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/5ZeRbDf4cSUQb3m7dMZZ6AxyM93.jpg", "avaliacao": 6.4 },
+          { "nome": "O Chamado", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/4skN151KEKtJQSLJ7zkWSDGE0DJ.jpg", "avaliacao": 7.1 },
+          { "nome": "Atividade Paranormal", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/jV5eAsOTf7zsL4glY51gTW6Vb05.jpg", "avaliacao": 6.3 },
+          { "nome": "A Bruxa", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/qqOtwhj8DxOBIwI0u6ThooXEIBR.jpg", "avaliacao": 6.8 }
+        ]
+      },
+      {
+        "nome": "Thriller",
+        "filmes": [
+          { "nome": "Cidade de Deus", "imagem": "cidade_deus.jpg", "avaliacao": 8.6 },
+          { "nome": "O Silêncio dos Inocentes", "imagem": "silêncio_inocentes.jpg", "avaliacao": 8.6 },
+          { "nome": "Garota Exemplar", "imagem": "garota_exemplar.jpg", "avaliacao": 8.1 },
+          { "nome": "Seven: Os Sete Crimes Capitais", "imagem": "seven.jpg", "avaliacao": 8.6 },
+          { "nome": "Zodíaco", "imagem": "zodiaco.jpg", "avaliacao": 7.7 },
+          { "nome": "O Sexto Sentido", "imagem": "sexto_sentido.jpg", "avaliacao": 8.1 },
+          { "nome": "Shutter Island", "imagem": "shutter_island.jpg", "avaliacao": 8.2 },
+          { "nome": "Prisoners", "imagem": "prisoners.jpg", "avaliacao": 8.1 },
+          { "nome": "Corra!", "imagem": "corra.jpg", "avaliacao": 7.7 },
+          { "nome": "Os Suspeitos", "imagem": "suspeitos.jpg", "avaliacao": 8.5 }
+        ]
+      }
+    ]
+  }
