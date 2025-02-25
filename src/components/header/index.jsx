@@ -15,7 +15,7 @@ const Header = () => {
     const OpenListPerGenre = (genre) => {
         setCurrentGenre(genre)
     };
-    
+
     const listGenre = list.generos
 
     const genres = [
@@ -26,7 +26,10 @@ const Header = () => {
     return (
         <DivHeader className={`${menuActive ? '' : 'headerSmall'}`}>
             <DivLogo>
-                <Logo src="../logo.png" alt="logo" />
+                <Link to={'/'}>
+                    <Logo src="../logo.png" alt="logo" />
+                </Link>
+
                 <HamburgerContainer onClick={handleClick}>
                     <HamburgerSpan className={`${menuActive ? 'active' : ''}`} />
                 </HamburgerContainer>
