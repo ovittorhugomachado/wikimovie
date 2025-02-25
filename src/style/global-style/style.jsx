@@ -13,7 +13,7 @@ export const Style = createGlobalStyle`
         --background-main: #141414;
         --background-button: #222121;
         --name-movie: #ffffff;
-        --subtitle: #868686;
+        --subtitle:rgb(68, 68, 68);
         --text: #ffffff;
     }
 
@@ -48,13 +48,20 @@ export const Style = createGlobalStyle`
         font-size: 45px;
         color: var(--text)
     }
+
     h2 {
         font-size: 35px;
         color: var(--text)
     }
+
     h3 {
         font-size: 25px;
         color: var(--text)
+    }
+
+    h4 {
+        font-size: 25px;
+        color: var(--subtitle)
     }
 
     a {
