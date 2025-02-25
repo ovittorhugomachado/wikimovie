@@ -21,7 +21,6 @@ const Carousel = ({ nameCarousel, listMovies }) => {
         }
     };
     
-
     return (
         <CarouselContainer>
             <CategoryTitles>{nameCarousel}</CategoryTitles>

@@ -40,9 +40,6 @@ const ContainerListMovie = () => {
         rating: movie.vote_average.toFixed(1),
     }));
 
-    console.log(list)
-
-    console.log(listMovies)
 
     if (isLoading) {
         return <LoadingOrError>Carregando...</LoadingOrError>;

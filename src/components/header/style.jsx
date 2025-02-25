@@ -104,8 +104,8 @@ export const Button = styled.div`
             color: var(--primary-color);
         }
         &.active {
-            color: var(--secondary-color);
-            border: 2px solid var(--secondary-color);
+            color: var(--text);
+            background-color: var(--secondary-color);
             &:hover {
                 color: var(--primary-color)
             }
