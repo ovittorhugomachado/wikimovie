@@ -1,12 +1,11 @@
 import { DivHeader, Logo, Nav, Ul, Li, Button, HamburgerContainer, HamburgerSpan, DivLogo } from "./style";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { GenreContext } from "../../context/genre-context";
+
 import list from '../../../json/movies.json';
 
 const Header = () => {
 
-    const { setCurrentGenre } = useContext(GenreContext)
     const [menuActive, setMenuActive] = useState(false);
 
     const handleClick = () => {
