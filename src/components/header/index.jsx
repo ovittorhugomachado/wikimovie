@@ -1,4 +1,4 @@
-import { DivHeader, Logo, Nav, Ul, Li, Button, HamburgerContainer, HamburgerSpan } from "./style";
+import { DivHeader, Logo, Nav, Ul, Li, Button, HamburgerContainer, HamburgerSpan, DivLogo } from "./style";
 import { useState } from "react";
 
 
@@ -14,10 +14,13 @@ const Header = () => {
 
     return (
         <DivHeader className={`${menuActive ? '' : 'headerSmall'}`}>
-            <Logo src="../logo.png" alt="logo" />
-            <HamburgerContainer onClick={handleClick}>
-                <HamburgerSpan  className={`${menuActive ? 'active' : ''}`}/>
-            </HamburgerContainer>
+            <DivLogo>
+                <Logo src="../logo.png" alt="logo" />
+                <HamburgerContainer onClick={handleClick}>
+                    <HamburgerSpan className={`${menuActive ? 'active' : ''}`} />
+                </HamburgerContainer>
+            </DivLogo>
+
             <Nav className={`${menuActive ? 'menuActive' : ''}`}>
                 <Ul>
                     <Li>

@@ -8,18 +8,21 @@ export const DivHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding-bottom: 60px;
+    padding-bottom: 10px;
     top: 0;
     background-color: var(--primary-color);
     @media (min-width: ${MediaSizes.desktopSmall}) {
         padding-bottom: 30px;
     }
     &.headerSmall {
-            height: 180px;
+            height: 160px;
                 @media (min-width: ${MediaSizes.tablet}) {
                     height: 200px;
                 }
                 @media (min-width: ${MediaSizes.desktopSmall}) {
+                    height: 290px;
+                }       
+                @media (min-width: 1441px) {
                     height: 260px;
                 }       
     }
@@ -27,8 +30,22 @@ export const DivHeader = styled.header`
         
 `
 
+export const DivLogo = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px 0;
+        @media (min-width: ${MediaSizes.tablet}) {
+                    padding-top: 40px;  
+                }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+                    flex-direction: column;  
+                }
+`
+
 export const Logo = styled.img`
-    margin-top: 20px;
+
     width: 145px;
         @media (min-width: ${MediaSizes.tablet}) {
             width: 175px;
@@ -45,6 +62,7 @@ export const Nav = styled.nav`
         &.menuActive {
             opacity: 1;
             visibility: visible;
+            transform: translateY(-5px)
         }
         @media (min-width: ${MediaSizes.desktopSmall}) {
                     opacity: 1;
@@ -101,19 +119,16 @@ export const Button = styled.a`
 export const HamburgerContainer = styled.div`
     width: 30px;
     height: 24px;
-    position: absolute;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(130px);
+    transform: translateY(90%);
+    margin-right: 20px;
         &:hover span:not(.active),
         &:hover span::before,
         &:hover span::after {
             background-color: var(--secondary-color);
         }   
         @media (min-width: ${MediaSizes.tablet}) {
-                    transform: translateY(150px);
+                    transform: translateY(125%);
                 }
         @media (min-width: ${MediaSizes.desktopSmall}) {
                     display: none;
