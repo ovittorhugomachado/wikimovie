@@ -3,17 +3,18 @@ import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, PageTitle, 
 import { Header } from "../header";
 import { Footer } from "../footer";
 import list from '../../../json/movies.json';
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const ContainerListMovie = () => {
     const { genre } = useParams();
-    
+
     const [genreFilter, setGenreFilter] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const filteredGenre = list.generos.find(genero => genero.slug === genre);
-        
+
         if (filteredGenre) {
             setGenreFilter(filteredGenre);
             setIsLoading(false);
@@ -37,11 +38,14 @@ const ContainerListMovie = () => {
                 <PageTitle>{genreFilter.nome}</PageTitle>
                 <ListMovies>
                     {genreFilter.filmes.map((movie, index) => (
-                        <Movie key={index}>
-                            <MovieCover src={movie.imagem} />
-                            <MovieName>{movie.nome}</MovieName>
-                            <MovieScore>{movie.avaliacao}</MovieScore>
-                        </Movie>
+                        <Link to={`/details/${movie.nome}`}>
+                            <Movie key={index}>
+                                <MovieCover src={movie.imagem} />
+                                <MovieName>{movie.nome}</MovieName>
+                                <MovieScore>{movie.avaliacao}</MovieScore>
+                            </Movie>
+                        </Link>
+
                     ))}
                 </ListMovies>
                 <LeadMoreButton>CARREGAR MAIS</LeadMoreButton>
