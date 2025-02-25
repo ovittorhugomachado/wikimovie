@@ -1,4 +1,4 @@
-import { Main, ListMovies, Movie, MovieCover, MovieName, PageTitle, LeadMoreButton } from "./style";
+import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, PageTitle, LeadMoreButton } from "./style";
 import { Header } from "../header";
 import { Footer } from "../footer";
 import movies from '../../../json/movies.json';
@@ -15,6 +15,7 @@ const ContainerListMovie = () => {
                         <Movie key={index}>
                             <MovieCover src={movie.image} />
                             <MovieName>{movie.name}</MovieName>
+                            <MovieScore>78%</MovieScore>
                         </Movie>
                     ))}
                 </ListMovies>

@@ -53,7 +53,7 @@ export const Style = createGlobalStyle`
         color: var(--text)
     }
     h3 {
-        font-size: 20px;
+        font-size: 25px;
         color: var(--text)
     }
 
