@@ -36,7 +36,7 @@ export const Style = createGlobalStyle`
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content:space-between;
         align-items: center;
         margin: 0 auto;
         text-align: center;

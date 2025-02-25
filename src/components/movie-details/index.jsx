@@ -1,17 +1,19 @@
 import { Header } from "../header"
 import { Footer } from "../footer"
-import { Container, Main, PageTitle } from "./style"
+import { Main, PageTitle } from "./style"
 
 const ContainerDetails = () => {
 
     return (
-        <Container>
+        <>
+        <Header />
         <Main>
-            <Header />
+            
             <PageTitle>Acompanhante Perfeita</PageTitle>
-            <Footer />
+            
         </Main>
-        </Container>
+        <Footer />
+        </>
 
 
     )
