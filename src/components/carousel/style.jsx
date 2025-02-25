@@ -38,7 +38,9 @@ export const ButtonRight = styled.button`
 `
 
 export const CategoryTitles = styled.h1`
-    margin-bottom: 25px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding: 0 20px;
+    margin: 0 30px 25px
 `
 
 export const DivMovies = styled.div`
@@ -105,7 +107,7 @@ export const Year = styled.h3`
 
 export const MovieReview = styled.h2`
     width: 168px;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--text);
     padding: 5px;
     font-size: 25px;
 `

@@ -5,3 +5,7 @@ export const Main = styled.main`
     width: 100%;
 `
 
+export const LoadingOrError = styled.h1`
+    margin: auto
+`
+
