@@ -6,13 +6,20 @@ import list from '../../../json/movies.json';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
+
 const ContainerListMovie = () => {
     const { genre } = useParams();
+
+    
+    
 
     const [genreFilter, setGenreFilter] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
+    
+
     useEffect(() => {
+
         const filteredGenre = list.generos.find(genero => genero.slug === genre);
 
         if (filteredGenre) {
