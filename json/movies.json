@@ -2,6 +2,7 @@
     "generos": [
       {
         "nome": "Ação",
+        "slug": "acao",
         "filmes": [
           { "nome": "Vingadores: Ultimato", "imagem": "vingadores_ultimato.jpg", "avaliacao": 8.4 },
           { "nome": "Mad Max: Estrada da Fúria", "imagem": "mad_max.jpg", "avaliacao": 8.1 },
@@ -17,6 +18,7 @@
       },
       {
         "nome": "Aventura",
+        "slug": "aventura",
         "filmes": [
           { "nome": "O Senhor dos Anéis: O Retorno do Rei", "imagem": "senhor_dos_aneis_3.jpg", "avaliacao": 8.9 },
           { "nome": "Piratas do Caribe: A Maldição do Pérola Negra", "imagem": "piratas_caribe.jpg", "avaliacao": 8.0 },
@@ -32,6 +34,7 @@
       },
       {
         "nome": "Animação",
+        "slug": "animacao",
         "filmes": [
           { "nome": "Toy Story 4", "imagem": "toy_story_4.jpg", "avaliacao": 7.8 },
           { "nome": "Frozen: Uma Aventura Congelante", "imagem": "frozen.jpg", "avaliacao": 7.4 },
@@ -47,6 +50,7 @@
       },
       {
         "nome": "Comédia",
+        "slug": "comedia",
         "filmes": [
           { "nome": "Se Beber, Não Case!", "imagem": "se_beber_nao_case.jpg", "avaliacao": 7.7 },
           { "nome": "As Branquelas", "imagem": "as_branquelas.jpg", "avaliacao": 6.9 },
@@ -62,6 +66,7 @@
       },
       {
         "nome": "Família",
+        "slug": "familia",
         "filmes": [
           { "nome": "O Rei Leão", "imagem": "rei_leao.jpg", "avaliacao": 8.5 },
           { "nome": "Matilda", "imagem": "matilda.jpg", "avaliacao": 6.9 },
@@ -77,6 +82,7 @@
       },
       {
         "nome": "Drama",
+        "slug": "drama",
         "filmes": [
           { "nome": "O Poderoso Chefão", "imagem": "poderoso_chefao.jpg", "avaliacao": 9.2 },
           { "nome": "Cidadão Kane", "imagem": "cidadao_kane.jpg", "avaliacao": 8.3 },
@@ -92,6 +98,7 @@
       },
       {
         "nome": "Ficção Científica",
+        "slug": "ficcao-cientifica",
         "filmes": [
           { "nome": "Interestelar", "imagem": "interestelar.jpg", "avaliacao": 8.6 },
           { "nome": "Blade Runner 2049", "imagem": "blade_runner_2049.jpg", "avaliacao": 8.0 },
@@ -107,6 +114,7 @@
       },
       {
         "nome": "Crime",
+        "slug": "crime",
         "filmes": [
           { "nome": "Os Bons Companheiros", "imagem": "bons_companheiros.jpg", "avaliacao": 8.7 },
           { "nome": "Scarface", "imagem": "scarface.jpg", "avaliacao": 8.3 },
@@ -122,6 +130,7 @@
       },
       {
         "nome": "Guerra",
+        "slug": "guerra",
         "filmes": [
           { "nome": "O Resgate do Soldado Ryan", "imagem": "resgate_soldado_ryan.jpg", "avaliacao": 8.6 },
           { "nome": "Dunkirk", "imagem": "dunkirk.jpg", "avaliacao": 7.8 },
@@ -137,6 +146,7 @@
       },
       {
         "nome": "Mistério",
+        "slug": "misterio",
         "filmes": [
           { "nome": "Garota Exemplar", "imagem": "garota_exemplar.jpg", "avaliacao": 8.1 },
           { "nome": "Seven: Os Sete Crimes Capitais", "imagem": "seven.jpg", "avaliacao": 8.6 },
@@ -152,6 +162,7 @@
       },
       {
         "nome": "Terror",
+        "slug": "terror",
         "filmes": [
           { "nome": "O Iluminado", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/7ceEaLciLfksJkSHqp0vLE5eLyy.jpg", "avaliacao": 8.4 },
           { "nome": "O Exorcista", "imagem": "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/bYTMDg3eGFuO7emXbQip02a8zvQ.jpg", "avaliacao": 8.0 },
@@ -167,6 +178,7 @@
       },
       {
         "nome": "Thriller",
+        "slug": "thriller",
         "filmes": [
           { "nome": "Cidade de Deus", "imagem": "cidade_deus.jpg", "avaliacao": 8.6 },
           { "nome": "O Silêncio dos Inocentes", "imagem": "silêncio_inocentes.jpg", "avaliacao": 8.6 },

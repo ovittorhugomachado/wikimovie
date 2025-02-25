@@ -1,22 +1,42 @@
-import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, PageTitle, LeadMoreButton } from "./style";
+import { useState, useEffect } from "react";
+import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, PageTitle, LeadMoreButton, LoadingOrError } from "./style";
 import { Header } from "../header";
 import { Footer } from "../footer";
 import list from '../../../json/movies.json';
-import { useContext } from "react";
-import { GenreContext } from "../../context/genre-context";
+import { useParams } from "react-router-dom";
 
 const ContainerListMovie = () => {
-    const { currentGenre } = useContext(GenreContext)
+    const { genre } = useParams();
+    
+    const [genreFilter, setGenreFilter] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const listMovie = list.generos[10].filmes
+    useEffect(() => {
+        const filteredGenre = list.generos.find(genero => genero.slug === genre);
+        
+        if (filteredGenre) {
+            setGenreFilter(filteredGenre);
+            setIsLoading(false);
+        } else {
+            setIsLoading(false);
+        }
+    }, [genre]);
+
+    if (isLoading) {
+        return <LoadingOrError>Carregando...</LoadingOrError>;
+    }
+
+    if (!genreFilter) {
+        return <LoadingOrError>Página não encontrada!</LoadingOrError>;
+    }
 
     return (
         <>
             <Header />
             <Main>
-                <PageTitle>{currentGenre}</PageTitle>
+                <PageTitle>{genreFilter.nome}</PageTitle>
                 <ListMovies>
-                    {listMovie.map((movie, index) => (
+                    {genreFilter.filmes.map((movie, index) => (
                         <Movie key={index}>
                             <MovieCover src={movie.imagem} />
                             <MovieName>{movie.nome}</MovieName>
@@ -28,7 +48,7 @@ const ContainerListMovie = () => {
             </Main>
             <Footer />
         </>
-    )
-}
+    );
+};
 
-export { ContainerListMovie }
+export { ContainerListMovie };

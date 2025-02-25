@@ -11,6 +11,7 @@ export const PageTitle = styled.h2`
     background-color: var(--secondary-color);
     padding: 7px 20px;
     margin: 50px 0 20px;
+    text-transform: uppercase;
 `
 
 export const ListMovies = styled.div`
@@ -78,4 +79,8 @@ export const LeadMoreButton = styled.a`
         &:hover {
             transform: scale(1.1)
         }
+`
+
+export const LoadingOrError = styled.h1`
+    margin: auto
 `
