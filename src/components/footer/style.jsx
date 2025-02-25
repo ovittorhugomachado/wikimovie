@@ -20,6 +20,7 @@ export const ContainerSocialMedia = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-top: 10px
 `
 
 export const Info = styled.h5`

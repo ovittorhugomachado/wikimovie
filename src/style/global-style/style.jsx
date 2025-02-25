@@ -83,6 +83,15 @@ export const Style = createGlobalStyle`
         &.arrow-right {
             cursor: pointer;
         }
-
+        &.button {
+            color: var(--text);
+        }
+        &.social-media {
+            color: var(--text);
+                &:hover {
+                    transform: scale(1); 
+                    color: var(--secondary-color)    
+                }
+        }
     }
 `

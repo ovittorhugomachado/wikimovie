@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, PageTitle, LeadMoreButton, LoadingOrError } from "./style";
-import { Header } from "../header";
-import { Footer } from "../footer";
-import list from '../../../json/movies.json';
+import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, ButtonNext, ButtonPrevious, LoadingOrError, ContainerButton } from "./style";
+import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { fetchBestRated, fetchListByGenre } from "../../services/getMovies";
@@ -11,8 +9,9 @@ import { fetchBestRated, fetchListByGenre } from "../../services/getMovies";
 const ContainerListMovie = () => {
 
     const { genre, id } = useParams();
-    const [ listMovies, setListMovies] = useState([])
-    const [ isLoading, setIsLoading ] = useState(true);
+    const [listMovies, setListMovies] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState(1)
 
 
     useEffect(() => {
@@ -21,7 +20,7 @@ const ContainerListMovie = () => {
 
         const getListMovies = async () => {
             try {
-                const data = await fetchListByGenre(id);
+                const data = await fetchListByGenre(id, page);
                 setListMovies(data.results);
             } catch (err) {
                 setError(err);
@@ -30,7 +29,15 @@ const ContainerListMovie = () => {
             }
         };
         getListMovies()
-    }, [id]);
+    }, [id, page]);
+
+    const nextPage = () => {
+        setPage((prevPage) => prevPage + 1)
+    }
+
+    const previousPage = () => {
+        setPage((prevPage) => prevPage - 1)
+    }
 
     const list = listMovies.map((movie) => ({
         id: movie.id,
@@ -48,7 +55,6 @@ const ContainerListMovie = () => {
     return (
         <>
             <Main>
-                <PageTitle>{}</PageTitle>
                 <ListMovies>
                     {list.map((movie, index) => (
                         <Link key={index} to={`/details/${movie.id}`}>
@@ -61,7 +67,11 @@ const ContainerListMovie = () => {
 
                     ))}
                 </ListMovies>
-                <LeadMoreButton>CARREGAR MAIS</LeadMoreButton>
+                <ContainerButton>
+                    <ButtonPrevious onClick={nextPage}><IoIosArrowBack className="button"/>PÁGINA ANTERIOR</ButtonPrevious>
+                    <ButtonNext onClick={nextPage}>PRÓXIMA PÁGINA<IoIosArrowForward className="button"/></ButtonNext>
+                </ContainerButton>
+
             </Main>
         </>
     );

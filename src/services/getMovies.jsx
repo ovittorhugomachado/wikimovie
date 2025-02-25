@@ -83,7 +83,7 @@ const fetchBestRated = async () => {
     }
 };
 
-const fetchListByGenre = async (id) => {
+const fetchListByGenre = async (id, page) => {
     const options = {
         method: 'GET',
         headers: {
@@ -92,7 +92,7 @@ const fetchListByGenre = async (id) => {
         }
     };
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${id}&language=pt-BR&page=1`, options);
+        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${id}&language=pt-BR&page=${page}`, options);
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
         }

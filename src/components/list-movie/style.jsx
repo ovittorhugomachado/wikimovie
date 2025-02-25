@@ -69,8 +69,14 @@ export const MovieScore = styled.span`
     font-size: 20px;
     font-weight: 900;
 `
+export const ContainerButton = styled.div`
+    display: flex;
+    gap: 10px
+`
 
-export const LeadMoreButton = styled.a`
+export const ButtonPrevious = styled.a`
+    display: flex;
+    align-items: center;
     font-size: 25px;
     color: var(--text);
     background-color: var(--secondary-color);
@@ -78,7 +84,20 @@ export const LeadMoreButton = styled.a`
     margin-bottom: 30px;
     transition: 0.3s;
         &:hover {
-            transform: scale(1.1)
+            transform: scale(1.05) translateX(-10px)
+        }
+`
+export const ButtonNext = styled.a`
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: var(--text);
+    background-color: var(--secondary-color);
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+        &:hover {
+            transform: scale(1.05) translateX(10px)
         }
 `
 
