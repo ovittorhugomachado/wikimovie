@@ -107,7 +107,7 @@ export const Button = styled.div`
             color: var(--text);
             background-color: var(--secondary-color);
             &:hover {
-                color: var(--primary-color)
+                color: var(--text)
             }
         }
     @media (min-width: ${MediaSizes.mobile}) {
