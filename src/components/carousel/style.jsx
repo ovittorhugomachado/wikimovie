@@ -99,8 +99,8 @@ export const MovieName = styled.h2`
     margin-top: 40px;
 `
 
-export const MovieCategory = styled.h3`
-
+export const Year = styled.h3`
+    color: var(--subtitle)
 `
 
 export const MovieReview = styled.h2`

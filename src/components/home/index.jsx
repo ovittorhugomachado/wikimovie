@@ -10,6 +10,18 @@ const ContainerHome = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNzE1NzUxYTMxNWQxZjdmYmJhY2Q2N2U3NTU0ZjBiYyIsIm5iZiI6MTczOTkyNDM1Ny4yNDQsInN1YiI6IjY3YjUyMzg1MTRhOGIwYWZmNmRiNWRlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.atPmZnZzOUWqdN8Hv36JxfyeZeknel1f0F3F9h8oGbg'
+        }
+      };
+      
+      fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.error(err));
     useEffect(() => {
         const getPopularMovies = async () => {
             try {
@@ -36,6 +48,7 @@ const ContainerHome = () => {
     const listPopularMovies = popularMovies.map((movie) => ({
         id: movie.id,
         name: movie.title,
+        date: movie.release_date.split('-')[0],
         image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         rating: movie.vote_average.toFixed(1),
     }));

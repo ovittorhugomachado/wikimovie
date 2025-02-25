@@ -1,4 +1,4 @@
-import { ButtonLeft, ButtonRight, CarouselContainer, CategoryTitles, DivMovie, DivMovies, Image, InfoMovie, MovieCategory, MovieName, MovieReview } from "./style";
+import { ButtonLeft, ButtonRight, CarouselContainer, CategoryTitles, DivMovie, DivMovies, Image, InfoMovie, Year, MovieName, MovieReview } from "./style";
 import { BiSolidLeftArrow } from "react-icons/bi";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { useState } from "react";
@@ -44,7 +44,7 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                         />
                         <InfoMovie className={index === currentMovie ? 'active' : ''}>
                             <MovieName>{movie.name}</MovieName>
-                            <MovieCategory></MovieCategory>
+                            <Year>{movie.date}</Year>
                             <MovieReview>{`AVALIAÇÃO: ${movie.rating}`}</MovieReview>
                         </InfoMovie>
                     </DivMovie>
