@@ -98,6 +98,5 @@ export const MovieReview = styled.h2`
     border: 2px solid var(--secondary-color);
     padding: 5px;
     font-size: 25px;
-
 `
 
