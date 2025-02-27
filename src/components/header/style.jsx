@@ -15,19 +15,17 @@ export const DivHeader = styled.header`
         padding-bottom: 30px;
     }
     &.headerSmall {
-            height: 160px;
+            height: 110px;
                 @media (min-width: ${MediaSizes.tablet}) {
-                    height: 200px;
+                    height: 150px;
                 }
                 @media (min-width: ${MediaSizes.desktopSmall}) {
                     height: 290px;
                 }       
                 @media (min-width: 1441px) {
-                    height: 260px;
+                    height: 240px;
                 }       
     }
-     
-        
 `
 
 export const DivLogo = styled.div`
@@ -35,9 +33,9 @@ export const DivLogo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 30px 0;
+    padding: 20px 30px 0;
         @media (min-width: ${MediaSizes.tablet}) {
-                    padding-top: 40px;  
+                    padding-top: 30px;  
                 }
         @media (min-width: ${MediaSizes.desktopSmall}) {
                     flex-direction: column;  
@@ -46,9 +44,12 @@ export const DivLogo = styled.div`
 
 export const Logo = styled.img`
 
-    width: 145px;
+    width: 105px;
         @media (min-width: ${MediaSizes.tablet}) {
-            width: 175px;
+            width: 135px;
+        }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+            width: 165px;
         }
 `
 
@@ -120,7 +121,7 @@ export const HamburgerContainer = styled.div`
     width: 30px;
     height: 24px;
     cursor: pointer;
-    transform: translateY(90%);
+    transform: translateY(60%);
     margin-right: 20px;
         &:hover span:not(.active),
         &:hover span::before,
@@ -128,7 +129,7 @@ export const HamburgerContainer = styled.div`
             background-color: var(--secondary-color);
         }   
         @media (min-width: ${MediaSizes.tablet}) {
-                    transform: translateY(125%);
+                    transform: translateY(70%);
                 }
         @media (min-width: ${MediaSizes.desktopSmall}) {
                     display: none;
