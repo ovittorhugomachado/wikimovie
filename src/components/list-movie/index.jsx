@@ -68,7 +68,7 @@ const ContainerListMovie = () => {
                     ))}
                 </ListMovies>
                 <ContainerButton>
-                    <ButtonPrevious onClick={nextPage}><IoIosArrowBack className="button"/>PÁGINA ANTERIOR</ButtonPrevious>
+                    <ButtonPrevious onClick={previousPage}><IoIosArrowBack className="button"/>PÁGINA ANTERIOR</ButtonPrevious>
                     <ButtonNext onClick={nextPage}>PRÓXIMA PÁGINA<IoIosArrowForward className="button"/></ButtonNext>
                 </ContainerButton>
 
