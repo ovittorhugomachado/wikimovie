@@ -1,6 +1,4 @@
 import { LoadingOrError, Main } from "./style";
-import { Header } from "../header";
-import { Footer } from "../footer";
 import { Carousel } from "../carousel";
 import { useEffect, useState } from "react";
 import { fetchPopularMovies, fetchShowingMovies, fetchComingSoonMovies, fetchBestRated } from "../../services/getMovies";

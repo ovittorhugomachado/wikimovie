@@ -7,8 +7,6 @@ const Header = () => {
 
     const { id } = useParams()
 
-    console.log(id)
-
     const [ menuActive, setMenuActive ] = useState(false);
 
     const handleClick = () => {

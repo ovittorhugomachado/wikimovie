@@ -47,19 +47,26 @@ export const ContainerMovie = styled.div`
 `
 
 export const MovieCover = styled.img`
-    width: 163px;
-    height: 256px;
+    width: 213px;
+    height: 320px;
 `
 
 export const MovieTime = styled.h3`
 `
 
-export const MovieCategory = styled.h4`
-    margin-bottom: 20px
+export const ContainerCategory = styled.div`
+    margin-bottom: 20px;
 `
 
+export const Genre = styled.h4`
+    display: inline-block;
+    padding: 0 5px;
+    text-align: start;
+`
+
+
 export const MovieReview = styled.h2`
-    width: 168px;
+    width: 213px;
     border: 2px solid var(--secondary-color);
     padding: 5px;
     font-size: 30px;
@@ -102,17 +109,36 @@ export const ContainerActors = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 40px
-  
+    gap: 10px;
+
+`
+
+export const ShowActors = styled.a`
+    display: inline-block;
+    font-size: 25px;
+    color: var(--text);
+    background-color: var(--primary-color);
+    padding: 10px 30px;
+    transform: translateY(30px)
 `
 
 export const Actor = styled.div`
-    margin-top: 20px
+    margin-top: 20px;
+    width: 110px
 `
 
 export const PhotoActor = styled.img`
-    width: 134px;
+    width: 84px;
+    height: 120px;
 `
 
 export const NameActor = styled.h3`
+    width: 100%
+`
+
+export const Charactername = styled.h5`
+    color: var(--text);
+    font-family: inter;
+    font-size: 20px;
+    font-weight: 200;
 `

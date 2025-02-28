@@ -3,15 +3,15 @@ import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, ButtonNext,
 import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { fetchBestRated, fetchListByGenre } from "../../services/getMovies";
+import { fetchListByGenre } from "../../services/getMovies";
 
 
 const ContainerListMovie = () => {
 
-    const { genre, id } = useParams();
-    const [listMovies, setListMovies] = useState([])
-    const [isLoading, setIsLoading] = useState(true);
-    const [page, setPage] = useState(1)
+    const { id } = useParams();
+    const [ listMovies, setListMovies ] = useState([])
+    const [ isLoading, setIsLoading ] = useState(true);
+    const [ page, setPage ] = useState(1)
 
 
     useEffect(() => {
