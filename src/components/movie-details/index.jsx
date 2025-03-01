@@ -1,5 +1,5 @@
 import { ContainerActors, Direction, ContainerMovie, Main, ContainerCategory, MovieCover, MovieReview, MovieTime, PageTitle, Photo, Title, Text, ContainerColumn, TitleInfoMovie, Actor, NameActor, Director, ContainerSinopse, Genre, Charactername, ShowActors, Loading, Error, PlayTrailer } from "./style";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchDetailsMovie } from "../../services/getMovies";
 import { fetchCreditsMovie } from "../../services/getMovies";
@@ -8,12 +8,14 @@ import { ImYoutube2 } from "react-icons/im";
 
 const ContainerDetails = () => {
     const { id } = useParams();
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [movieData, setMovieData] = useState(null);
-    const [trailerMovie, setTrailerMovie] = useState([])
-    const [movieCast, setMovieCast] = useState([]);
-    const [visibleActors, setVisibleActors] = useState(8);
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
+    const [ movieData, setMovieData ] = useState(null);
+    const [ trailerMovie, setTrailerMovie ] = useState([])
+    const [ movieCast, setMovieCast ] = useState([]);
+    const [ visibleActors, setVisibleActors ] = useState(8);
+    const [ showButton, SetShowButton ] = useState(8);
+
 
     useEffect(() => {
         setLoading(true);
@@ -58,9 +60,11 @@ const ContainerDetails = () => {
 
     const showAllActors = () => {
         setVisibleActors((prev) => prev + 42);
+        SetShowButton(false)
     }
     const showLess = () => {
         setVisibleActors((prev) => prev - 42);
+        SetShowButton(true)
     }
 
     return (
@@ -90,11 +94,15 @@ const ContainerDetails = () => {
                         Assistir trailer
                     </PlayTrailer>
                     <Direction>
-                        <Photo
-                            src={`https://image.tmdb.org/t/p/w500${director.profile_path}`}
-                            alt={director.name}
-                            onError={(e) => e.target.src = "/default-actor.png"}
-                        />
+                        <Link to={`/details/person/${director.id}`}>
+                            <Photo
+                                src={`https://image.tmdb.org/t/p/w500${director.profile_path}`}
+                                alt={director.name}
+                                onError={(e) => e.target.src = "/default-actor.png"}
+                            />
+
+                        </Link>
+
                         <Director>
                             <Title>Direção</Title>
 
@@ -105,22 +113,24 @@ const ContainerDetails = () => {
                     <ContainerActors>
                         {actors.slice(0, visibleActors).map((actor, index) => (
                             <Actor key={index}>
-                                <Photo
-                                    src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
-                                    alt={actor.name}
-                                    onError={(e) => e.target.src = "/default-actor.png"}
-                                />
-                                <NameActor>{actor.name}</NameActor>
-                                <Charactername>{actor.character}</Charactername>
+                                <Link to={`/details/person/${actor.id}`}>
+                                    <Photo
+                                        src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+                                        alt={actor.name}
+                                        onError={(e) => e.target.src = "/default-actor.png"}
+                                    />
+                                    <NameActor>{actor.name}</NameActor>
+                                    <Charactername>{actor.character}</Charactername>
+                                </Link>
+
                             </Actor>
                         ))}
                     </ContainerActors>
-                    {visibleActors == 8 && (
-                        <ShowActors onClick={showAllActors}>Ver elenco completo</ShowActors>
-                    )}
-                    {visibleActors > 8 && (
-                        <ShowActors onClick={showLess}>Ver menos</ShowActors>
-                    )}
+                    {showButton ? (
+                                <ShowActors onClick={showAllActors}>Ver elenco completo</ShowActors>
+                            ) : (
+                                <ShowActors onClick={showLess}>Ver menos</ShowActors>
+                            )}
                 </ContainerColumn>
             </Main >
         </>
