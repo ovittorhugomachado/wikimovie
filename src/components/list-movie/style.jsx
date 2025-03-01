@@ -101,6 +101,12 @@ export const ButtonNext = styled.a`
         }
 `
 
-export const LoadingOrError = styled.h1`
-    margin: auto
+export const Loading = styled.img`
+    margin: auto;
+    width: 350px
+`
+
+export const Error = styled.img`
+    margin: auto;
+    width: 350px
 `

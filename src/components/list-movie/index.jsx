@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, ButtonNext, ButtonPrevious, LoadingOrError, ContainerButton } from "./style";
+import { Main, ListMovies, Movie, MovieCover, MovieName, MovieScore, ButtonNext, ButtonPrevious, Loading, Error, ContainerButton } from "./style";
 import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -12,7 +12,6 @@ const ContainerListMovie = () => {
     const [ listMovies, setListMovies ] = useState([])
     const [ isLoading, setIsLoading ] = useState(true);
     const [ page, setPage ] = useState(1)
-
 
     useEffect(() => {
 
@@ -47,13 +46,11 @@ const ContainerListMovie = () => {
         rating: movie.vote_average.toFixed(1),
     }));
 
-
     if (isLoading) {
-        return <LoadingOrError>Carregando...</LoadingOrError>;
+        return <Loading src="/loading.png" />
     }
 
     return (
-        <>
             <Main>
                 <ListMovies>
                     {list.map((movie, index) => (
@@ -64,16 +61,14 @@ const ContainerListMovie = () => {
                                 <MovieScore>{movie.rating}</MovieScore>
                             </Movie>
                         </Link>
-
                     ))}
                 </ListMovies>
                 <ContainerButton>
                     <ButtonPrevious onClick={previousPage}><IoIosArrowBack className="button"/>PÁGINA ANTERIOR</ButtonPrevious>
                     <ButtonNext onClick={nextPage}>PRÓXIMA PÁGINA<IoIosArrowForward className="button"/></ButtonNext>
                 </ContainerButton>
-
             </Main>
-        </>
+
     );
 };
 

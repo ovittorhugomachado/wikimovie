@@ -68,8 +68,6 @@ const ContainerHome = () => {
         return <Error src="/error.png" />
     }
 
-    console.log(showingMovies)
-
     const listBestRatedMovies = bestRatedMovies.map((movie) => ({
         id: movie.id,
         name: movie.title,
