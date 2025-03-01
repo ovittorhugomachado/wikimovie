@@ -115,18 +115,21 @@ export const ContainerSinopse = styled.div`
         }
 `
 
-export const ContainerRow = styled.div`
+export const Direction = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
-    gap: 100px;
+    gap: 10px;
     border-bottom: 2px solid rgb(30, 30, 30);
     padding: 20px 0;
-    margin-bottom: 20px;
+    margin: 30px auto 20px;
 `
 
 export const Director = styled.div`
-
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center
 `
 
 export const Title = styled.h1`
@@ -170,7 +173,7 @@ export const Actor = styled.div`
     width: 110px
 `
 
-export const PhotoActor = styled.img`
+export const Photo = styled.img`
     width: 84px;
     height: 120px;
 `

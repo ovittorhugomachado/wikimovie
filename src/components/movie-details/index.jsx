@@ -1,4 +1,4 @@
-import { ContainerActors, ContainerRow, ContainerMovie, Main, ContainerCategory, MovieCover, MovieReview, MovieTime, PageTitle, PhotoActor, Title, Text, ContainerColumn, TitleInfoMovie, Actor, NameActor, Director, ContainerSinopse, Genre, Charactername, ShowActors, Loading, Error, PlayTrailer } from "./style";
+import { ContainerActors, Direction, ContainerMovie, Main, ContainerCategory, MovieCover, MovieReview, MovieTime, PageTitle, Photo, Title, Text, ContainerColumn, TitleInfoMovie, Actor, NameActor, Director, ContainerSinopse, Genre, Charactername, ShowActors, Loading, Error, PlayTrailer } from "./style";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchDetailsMovie } from "../../services/getMovies";
@@ -42,7 +42,6 @@ const ContainerDetails = () => {
         return <Error src="/error.png" />
     }
 
-    console.log(trailerMovie)
     const formatRuntime = (minutes) => {
         const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;
@@ -54,9 +53,9 @@ const ContainerDetails = () => {
     const movieTime = formatRuntime(movieData.runtime)
     const rating = movieData.vote_average.toFixed(1)
     const actors = movieCast?.cast || [];
-    const director = movieCast?.crew?.filter(crew => crew.job === 'Director')[0].name
+    const director = movieCast?.crew?.filter(crew => crew.job === 'Director')[0]
     const pathTrailer = trailerMovie.results?.filter(trailer => trailer.type === 'Trailer').slice(-1)[0]?.key;
-    console.log(pathTrailer)
+
     const showAllActors = () => {
         setVisibleActors((prev) => prev + 42);
     }
@@ -84,23 +83,29 @@ const ContainerDetails = () => {
                         <Title>Sinopse</Title>
                         <Text className="sinopse">{sinopse}</Text>
                     </ContainerSinopse>
-                    <PlayTrailer 
-                    href={`https://www.youtube.com/watch?v=${pathTrailer}`}
-                    target="_blank">
+                    <PlayTrailer
+                        href={`https://www.youtube.com/watch?v=${pathTrailer}`}
+                        target="_blank">
                         <ImYoutube2 className="youtube" />
                         Assistir trailer
                     </PlayTrailer>
-                    <ContainerRow>
+                    <Direction>
+                        <Photo
+                            src={`https://image.tmdb.org/t/p/w500${director.profile_path}`}
+                            alt={director.name}
+                            onError={(e) => e.target.src = "/default-actor.png"}
+                        />
                         <Director>
                             <Title>Direção</Title>
-                            <Text>{director}</Text>
+
+                            <Text>{director.name}</Text>
                         </Director>
-                    </ContainerRow>
+                    </Direction>
                     <Title>Elenco</Title>
                     <ContainerActors>
                         {actors.slice(0, visibleActors).map((actor, index) => (
                             <Actor key={index}>
-                                <PhotoActor
+                                <Photo
                                     src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
                                     alt={actor.name}
                                     onError={(e) => e.target.src = "/default-actor.png"}
