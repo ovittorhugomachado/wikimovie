@@ -1,4 +1,27 @@
-import { ContainerActors, Direction, ContainerMovie, Main, ContainerCategory, MovieCover, MovieReview, MovieTime, PageTitle, Photo, Title, Text, ContainerColumn, TitleInfoMovie, Actor, NameActor, Director, ContainerSinopse, Genre, Charactername, ShowActors, Loading, Error, PlayTrailer } from "./style";
+import { ContainerActors, 
+        Direction, 
+        ContainerMovie,
+        Main, 
+        ContainerCategory, 
+        MovieCover, 
+        MovieReview, 
+        MovieTime, 
+        PageTitle, 
+        Photo, 
+        Title, 
+        Text, 
+        ContainerColumn, 
+        TitleInfoMovie, 
+        Actor, 
+        NameActor, 
+        Crew, 
+        ContainerSinopse, 
+        Genre, 
+        Charactername, 
+        ShowActors, 
+        Loading, 
+        Error, 
+        PlayTrailer } from "./style";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchDetailsMovie } from "../../services/getMovies";
@@ -8,14 +31,13 @@ import { ImYoutube2 } from "react-icons/im";
 
 const ContainerDetails = () => {
     const { id } = useParams();
-    const [ loading, setLoading ] = useState(true);
-    const [ error, setError ] = useState(null);
-    const [ movieData, setMovieData ] = useState(null);
-    const [ trailerMovie, setTrailerMovie ] = useState([])
-    const [ movieCast, setMovieCast ] = useState([]);
-    const [ visibleActors, setVisibleActors ] = useState(8);
-    const [ showButton, SetShowButton ] = useState(8);
-
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [movieData, setMovieData] = useState(null);
+    const [trailerMovie, setTrailerMovie] = useState([])
+    const [movieCast, setMovieCast] = useState([]);
+    const [visibleActors, setVisibleActors] = useState(8);
+    const [showButton, SetShowButton] = useState(8);
 
     useEffect(() => {
         setLoading(true);
@@ -56,6 +78,7 @@ const ContainerDetails = () => {
     const rating = movieData.vote_average.toFixed(1)
     const actors = movieCast?.cast || [];
     const director = movieCast?.crew?.filter(crew => crew.job === 'Director')[0]
+    const writer = movieCast?.crew?.filter(crew => crew.job === 'Story')[0]
     const pathTrailer = trailerMovie.results?.filter(trailer => trailer.type === 'Trailer').slice(-1)[0]?.key;
 
     const showAllActors = () => {
@@ -100,14 +123,22 @@ const ContainerDetails = () => {
                                 alt={director.name}
                                 onError={(e) => e.target.src = "/default-actor.png"}
                             />
-
                         </Link>
-
-                        <Director>
+                        <Crew>
                             <Title>Direção</Title>
-
                             <Text>{director.name}</Text>
-                        </Director>
+                        </Crew>
+                        <Link to={`/details/person/${writer.id}`}>
+                            <Photo
+                                src={`https://image.tmdb.org/t/p/w500${writer.profile_path}`}
+                                alt={writer.name}
+                                onError={(e) => e.target.src = "/default-actor.png"}
+                            />
+                        </Link>
+                        <Crew>
+                            <Title>Escritor</Title>
+                            <Text>{writer.name}</Text>
+                        </Crew>
                     </Direction>
                     <Title>Elenco</Title>
                     <ContainerActors>
@@ -122,15 +153,14 @@ const ContainerDetails = () => {
                                     <NameActor>{actor.name}</NameActor>
                                     <Charactername>{actor.character}</Charactername>
                                 </Link>
-
                             </Actor>
                         ))}
                     </ContainerActors>
                     {showButton ? (
-                                <ShowActors onClick={showAllActors}>Ver elenco completo</ShowActors>
-                            ) : (
-                                <ShowActors onClick={showLess}>Ver menos</ShowActors>
-                            )}
+                        <ShowActors onClick={showAllActors}>Ver elenco completo</ShowActors>
+                    ) : (
+                        <ShowActors onClick={showLess}>Ver menos</ShowActors>
+                    )}
                 </ContainerColumn>
             </Main >
         </>

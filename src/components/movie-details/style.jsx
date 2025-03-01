@@ -125,7 +125,7 @@ export const Direction = styled.div`
     margin: 30px auto 20px;
 `
 
-export const Director = styled.div`
+export const Crew = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
