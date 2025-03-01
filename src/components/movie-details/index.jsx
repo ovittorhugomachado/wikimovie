@@ -1,27 +1,29 @@
-import { ContainerActors, 
-        Direction, 
-        ContainerMovie,
-        Main, 
-        ContainerCategory, 
-        MovieCover, 
-        MovieReview, 
-        MovieTime, 
-        PageTitle, 
-        Photo, 
-        Title, 
-        Text, 
-        ContainerColumn, 
-        TitleInfoMovie, 
-        Actor, 
-        NameActor, 
-        Crew, 
-        ContainerSinopse, 
-        Genre, 
-        Charactername, 
-        ShowActors, 
-        Loading, 
-        Error, 
-        PlayTrailer } from "./style";
+import {
+    ContainerActors,
+    Direction,
+    ContainerMovie,
+    Main,
+    ContainerCategory,
+    MovieCover,
+    MovieReview,
+    MovieTime,
+    PageTitle,
+    Photo,
+    Title,
+    Text,
+    ContainerColumn,
+    TitleInfoMovie,
+    Actor,
+    NameActor,
+    Crew,
+    ContainerSinopse,
+    Genre,
+    Charactername,
+    ShowActors,
+    Loading,
+    Error,
+    PlayTrailer
+} from "./style";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchDetailsMovie } from "../../services/getMovies";
@@ -77,8 +79,12 @@ const ContainerDetails = () => {
     const movieTime = formatRuntime(movieData.runtime)
     const rating = movieData.vote_average.toFixed(1)
     const actors = movieCast?.cast || [];
-    const director = movieCast?.crew?.filter(crew => crew.job === 'Director')[0]
-    const writer = movieCast?.crew?.filter(crew => crew.job === 'Story')[0]
+    const director = movieCast?.crew?.filter(crew => crew.job === 'Director' || crew.department === 'Writing')[0]
+    const writer = movieCast?.crew.filter(
+        member => member.department === "Writing" && (
+            member.job === "Writer" || member.job === "Story"
+        )
+    );
     const pathTrailer = trailerMovie.results?.filter(trailer => trailer.type === 'Trailer').slice(-1)[0]?.key;
 
     const showAllActors = () => {
@@ -89,6 +95,7 @@ const ContainerDetails = () => {
         setVisibleActors((prev) => prev - 42);
         SetShowButton(true)
     }
+    console.log(writer)
 
     return (
         <>
@@ -108,7 +115,7 @@ const ContainerDetails = () => {
                     <TitleInfoMovie>{movieData.title}</TitleInfoMovie>
                     <ContainerSinopse>
                         <Title>Sinopse</Title>
-                        <Text className="sinopse">{sinopse}</Text>
+                        <Text className="sinopse">{sinopse || 'SEM SINOPSE CADASTRADA'}</Text>
                     </ContainerSinopse>
                     <PlayTrailer
                         href={`https://www.youtube.com/watch?v=${pathTrailer}`}
@@ -128,17 +135,25 @@ const ContainerDetails = () => {
                             <Title>Direção</Title>
                             <Text>{director.name}</Text>
                         </Crew>
-                        <Link to={`/details/person/${writer.id}`}>
-                            <Photo
-                                src={`https://image.tmdb.org/t/p/w500${writer.profile_path}`}
-                                alt={writer.name}
-                                onError={(e) => e.target.src = "/default-actor.png"}
-                            />
-                        </Link>
-                        <Crew>
-                            <Title>Escritor</Title>
-                            <Text>{writer.name}</Text>
-                        </Crew>
+                        {writer.length > 0 && (
+                            <>
+                                <Link to={`/details/person/${writer.id}`}>
+                                    <Photo
+                                        src={`https://image.tmdb.org/t/p/w500${writer.profile_path}`}
+                                        alt={writer.name}
+                                        onError={(e) => e.target.src = "/default-actor.png"}
+                                    />
+                                </Link>
+                                <Crew>
+                                    <Title>Escritor</Title>
+                                    <Text>{writer.name}</Text>
+                                </Crew>
+                            </>
+
+                        )
+
+                        }
+
                     </Direction>
                     <Title>Elenco</Title>
                     <ContainerActors>

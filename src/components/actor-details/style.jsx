@@ -14,20 +14,25 @@ export const Main = styled.main`
         @media (min-width: ${MediaSizes.tablet}) {
             flex-direction: row;
             align-items: start;
-            margin-top: 80px;
+            margin-top: 0;
         }
         @media (min-width: ${MediaSizes.desktopSmall}) {
-            margin: 50px 60px 60px;
+            margin: 0 60px 60px;
         }
         @media (min-width: ${MediaSizes.desktopLarge}) {
-            margin: 50px 120px 60px;
+            margin: 0 120px 60px;
         }
 `
 
 export const PageTitle = styled.h2`
+min-width: 350px;
+    margin-top: 50px;
     padding: 7px 20px;
-    margin-bottom: 30px; 
     background-color: var(--secondary-color);
+    display: none;
+        @media (min-width: ${MediaSizes.tablet}) {
+            display: block;
+        }
 `
 
 export const ContainerRight = styled.div`
@@ -46,18 +51,6 @@ export const ContainerLeft = styled.div`
         @media (min-width: ${MediaSizes.tablet}) {
             margin-right: 80px;
         }
-`
-
-export const PhotoActor = styled.img`
-    width: 213px;
-    height: 320px;
-    margin-bottom: 15px;
-`
-
-export const Birth = styled.h3`
-    border-bottom: 2px solid var(--subtitle);
-`
-export const PlaceOfBirth = styled.h3`
 `
 
 export const Title = styled.h1`
@@ -93,7 +86,7 @@ export const MovieCover = styled.img`
 
 export const MovieName = styled.h3`
     width: 100%;
-    font-size: 25px
+    font-size: 25px;
     font-weight: 500;
 `
 
