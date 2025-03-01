@@ -67,6 +67,12 @@ export const Style = createGlobalStyle`
     a {
         text-decoration: none;
         cursor: pointer;
+            &.movie {
+                width: 100%;
+                    &:hover {
+                         box-shadow: 0 0 5px var(--secondary-color);
+                    }
+            }
     }
 
     svg {

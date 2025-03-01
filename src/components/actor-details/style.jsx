@@ -61,7 +61,8 @@ export const PlaceOfBirth = styled.h3`
 `
 
 export const Title = styled.h1`
-    margin: 30px 0 10px;
+    margin: 30px auto 10px;
+
 `
 
 export const Text = styled.p`
@@ -101,17 +102,27 @@ export const ListAllMovies = styled.ul`
     flex-direction: column;
     align-items: start;
     list-style-type: none;
+    gap: 10px;
+    margin-top: 40px
+`
+
+export const ListProduction = styled.ul`
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    list-style-type: none;
+    gap: 10px;
 `
 
 export const ListItem = styled.li`
+    min-height: 50px;
     width: 100%;
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 30px;
     text-align: start;
-    margin: 5px auto;
-    padding: 5px 20px;
+    padding-left: 20px;
     background-color: var(--primary-color);
     color: var(--text);   
 `
@@ -152,6 +163,6 @@ export const Loading = styled.img`
 `
 
 export const Error = styled.img`
-    width: 350px
+    width: 350px;
     margin: auto; 
 `

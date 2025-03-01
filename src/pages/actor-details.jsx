@@ -2,7 +2,7 @@ import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 import { ContainerDetails } from "../components/actor-details"
 
-const DetailsActor = () => {
+const DetailsPerson = () => {
     return (
         <>
             <Header />
@@ -12,4 +12,4 @@ const DetailsActor = () => {
     )
 }
 
-export { DetailsActor }
+export { DetailsPerson }
