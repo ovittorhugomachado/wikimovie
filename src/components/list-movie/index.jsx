@@ -10,12 +10,13 @@ const ContainerListMovie = () => {
 
     const { id } = useParams();
     const [ listMovies, setListMovies ] = useState([])
-    const [ isLoading, setIsLoading ] = useState(true);
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
     const [ page, setPage ] = useState(1)
 
     useEffect(() => {
 
-        setIsLoading(true);
+        setLoading(true);
 
         const getListMovies = async () => {
             try {
@@ -24,11 +25,19 @@ const ContainerListMovie = () => {
             } catch (err) {
                 setError(err);
             } finally {
-                setIsLoading(false);
+                setLoading(false);
             }
         };
         getListMovies()
     }, [id, page]);
+
+    if (loading) {
+        return <Loading src="/loading.png" />
+    }
+
+    if (error) {
+        return <Error src="/error.png" />
+    }
 
     const nextPage = () => {
         setPage((prevPage) => prevPage + 1)
@@ -45,10 +54,6 @@ const ContainerListMovie = () => {
         image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         rating: movie.vote_average.toFixed(1),
     }));
-
-    if (isLoading) {
-        return <Loading src="/loading.png" />
-    }
 
     return (
             <Main>

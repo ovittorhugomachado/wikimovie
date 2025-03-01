@@ -142,3 +142,13 @@ export const Charactername = styled.h5`
     font-size: 20px;
     font-weight: 200;
 `
+
+export const Loading = styled.img`
+    margin: auto;
+    width: 350px
+`
+
+export const Error = styled.img`
+    margin: auto;
+    width: 350px
+`

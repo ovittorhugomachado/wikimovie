@@ -1,4 +1,4 @@
-import { ContainerActors, ContainerRow, ContainerMovie, Main, ContainerCategory, MovieCover, MovieReview, MovieTime, PageTitle, PhotoActor, Title, Text, ContainerColumn, TitleInfoMovie, Actor, NameActor, Director, ContainerSinopse, Genre, Charactername, ShowActors } from "./style";
+import { ContainerActors, ContainerRow, ContainerMovie, Main, ContainerCategory, MovieCover, MovieReview, MovieTime, PageTitle, PhotoActor, Title, Text, ContainerColumn, TitleInfoMovie, Actor, NameActor, Director, ContainerSinopse, Genre, Charactername, ShowActors, Loading, Error } from "./style";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchDetailsMovie } from "../../services/getMovies";
@@ -6,34 +6,35 @@ import { fetchCreditsMovie } from "../../services/getMovies";
 
 const ContainerDetails = () => {
     const { id } = useParams();
-    const [ isLoading, setIsLoading ] = useState(true);
-    const [ error, setError ] = useState(null);
-    const [ movieData, setMovieData ] = useState(null);
-    const [ movieCast, setMovieCast ] = useState([]);
-    const [ visibleActors, setVisibleActors ] = useState(8);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [movieData, setMovieData] = useState(null);
+    const [movieCast, setMovieCast] = useState([]);
+    const [visibleActors, setVisibleActors] = useState(8);
 
     useEffect(() => {
-        setIsLoading(true);
+        setLoading(true);
 
         const getDetailsMovie = async () => {
             try {
                 const data = await fetchDetailsMovie(id);
                 setMovieData(data);
-
                 const movieCast = await fetchCreditsMovie(id)
                 setMovieCast(movieCast)
             } catch (err) {
                 setError(err);
             } finally {
-                setIsLoading(false);
+                setLoading(false);
             }
         };
         getDetailsMovie()
     }, [id]);
 
-
-    if (!movieData) {
-        return <div>Filme não encontrado!</div>;
+    if (loading) {
+        return <Loading src="/loading.png" />
+    }
+    if (error) {
+        return <Error src="/error.png" />
     }
 
     const formatRuntime = (minutes) => {
@@ -65,12 +66,9 @@ const ContainerDetails = () => {
                     <MovieTime>{movieTime}</MovieTime>
                     <ContainerCategory>
                         {movieData.genres.map((genre, index) => (
-
                             <Genre key={index}>{genre.name}</Genre>
-
                         ))}
                     </ContainerCategory>
-
                     <MovieReview>Avaliação {rating}</MovieReview>
                 </ContainerMovie>
                 <ContainerColumn>
@@ -87,7 +85,7 @@ const ContainerDetails = () => {
                     </ContainerRow>
                     <Title>Elenco</Title>
                     <ContainerActors>
-                        {actors.slice(0,visibleActors).map((actor, index) => (
+                        {actors.slice(0, visibleActors).map((actor, index) => (
                             <Actor key={index}>
                                 <PhotoActor
                                     src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
@@ -98,14 +96,13 @@ const ContainerDetails = () => {
                                 <Charactername>{actor.character}</Charactername>
                             </Actor>
                         ))}
-                        
                     </ContainerActors>
                     {visibleActors == 8 && (
-                            <ShowActors onClick={showAllActors}>Ver elenco completa</ShowActors>
-                        )}
-                        {visibleActors > 8 && (
-                            <ShowActors onClick={showLess}>Ver menos</ShowActors>
-                        )}
+                        <ShowActors onClick={showAllActors}>Ver elenco completa</ShowActors>
+                    )}
+                    {visibleActors > 8 && (
+                        <ShowActors onClick={showLess}>Ver menos</ShowActors>
+                    )}
                 </ContainerColumn>
             </Main>
         </>
