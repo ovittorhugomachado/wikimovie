@@ -1,4 +1,4 @@
-import { LoadingOrError, Main } from "./style";
+import { Loading, Error, Main } from "./style";
 import { Carousel } from "../carousel";
 import { useEffect, useState } from "react";
 import { fetchPopularMovies, fetchShowingMovies, fetchComingSoonMovies, fetchBestRated } from "../../services/getMovies";
@@ -61,11 +61,11 @@ const ContainerHome = () => {
     }, []);
 
     if (loading) {
-        return <LoadingOrError>Carregando...</LoadingOrError>;
+        return <Loading src="/loading.png" />
     }
 
     if (error) {
-        return <LoadingOrError>Erro ao carregar os filmes: {error.message}</LoadingOrError>;
+        return <Error src="/error.png" />
     }
 
     console.log(showingMovies)

@@ -56,9 +56,6 @@ const ContainerDetails = () => {
         setVisibleActors((prev) => prev - 42);
     }
 
-    
-
-    console.log(visibleActors)
     return (
         <>
             <Main>
@@ -116,12 +113,3 @@ const ContainerDetails = () => {
 };
 
 export { ContainerDetails };
-
-
-//map para acessar o array do elenco
-// {movieData.elenco.map((actor, index) => (
-//     <Actor key={index}>
-//         <PhotoActor /> {/* Exemplo de imagem do ator */}
-//         <NameActor></NameActor>
-//     </Actor>
-// ))}
