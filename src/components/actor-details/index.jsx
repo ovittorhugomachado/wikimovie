@@ -64,12 +64,12 @@ const ContainerDetails = () => {
                     .slice(0, 20);
                 setTopMoviesActor(topMoviesActor);
 
-                const topMoviesProducer = removeEquals(filmography.cast)
+                const topMoviesProducer = removeEquals(filmography.crew)
                     .filter(item => item.media_type === "movie") 
                     .sort((a, b) => b.popularity - a.popularity) 
                     .slice(0, 20);
                 setTopMoviesProducer(topMoviesProducer);
-                
+
             } catch (err) {
                 setError(err);
             } finally {
@@ -79,7 +79,7 @@ const ContainerDetails = () => {
         getDetailsMovie()
     }, [id]);
 
-    console.log(topMoviesProducer)
+    console.log(filmography)
 
 
     if (loading) {
@@ -95,6 +95,8 @@ const ContainerDetails = () => {
     const showLess = () => {
         setDisplay("none")
     }
+
+    console.log(actor)
 
     return (
         <Main>
