@@ -2,6 +2,7 @@ import { ButtonLeft, ButtonRight, CarouselContainer, CategoryTitles, DivMovie, D
 import { BiSolidLeftArrow } from "react-icons/bi";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Carousel = ({ nameCarousel, listMovies }) => {
     const [currentMovie, setCurrentMovie] = useState(9);
@@ -20,7 +21,7 @@ const Carousel = ({ nameCarousel, listMovies }) => {
             setPositionCarousel((prevPosition) => prevPosition + 140);
         }
     };
-    
+
     return (
         <CarouselContainer>
             <CategoryTitles>{nameCarousel}</CategoryTitles>
@@ -32,21 +33,23 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                     <BiSolidLeftArrow className="arrow-left" />
                 </ButtonLeft>
                 {listMovies.map((movie, index) => (
-                    <DivMovie
-                        key={index}
-                        style={{ transform: `translateX(${positionCarousel}px)` }}
-                    >
-                        <Image
-                            src={movie.image}
-                            className={index === currentMovie ? 'active' : ''}
-                            alt={movie.name}
-                        />
-                        <InfoMovie className={index === currentMovie ? 'active' : ''}>
-                            <MovieName>{movie.name}</MovieName>
-                            <Year>{movie.date}</Year>
-                            <MovieReview>{`AVALIAÇÃO: ${movie.rating}`}</MovieReview>
-                        </InfoMovie>
-                    </DivMovie>
+                    <Link to={`/details/${movie.id}`} key={index}>
+                        <DivMovie
+                            style={{ transform: `translateX(${positionCarousel}px)` }}
+                        >
+                            <Image
+                                src={movie.image}
+                                className={index === currentMovie ? 'active' : ''}
+                                alt={movie.name}
+                            />
+                            <InfoMovie className={index === currentMovie ? 'active' : ''}>
+                                <MovieName>{movie.name}</MovieName>
+                                <Year>{movie.date}</Year>
+                                <MovieReview>{`AVALIAÇÃO: ${movie.rating}`}</MovieReview>
+                            </InfoMovie>
+                        </DivMovie>
+                    </Link>
+
                 ))}
                 <ButtonRight
                     onClick={scrollRight}
