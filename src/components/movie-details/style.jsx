@@ -88,7 +88,8 @@ export const MovieReview = styled.h2`
 `
 
 export const PlayTrailer = styled.a`
-    color: var(--text);
+    color: var(--background-main);
+    background-color: var(--text);
     padding: 10px;
     display: flex;
     gap: 10px;
@@ -96,7 +97,6 @@ export const PlayTrailer = styled.a`
     align-items: center;
     font-size: 30px;
     font-weight: 700;
-    border: 2px solid var(--secondary-color);
     transition: 0.2s;
         &:hover {
             transform: scale(1.05); 

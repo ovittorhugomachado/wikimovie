@@ -95,9 +95,9 @@ export const Style = createGlobalStyle`
         }
         &.youtube {
             width: 80px;
-            color: var(--text);
+            color: var(--background-main);
             &:hover {
-                color: var (--text);
+                color: var (--background-main);
                 transform: scale(1); 
             }
         }
