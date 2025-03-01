@@ -154,13 +154,14 @@ export const ContainerActors = styled.div`
 export const ShowActors = styled.a`
     display: inline-block;
     font-size: 25px;
-    color: var(--text);
-    background-color: var(--primary-color);
+    font-weight: 700;
+    color: var(--background-main);
+    background-color: var(--text);
     padding: 10px 30px;
     transform: translateY(30px);
     transition: 0.2s;
         &:hover {
-            color: var(--secondary-color)
+            transform: scale(1.05) translateY(28px);
         }
 `
 
