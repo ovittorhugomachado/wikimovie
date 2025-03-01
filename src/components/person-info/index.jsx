@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ContainerMovies, ContainerProfile, Cover, Info1, Info2, Info3, ListAllMovies, Movie, Name, NameMovie, Picture, PlayTrailer, Text, Title } from "./style";
+import { ContainerProfile, Title, Text, ContainerMovies, Movie, ListAllMovies, MovieCover, MovieName, Year, Character, ListItem } from "./style";
 
-const ProfileInfo = ({ person, biography, movies, topMoviesActor, topMoviesProducer }) => {
+const ProfileInfo = ({ person, biography, allMoviesActor, allMoviesProducer, topMoviesActor, topMoviesProducer }) => {
     
     const [ display, setDisplay ] = useState('none');
 
@@ -48,7 +48,7 @@ const ProfileInfo = ({ person, biography, movies, topMoviesActor, topMoviesProdu
                 )
                 }
                 <ListAllMovies style={{ display: display }}>
-                    {movies.cast
+                    {allMoviesActor
                         .sort((a, b) => {
                             const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
                             const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
@@ -68,10 +68,10 @@ const ProfileInfo = ({ person, biography, movies, topMoviesActor, topMoviesProdu
                             </Link>
                         ))}
                 </ListAllMovies>
-                {movies.crew.length > 0 && (
+                {allMoviesProducer.length > 0 && (
                     <ListProduction style={{ display: display }}>
                         <Title>Produções</Title>
-                        {movies.crew.
+                        {allMoviesProducer.
                             sort((a, b) => {
                                 const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
                                 const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;

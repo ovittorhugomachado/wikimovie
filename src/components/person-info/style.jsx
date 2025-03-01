@@ -65,15 +65,35 @@ export const Movie = styled.div`
 
 `
 
-export const Picture = styled.img`
-    width: 84px;
-    height: 120px;
+export const MovieCover = styled.img`
+    width: 114px;
+    height: 180px;
 `
 
-export const NameMovie = styled.h3`
+export const ListItem = styled.li`
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 30px;
+    text-align: start;
+    padding-left: 20px;
+    background-color: var(--primary-color);
+    color: var(--text);   
+`
+
+export const MovieName = styled.h3`
     width: 100%;
     font-weight: 500;
     font-size: 20px
+`
+
+export const Year = styled.h4`
+    width: 60px;
+    padding-right: 10px;
+    color: var(--text);
+    border-right: 2px solid var(--secondary-color);
 `
 
 export const ListAllMovies = styled.ul`
@@ -83,4 +103,11 @@ export const ListAllMovies = styled.ul`
     list-style-type: none;
     gap: 10px;
     margin-top: 40px
+`
+
+export const Character = styled.h6`
+    font-family: inter;
+    font-size: 15px;
+    font-weight: 100;
+    margin-left: 0px;
 `

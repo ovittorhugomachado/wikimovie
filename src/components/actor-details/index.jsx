@@ -80,8 +80,21 @@ const ContainerDetails = () => {
     }, [id]);
 
     const biography = actor.biography
+    const ListAllMoviesActorOrdered = filmography?.cast?.sort((a, b) => {
+        const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
+        const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
+        return yearB - yearA;
+    }) ?? [];
 
-    console.log(biography)
+    const ListAllMoviesProducerOrdered = filmography?.crew?.sort((a, b) => {
+        const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
+        const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
+        return yearB - yearA;
+    }) ?? [];
+ 
+
+
+    console.log(ListAllMoviesProducerOrdered)
 
 
     if (loading) {
