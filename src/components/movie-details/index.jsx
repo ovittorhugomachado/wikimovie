@@ -111,7 +111,7 @@ const ContainerDetails = () => {
                         ))}
                     </ContainerActors>
                     {visibleActors == 8 && (
-                        <ShowActors onClick={showAllActors}>Ver elenco completa</ShowActors>
+                        <ShowActors onClick={showAllActors}>Ver elenco completo</ShowActors>
                     )}
                     {visibleActors > 8 && (
                         <ShowActors onClick={showLess}>Ver menos</ShowActors>

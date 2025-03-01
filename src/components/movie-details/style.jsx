@@ -157,7 +157,11 @@ export const ShowActors = styled.a`
     color: var(--text);
     background-color: var(--primary-color);
     padding: 10px 30px;
-    transform: translateY(30px)
+    transform: translateY(30px);
+    transition: 0.2s;
+        &:hover {
+            color: var(--secondary-color)
+        }
 `
 
 export const Actor = styled.div`
