@@ -79,6 +79,11 @@ const ContainerDetails = () => {
         getDetailsMovie()
     }, [id]);
 
+    const biography = actor.biography
+
+    console.log(biography)
+
+
     if (loading) {
         return <Loading src="/loading.png" />
     }

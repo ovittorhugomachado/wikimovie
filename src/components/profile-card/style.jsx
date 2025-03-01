@@ -9,6 +9,7 @@ export const ContainerProfile = styled.div`
     margin-bottom: 40px;
         @media (min-width: ${MediaSizes.tablet}) {
             margin:  30px 80px 0 0;
+            width: 190px;
         }
 `
 
