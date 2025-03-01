@@ -2,15 +2,25 @@ import styled from "styled-components";
 import { MediaSizes } from "../../style/media-size";
 
 export const Main = styled.main`
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 50px 100px 60px;
+    margin: 50px 20px 60px;
+        @media (min-width: ${MediaSizes.mobile}) {
+            margin: 50px 40px 60px;
+        }
         @media (min-width: ${MediaSizes.tablet}) {
             flex-direction: row;
             align-items: start;
             margin-top: 80px;
+        }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+            margin: 50px 60px 60px;
+        }
+        @media (min-width: ${MediaSizes.desktopLarge}) {
+            margin: 50px 120px 60px;
         }
 `
 
@@ -24,6 +34,11 @@ export const PageTitle = styled.h2`
 `
 
 export const ContainerColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 `
 
 export const TitleInfoMovie = styled.h2`
@@ -49,6 +64,7 @@ export const ContainerMovie = styled.div`
 export const MovieCover = styled.img`
     width: 213px;
     height: 320px;
+    margin-bottom: 15px;
 `
 
 export const MovieTime = styled.h3`
@@ -64,7 +80,6 @@ export const Genre = styled.h4`
     text-align: start;
 `
 
-
 export const MovieReview = styled.h2`
     width: 213px;
     border: 2px solid var(--secondary-color);
@@ -72,14 +87,37 @@ export const MovieReview = styled.h2`
     font-size: 30px;
 `
 
+export const PlayTrailer = styled.a`
+    color: var(--text);
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    border: 2px solid var(--secondary-color);
+    transition: 0.2s;
+        &:hover {
+            transform: scale(1.05); 
+        }
+
+`
+
+export const ContainerTrailer = styled.div`
+`
+
 export const ContainerSinopse = styled.div`
-    border-bottom: 2px solid rgb(30, 30, 30);
     margin-top: 20px;
-    padding-bottom: 25px
+    padding-bottom: 25px;
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+            padding: 0 50px 25px
+        }
 `
 
 export const ContainerRow = styled.div`
     display: flex;
+    width: 100%;
     justify-content: center;
     gap: 100px;
     border-bottom: 2px solid rgb(30, 30, 30);
@@ -93,6 +131,7 @@ export const Director = styled.div`
 
 export const Title = styled.h1`
     font-size: 35px;
+    margin-bottom: 10px;
 `
 
 export const Text = styled.p`
@@ -110,7 +149,6 @@ export const ContainerActors = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-
 `
 
 export const ShowActors = styled.a`

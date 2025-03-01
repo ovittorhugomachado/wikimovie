@@ -89,9 +89,17 @@ export const Style = createGlobalStyle`
         &.social-media {
             color: var(--text);
                 &:hover {
-                    transform: scale(1); 
+                    
                     color: var(--secondary-color)    
                 }
+        }
+        &.youtube {
+            width: 80px;
+            color: var(--text);
+            &:hover {
+                color: var (--text);
+                transform: scale(1); 
+            }
         }
     }
 `
