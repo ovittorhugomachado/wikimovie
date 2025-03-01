@@ -35,7 +35,7 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                     <BiSolidLeftArrow className="arrow-left" />
                 </ButtonLeft>
                 {listMovies.map((movie, index) => (
-                    <Link to={`/details/${movie.id}`} key={index}>
+                    <Link to={`/details/movie/${movie.id}`} key={index}>
                         <DivMovie
                             style={{ transform: `translateX(${positionCarousel}px)` }}
                         >
