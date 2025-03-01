@@ -59,7 +59,7 @@ const ContainerListMovie = () => {
             <Main>
                 <ListMovies>
                     {list.map((movie, index) => (
-                        <Link key={index} to={`/details/${movie.id}`}>
+                        <Link key={index} to={`/details/movie/${movie.id}`}>
                             <Movie >
                                 <MovieCover src={movie.image} />
                                 <MovieName>{movie.name}</MovieName>

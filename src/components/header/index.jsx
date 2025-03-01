@@ -17,7 +17,7 @@ const Header = () => {
         <DivHeader className={`${menuActive ? '' : 'headerSmall'}`}>
             <DivLogo>
                 <Link to={'/'}>
-                    <Logo src="../logo.png" alt="logo" />
+                    <Logo src="/logo.png" alt="logo" />
                 </Link>
                 <HamburgerContainer onClick={handleClick}>
                     <HamburgerSpan className={`${menuActive ? 'active' : ''}`} />

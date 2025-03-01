@@ -1,8 +1,8 @@
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
-import { ContainerDetails } from "../components/movie-details"
+import { ContainerDetails } from "../components/actor-details"
 
-const DetailsMovie = () => {
+const DetailsActor = () => {
     return (
         <>
             <Header />
@@ -12,4 +12,4 @@ const DetailsMovie = () => {
     )
 }
 
-export { DetailsMovie }
+export { DetailsActor }
