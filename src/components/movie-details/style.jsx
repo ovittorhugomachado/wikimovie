@@ -179,13 +179,15 @@ export const Photo = styled.img`
 `
 
 export const NameActor = styled.h3`
-    width: 100%
+    width: 100%;
+    font-weight: 500;
+    font-size: 20px
 `
 
 export const Charactername = styled.h5`
     color: var(--text);
     font-family: inter;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 200;
 `
 

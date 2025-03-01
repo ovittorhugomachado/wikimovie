@@ -144,7 +144,7 @@ export const Director = styled.div`
 
 export const Title = styled.h1`
     font-size: 35px;
-    margin-bottom: 10px;
+    margin: 30px 0 10px;
 `
 
 export const Text = styled.p`
@@ -152,14 +152,15 @@ export const Text = styled.p`
     font-size: 20px;
     font-family: inter;
     font-weight: 300;
-    text-align: start
+    text-align: start;
+    margin-bottom: 30px
 `
 
-export const ContainerActors = styled.div`
+export const ContainerMovies = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
 `
 
 export const ShowActors = styled.a`
@@ -176,18 +177,20 @@ export const ShowActors = styled.a`
         }
 `
 
-export const Actor = styled.div`
+export const Movie = styled.div`
     margin-top: 20px;
     width: 110px
 `
 
 export const MovieCover = styled.img`
-    width: 84px;
-    height: 120px;
+    width: 114px;
+    height: 180px;
 `
 
-export const NameActor = styled.h3`
-    width: 100%
+export const MovieName = styled.h3`
+    width: 100%;
+    font-weight: 500;
+    font-size: 20px
 `
 
 export const Charactername = styled.h5`
