@@ -56,17 +56,63 @@ export const Style = createGlobalStyle`
                     display: none  ;  
                 }
             }
+            &.person-info {
+                    display: none;  
+                @media(min-width: ${MediaSizes.tablet}) {
+                    display: block;  
+                }
+            }
         
     }
 
     h2 {
-        font-size: 35px;
-        color: var(--text)
+        font-size: 45px;
+        color: var(--text);
+        margin: 30px auto 10px;
+            &.button-menu {
+                display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: var(--text);
+        background-color: var(--background-button);
+        white-space: nowrap;
+        padding: 5px 15px;
+        font-size: 20px;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 0;
+        transition: 0.3s ease-in-out;
+            &:hover {
+                background-color:var(--secondary-color);
+                color: var(--primary-color);
+            }
+            &.active {
+                color: var(--text);
+                background-color: var(--secondary-color);
+                &:hover {
+                    color: var(--text)
+                }
+            }
+        @media (min-width: ${MediaSizes.mobile}) {
+                            font-size: 25px;
+                        }
+                    }
     }
 
     h3 {
+        color: var(--text);
         font-size: 25px;
-        color: var(--text)
+        font-weight: 500;
+            &.movie-year {
+                width: 55px;
+                display: inline;
+                margin: 0;
+                padding-right: 10px;
+                border-right: 2px solid var(--secondary-color);
+
+            }
+        
     }
 
     h4 {
@@ -84,11 +130,37 @@ export const Style = createGlobalStyle`
         
     }
 
+    p {
+        font-family: inter;
+        font-size: 16px;
+        
+        font-weight: 300;
+        text-align: start;
+        color: var(--text);
+            &.biography {
+                margin: 10px 0 30px;
+                font-size: 20px;
+            }
+    }
+
     img {
             &.profile-card {
                 width: 213px;
                 height: 320px;
                 margin-bottom: 15px;
+            }
+            &.cover-small {
+                    width: 114px;
+                    height: 180px;
+            }
+            &.logo {
+                width: 105px;
+                    @media (min-width: ${MediaSizes.tablet}) {
+                        width: 135px;
+                }
+                    @media (min-width: ${MediaSizes.desktopSmall}) {
+                        width: 165px;
+                }
             }
     }
 
@@ -100,6 +172,41 @@ export const Style = createGlobalStyle`
                     &:hover {
                          box-shadow: 0 0 5px var(--secondary-color);
                     }
+            }
+
+    nav {
+        width: 100%;
+    top: 160px;
+    opacity: 0;
+    transform: translateY(40px);
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+        &.menuActive {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-5px)
+        }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+        }
+
+    }
+    
+    button {
+        border: none;
+        display: inline-block;
+        font-size: 25px;
+        font-weight: 700;
+        color: var(--background-main);
+        background-color: var(--text);
+        cursor: pointer;
+        padding: 10px 30px;
+        transform: translateY(30px);
+        transition: 0.2s;
+            &:hover {
+                transform: scale(1.05) translateY(28px);
             }
     }
 
@@ -136,4 +243,47 @@ export const Style = createGlobalStyle`
             }
         }
     }
+
+    ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 10px;
+            &.container-list-movies {
+                    width: 100%;
+                    flex-direction: column;
+                    align-items: start;
+                    list-style-type: none;
+                    gap: 10px;
+                    margin-top: 40px
+            }
+            
+    }
+
+    li {
+        display: inline-block;
+        flex-grow: 1;
+        width: auto;
+        min-height: 50px;
+            &.list-movies {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 30px;
+                text-align: start;
+                padding: 10px 0px 10px 20px;
+                background-color: var(--primary-color);
+                color: var(--text);
+            };
+            &.list-item-menu {
+                    display: inline-block;
+                    flex-grow: 1;
+                    list-style-type: none
+            }
+    }
+
+    
 `
