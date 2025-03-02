@@ -1,17 +1,17 @@
-import { ContainerProfile, Cover, Info1, Info2, Info3, Name } from "./style";
+import { ContainerProfile } from "./style";
 
-const ProfileCard = ({ name, image, info1, info2, info3 }) => {
+const ProfileCard = ({ name, image, info1, info2 }) => {
     return (
         <ContainerProfile>
-            <Name>{name}</Name>
-            <Cover
+            <h1 className="profile-card">{name}</h1>
+            <img
+                className="profile-card"
                 src={`https://image.tmdb.org/t/p/w500${image}`}
                 alt={name}
                 onError={(e) => e.target.src = "/default-actor.png"}
             />
-            <Info1>{info1}</Info1>
-            <Info2>{info2}</Info2>
-            <Info3>{info3}</Info3>
+            <h5>{info1}</h5>
+            <h5 className="subtitle">{info2}</h5>
         </ContainerProfile>
     )
 }

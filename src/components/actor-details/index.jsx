@@ -26,76 +26,78 @@ import { useEffect, useState } from "react";
 import { fetchActorDetails } from "../../services/getMovies";
 import { fetchActorFilmography } from "../../services/getMovies";
 import { ProfileCard } from "../profile-card";
+
 const ContainerDetails = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [actor, setActor] = useState([]);
+    const [filmography, setFilmography] = useState([]);
     const [topMoviesActor, setTopMoviesActor] = useState([]);
     const [topMoviesProducer, setTopMoviesProducer] = useState([]);
-    const [filmography, setFilmography] = useState([]);
-    const [display, setDisplay] = useState(`none`)
+    const [allMoviesActor, setAllMoviesActor] = useState([]);
+    const [allMoviesProducer, setAllMoviesProducer] = useState([]);
+    const [display, setDisplay] = useState('none');
+
+    const removeDuplicates = (array) => {
+        const uniqueIds = new Set();
+        return array.filter(item => !uniqueIds.has(item.id) && uniqueIds.add(item.id));
+    };
+
+    const sortByReleaseDate = (array) => {
+        return array.sort((a, b) => {
+            const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
+            const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
+            return yearB - yearA;
+        });
+    };
+
+    const getTopMovies = (array, limit = 20) => {
+        return array
+            .filter(item => item.media_type === "movie")
+            .sort((a, b) => b.popularity - a.popularity)
+            .slice(0, limit);
+    };
 
     useEffect(() => {
-        setLoading(true);
+        const fetchData = async () => {
+            setLoading(true);
+            setError(null);
 
-        const getDetailsMovie = async () => {
             try {
-                const data = await fetchActorDetails(id)
-                setActor(data)
+                const [actorData, filmographyData] = await Promise.all([
+                    fetchActorDetails(id),
+                    fetchActorFilmography(id),
+                ]);
 
-                const filmography = await fetchActorFilmography(id)
-                setFilmography(filmography)
+                setActor(actorData);
+                setFilmography(filmographyData);
 
-                const removeEquals = (array) => {
-                    const uniqueIds = new Set();
-                    return array.filter(item => {
-                        if (!uniqueIds.has(item.id)) {
-                            uniqueIds.add(item.id);
-                            return true;
-                        }
-                        return false;
-                    });
-                };
+                const uniqueCast = removeDuplicates(filmographyData.cast || []);
+                setTopMoviesActor(getTopMovies(uniqueCast));
+                setAllMoviesActor(sortByReleaseDate(uniqueCast));
 
-                const topMoviesActor = removeEquals(filmography.cast)
-                    .filter(item => item.media_type === "movie")
-                    .sort((a, b) => b.popularity - a.popularity)
-                    .slice(0, 20);
-                setTopMoviesActor(topMoviesActor);
-
-                const topMoviesProducer = removeEquals(filmography.crew)
-                    .filter(item => item.media_type === "movie")
-                    .sort((a, b) => b.popularity - a.popularity)
-                    .slice(0, 20);
-                setTopMoviesProducer(topMoviesProducer);
+                const uniqueCrew = removeDuplicates(filmographyData.crew || []);
+                setTopMoviesProducer(getTopMovies(uniqueCrew));
+                setAllMoviesProducer(sortByReleaseDate(uniqueCrew));
 
             } catch (err) {
-                setError(err);
+                console.error("Erro ao buscar dados:", err);
+                setError(true); 
             } finally {
                 setLoading(false);
             }
         };
-        getDetailsMovie()
+
+        fetchData();
     }, [id]);
 
-    const biography = actor.biography
-    const ListAllMoviesActorOrdered = filmography?.cast?.sort((a, b) => {
-        const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
-        const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
-        return yearB - yearA;
-    }) ?? [];
-
-    const ListAllMoviesProducerOrdered = filmography?.crew?.sort((a, b) => {
-        const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
-        const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
-        return yearB - yearA;
-    }) ?? [];
- 
-
-
-    console.log(ListAllMoviesProducerOrdered)
-
+    console.log(actor)
+    console.log(filmography)
+    console.log(topMoviesActor)
+    console.log(topMoviesProducer)
+    console.log(allMoviesActor)
+    console.log(allMoviesProducer)
 
     if (loading) {
         return <Loading src="/loading.png" />

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { MediaSizes } from "../media-size";
 
 export const Style = createGlobalStyle`
     * {
@@ -46,7 +47,16 @@ export const Style = createGlobalStyle`
 
     h1 {
         font-size: 45px;
-        color: var(--text)
+        color: var(--text);
+        background-color: var(--secondary-color);
+        padding: 7px 20px;
+        margin-bottom: 30px; 
+            &.profile-card {
+                @media(min-width: ${MediaSizes.tablet}) {
+                    display: none  ;  
+                }
+            }
+        
     }
 
     h2 {
@@ -62,6 +72,24 @@ export const Style = createGlobalStyle`
     h4 {
         font-size: 25px;
         color: var(--subtitle)
+    }
+
+    h5 {
+        font-size: 25px;
+        color: var(--text);
+            &.subtitle {
+                color: var(--subtitle);
+                border-top: 2px solid var(--subtitle);
+            }
+        
+    }
+
+    img {
+            &.profile-card {
+                width: 213px;
+                height: 320px;
+                margin-bottom: 15px;
+            }
     }
 
     a {
