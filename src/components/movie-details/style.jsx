@@ -101,7 +101,6 @@ export const PlayTrailer = styled.a`
         &:hover {
             transform: scale(1.05); 
         }
-
 `
 
 export const ContainerTrailer = styled.div`
