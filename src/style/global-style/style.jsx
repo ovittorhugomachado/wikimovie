@@ -44,6 +44,47 @@ export const Style = createGlobalStyle`
         background-color: var(--background-main);
     }
 
+    main {
+        &.details {
+            max-width: 1400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px 20px 60px;
+                @media (min-width: ${MediaSizes.mobile}) {
+                    margin: 50px 40px 60px;
+                }
+                @media (min-width: ${MediaSizes.tablet}) {
+                    flex-direction: row;
+                    align-items: start;
+                    margin-top: 50px;
+                }
+                @media (min-width: ${MediaSizes.desktopSmall}) {
+                    margin: 50px 60px 60px;
+                }
+                @media (min-width: ${MediaSizes.desktopLarge}) {
+                    margin: 50px 120px 60px;
+                }
+        }
+    }   
+
+    div {
+        &.container-profile {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+        }
+        &.container-movies {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 30px;
+        }
+    }
+
+
 
     h1 {
         font-size: 45px;
@@ -74,7 +115,7 @@ export const Style = createGlobalStyle`
         justify-content: center;
         align-items: center;
         gap: 10px;
-        color: var(--text);
+        color: var (--text);
         background-color: var(--background-button);
         white-space: nowrap;
         padding: 5px 15px;
@@ -89,7 +130,7 @@ export const Style = createGlobalStyle`
             }
             &.active {
                 color: var(--text);
-                background-color: var(--secondary-color);
+                background-color: var (--secondary-color);
                 &:hover {
                     color: var(--text)
                 }
@@ -110,9 +151,7 @@ export const Style = createGlobalStyle`
                 margin: 0;
                 padding-right: 10px;
                 border-right: 2px solid var(--secondary-color);
-
             }
-        
     }
 
     h4 {
@@ -127,13 +166,11 @@ export const Style = createGlobalStyle`
                 color: var(--subtitle);
                 border-top: 2px solid var(--subtitle);
             }
-        
     }
 
     p {
         font-family: inter;
         font-size: 16px;
-        
         font-weight: 300;
         text-align: start;
         color: var(--text);
@@ -162,54 +199,65 @@ export const Style = createGlobalStyle`
                         width: 165px;
                 }
             }
+            &.loading {
+                width: 350px;
+                margin: auto;
+            }
+            &.error {
+                width: 350px;
+                margin: auto;
+            }
     }
 
+    
     a {
         text-decoration: none;
         cursor: pointer;
             &.movie {
-                width: 100%;
+                    width: 110px; 
+    margin-top: 20px;
+            }
+            &.button {
+                color: var(--background-main);
+                background-color: var(--text);
+                padding: 10px;
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                font-weight: 700;
+                transition: 0.2s;
+                margin-top: 20px;
                     &:hover {
-                         box-shadow: 0 0 5px var(--secondary-color);
+                        transform: scale(1.05); 
+                    }
+                    &.teste {
+                        background-color: red !important;
                     }
             }
 
     nav {
         width: 100%;
-    top: 160px;
-    opacity: 0;
-    transform: translateY(40px);
-    visibility: hidden; 
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-        &.menuActive {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(-5px)
-        }
-        @media (min-width: ${MediaSizes.desktopSmall}) {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateY(0);
-        }
+        top: 160px;
+        opacity: 0;
+        transform: translateY(40px);
+        visibility: hidden; 
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+            &.menuActive {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(-5px)
+            }
+            @media (min-width: ${MediaSizes.desktopSmall}) {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(0);
+            }
 
     }
     
-    button {
-        border: none;
-        display: inline-block;
-        font-size: 25px;
-        font-weight: 700;
-        color: var(--background-main);
-        background-color: var(--text);
-        cursor: pointer;
-        padding: 10px 30px;
-        transform: translateY(30px);
-        transition: 0.2s;
-            &:hover {
-                transform: scale(1.05) translateY(28px);
-            }
-    }
-
+    
     svg {
         color: var(--secondary-color);
         width: 40px;
@@ -238,36 +286,37 @@ export const Style = createGlobalStyle`
             width: 80px;
             color: var(--background-main);
             &:hover {
-                color: var (--background-main);
+                color: var(--background-main);
                 transform: scale(1); 
             }
         }
     }
 
     ul {
-        width: 100%;
+        width: 10%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
         padding: 0 10px;
-            &.container-list-movies {
-                    width: 100%;
-                    flex-direction: column;
-                    align-items: start;
-                    list-style-type: none;
-                    gap: 10px;
-                    margin-top: 40px
-            }
-            
+        &.container-list-movies {
+            width: 100%;
+            flex-direction: column;
+            align-items: start;
+            list-style-type: none;
+            gap: 10px;
+            margin-top: 40px;
+            background-color: red; // Certifique-se de que esta linha está correta
+        }
     }
+
 
     li {
         display: inline-block;
         flex-grow: 1;
         width: auto;
-        min-height: 50px;
-            &.list-movies {
+        min-height: 0px;
+            &.list-item {
                 width: 100%;
                 display: flex;
                 align-items: center;
@@ -276,8 +325,7 @@ export const Style = createGlobalStyle`
                 text-align: start;
                 padding: 10px 0px 10px 20px;
                 background-color: var(--primary-color);
-                color: var(--text);
-            };
+            }
             &.list-item-menu {
                     display: inline-block;
                     flex-grow: 1;
