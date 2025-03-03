@@ -51,7 +51,7 @@ export const Style = createGlobalStyle`
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 50px 20px 60px;
+            margin: 50px 20px 60px;
                 @media (min-width: ${MediaSizes.mobile}) {
                     margin: 50px 40px 60px;
                 }
@@ -69,89 +69,23 @@ export const Style = createGlobalStyle`
         }
     }   
 
-    div {
-        &.container-profile {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-        }
-        &.container-movies {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 30px;
-        }
-    }
-
-
-
     h1 {
         font-size: 45px;
         color: var(--text);
         background-color: var(--secondary-color);
         padding: 7px 20px;
-        margin-bottom: 30px; 
-            &.profile-card {
-                @media(min-width: ${MediaSizes.tablet}) {
-                    display: none  ;  
-                }
-            }
-            &.person-info {
-                    display: none;  
-                @media(min-width: ${MediaSizes.tablet}) {
-                    display: block;  
-                }
-            }
-        
+        margin-bottom: 30px;
     }
 
     h2 {
         font-size: 45px;
         color: var(--text);
-        margin: 30px auto 10px;
-            &.button-menu {
-                display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        color: var (--text);
-        background-color: var(--background-button);
-        white-space: nowrap;
-        padding: 5px 15px;
-        font-size: 20px;
-        font-weight: 700;
-        cursor: pointer;
-        margin: 0;
-        transition: 0.3s ease-in-out;
-            &:hover {
-                background-color:var(--secondary-color);
-                color: var(--primary-color);
-            }
-            &.active {
-                color: var(--text);
-                background-color: var (--secondary-color);
-                &:hover {
-                    color: var(--text)
-                }
-            }
-        @media (min-width: ${MediaSizes.mobile}) {
-                            font-size: 25px;
-                        }
-                    }
     }
 
     h3 {
         color: var(--text);
         font-size: 25px;
         font-weight: 500;
-            &.movie-year {
-                width: 55px;
-                display: inline;
-                margin: 0;
-                padding-right: 10px;
-                border-right: 2px solid var(--secondary-color);
-            }
     }
 
     h4 {
@@ -162,10 +96,7 @@ export const Style = createGlobalStyle`
     h5 {
         font-size: 25px;
         color: var(--text);
-            &.subtitle {
-                color: var(--subtitle);
-                border-top: 2px solid var(--subtitle);
-            }
+
     }
 
     p {
@@ -174,31 +105,9 @@ export const Style = createGlobalStyle`
         font-weight: 300;
         text-align: start;
         color: var(--text);
-            &.biography {
-                margin: 10px 0 30px;
-                font-size: 20px;
-            }
     }
 
     img {
-            &.profile-card {
-                width: 213px;
-                height: 320px;
-                margin-bottom: 15px;
-            }
-            &.cover-small {
-                    width: 114px;
-                    height: 180px;
-            }
-            &.logo {
-                width: 105px;
-                    @media (min-width: ${MediaSizes.tablet}) {
-                        width: 135px;
-                }
-                    @media (min-width: ${MediaSizes.desktopSmall}) {
-                        width: 165px;
-                }
-            }
             &.loading {
                 width: 350px;
                 margin: auto;
@@ -209,54 +118,14 @@ export const Style = createGlobalStyle`
             }
     }
 
-    
     a {
         text-decoration: none;
         cursor: pointer;
             &.movie {
                     width: 110px; 
-    margin-top: 20px;
+                    margin-top: 20px;
             }
-            &.button {
-                color: var(--background-main);
-                background-color: var(--text);
-                padding: 10px;
-                display: flex;
-                gap: 10px;
-                justify-content: center;
-                align-items: center;
-                font-size: 30px;
-                font-weight: 700;
-                transition: 0.2s;
-                margin-top: 20px;
-                    &:hover {
-                        transform: scale(1.05); 
-                    }
-                    &.teste {
-                        background-color: red !important;
-                    }
-            }
-
-    nav {
-        width: 100%;
-        top: 160px;
-        opacity: 0;
-        transform: translateY(40px);
-        visibility: hidden; 
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-            &.menuActive {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(-5px)
-            }
-            @media (min-width: ${MediaSizes.desktopSmall}) {
-                        opacity: 1;
-                        visibility: visible;
-                        transform: translateY(0);
-            }
-
     }
-    
     
     svg {
         color: var(--secondary-color);
@@ -291,47 +160,4 @@ export const Style = createGlobalStyle`
             }
         }
     }
-
-    ul {
-        width: 10%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        padding: 0 10px;
-        &.container-list-movies {
-            width: 100%;
-            flex-direction: column;
-            align-items: start;
-            list-style-type: none;
-            gap: 10px;
-            margin-top: 40px;
-            background-color: red; // Certifique-se de que esta linha está correta
-        }
-    }
-
-
-    li {
-        display: inline-block;
-        flex-grow: 1;
-        width: auto;
-        min-height: 0px;
-            &.list-item {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-size: 30px;
-                text-align: start;
-                padding: 10px 0px 10px 20px;
-                background-color: var(--primary-color);
-            }
-            &.list-item-menu {
-                    display: inline-block;
-                    flex-grow: 1;
-                    list-style-type: none
-            }
-    }
-
-    
 `

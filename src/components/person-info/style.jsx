@@ -1,0 +1,98 @@
+import styled from "styled-components";
+import { MediaSizes } from "../../style/media-size";
+
+export const PageTitle = styled.h1`
+    display: none;
+        @media(min-width: ${MediaSizes.tablet}) {
+            display: inline-block;  
+        }
+`
+
+export const Title = styled.h2`
+    margin-top: 30px;
+`
+
+export const MovieName = styled.h3`
+`
+
+export const MovieYear = styled.h3`
+    padding-right: 10px;
+    border-right: 2px solid var(--secondary-color)
+`
+
+export const Text = styled.p`
+`
+
+export const TextBiography = styled.p`
+    font-size: 20px;
+    margin-bottom: 70px
+`
+
+export const List = styled.ul`
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    list-style-type: none;
+    gap: 10px;
+    margin-top: 30px;
+`
+
+export const ListItem = styled.li`
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 30px;
+    text-align: start;
+    padding: 10px 0px 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--text);
+    margin-bottom: 15px;
+        &:hover {
+            box-shadow: 0px 0px 7px var(--secondary-color);
+        }
+`
+
+export const ContainerMovies = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+`
+
+export const Movie = styled.div`
+    width: 110px; 
+    margin-top: 20px;
+`
+
+export const MovieCover = styled.img`
+    width: 114px;
+    height: 180px;
+`
+
+export const ButtonFilmography = styled.button`
+    border: none;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--background-main);
+    background-color: var(--text);
+    cursor: pointer;
+    padding: 10px 30px;
+    transform: translateY(30px);
+    transition: 0.2s;
+        &:hover {
+            transform: scale(1.05) translateY(28px);
+        }
+`
+
+export const Loading = styled.img`
+    width: 350px;
+    margin: auto;
+`
+
+export const Error = styled.img`
+    width: 350px;
+    margin: auto; 
+`

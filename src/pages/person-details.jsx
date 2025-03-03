@@ -7,7 +7,7 @@ import { PersonInfo } from "../components/person-info";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 
-const DetailsPerson = () => {
+const PersonDetails = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -92,8 +92,8 @@ const DetailsPerson = () => {
                 <ProfileCard
                     name={actor.name}
                     image={actor.profile_path}
-                    info1={actor.birthday}
-                    info2={actor.place_of_birth}
+                    birthday={actor.birthday}
+                    city={actor.place_of_birth}
                 />
                 <PersonInfo
                     person={actor}
@@ -106,8 +106,7 @@ const DetailsPerson = () => {
             </main >
             <Footer />
         </>
-
     );
 };
 
-export { DetailsPerson };
+export { PersonDetails };
