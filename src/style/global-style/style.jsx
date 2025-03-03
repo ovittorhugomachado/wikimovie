@@ -87,7 +87,7 @@ export const Style = createGlobalStyle`
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin: 0 10px 40px;
         }
         &.container-buttons {
             display: flex;
@@ -172,7 +172,7 @@ export const Style = createGlobalStyle`
     }
     
     svg {
-        color: var(--secondary-color);
+        color: var(--primary-color);
         width: 40px;
         height: 40px;
         transition: 0.3s;
@@ -185,7 +185,13 @@ export const Style = createGlobalStyle`
             height: 100%;
             border: 2px solid var(--text);
             width: 60px;
-
+            cursor: pointer;
+            transform: scale(1);
+                &:hover {
+                    background-color: var(--secondary-color);
+                    border: 2px solid var(--secondary-color); 
+                    color: var(--text);
+                }
         }
         &.arrow-left {
             cursor: pointer;
@@ -199,8 +205,7 @@ export const Style = createGlobalStyle`
         &.social-media {
             color: var(--text);
                 &:hover {
-                    
-                    color: var(--secondary-color)    
+                    color: var(--secondary-color); 
                 }
         }
         &.youtube {
@@ -213,3 +218,4 @@ export const Style = createGlobalStyle`
         }
     }
 `
+

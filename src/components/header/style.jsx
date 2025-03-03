@@ -60,6 +60,7 @@ export const DivSearch = styled.div`
     align-items: center;
     border: 2px solid var(--text);
     height: 40px;
+    border-radius: 5px
 `
 
 export const InputSearch = styled.input`
@@ -73,6 +74,13 @@ export const InputSearch = styled.input`
         &:active {
             border: none
         }
+        &:focus {
+            outline: none; 
+            box-shadow: none; 
+            border-color: var(--primary-color);
+            box-shadow: 0px 0px 7px var(--secondary-color);
+  }
+}
 `
 export const Nav = styled.nav`
     width: 100%;

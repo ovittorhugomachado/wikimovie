@@ -1,14 +1,9 @@
-import {
-    Container,
-    Info,
-    ContainerSocialMedia
-} from "./style";
+import { Container, Info, ContainerSocialMedia } from "./style";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
 
 const Footer = () => {
-    
     return (
         <Container>
             <Info>Desenvolvido por Vitor Hugo Machado</Info>
@@ -27,6 +22,7 @@ const Footer = () => {
             <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank">
                 <img src="/tmdb-logo.png" width={100} alt="" />
             </a>
+
         </Container>
     )
 }
