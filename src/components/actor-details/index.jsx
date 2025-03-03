@@ -1,13 +1,21 @@
+import {
+    Main,
+    Loading,
+    Error,
+    ContainerRight,
+    ContainerMovies,
+    Movie,
+
+} from "./style";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchActorDetails } from "../services/getMovies";
-import { fetchActorFilmography } from "../services/getMovies";
-import { ProfileCard } from "../components/profile-card";
-import { PersonInfo } from "../components/person-info";
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
+import { fetchActorDetails } from "../../services/getMovies";
+import { fetchActorFilmography } from "../../services/getMovies";
+import { ProfileCard } from "../profile-card";
+import { PersonInfo } from "../person-info";
 
-const DetailsPerson = () => {
+const ContainerPersonDetails = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -18,15 +26,9 @@ const DetailsPerson = () => {
     const [allMoviesActor, setAllMoviesActor] = useState([]);
     const [allMoviesProducer, setAllMoviesProducer] = useState([]);
 
-    const removeDuplicatesAndSortByYear = (array) => {
+    const removeDuplicates = (array) => {
         const uniqueIds = new Set();
-        return array
-            .filter(item => !uniqueIds.has(item.id) && uniqueIds.add(item.id)) // Remove duplicatas
-            .sort((a, b) => {
-                const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
-                const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
-                return yearB - yearA; // Ordena em ordem decrescente
-            });
+        return array.filter(item => !uniqueIds.has(item.id) && uniqueIds.add(item.id));
     };
 
     const sortByReleaseDate = (array) => {
@@ -58,11 +60,11 @@ const DetailsPerson = () => {
                 setActor(actorData);
                 setFilmography(filmographyData);
 
-                const uniqueCast = removeDuplicatesAndSortByYear(filmographyData.cast || []);
+                const uniqueCast = removeDuplicates(filmographyData.cast || []);
                 setTopMoviesActor(getTopMovies(uniqueCast));
                 setAllMoviesActor(sortByReleaseDate(uniqueCast));
 
-                const uniqueCrew = removeDuplicatesAndSortByYear(filmographyData.crew || []);
+                const uniqueCrew = removeDuplicates(filmographyData.crew || []);
                 setTopMoviesProducer(getTopMovies(uniqueCrew));
                 setAllMoviesProducer(sortByReleaseDate(uniqueCrew));
 
@@ -77,24 +79,23 @@ const DetailsPerson = () => {
         fetchData();
     }, [id]);
 
-
     if (loading) {
-        return <img className="loading" src="/loading.png" />
+        return <Loading src="/loading.png" />
     }
     if (error) {
-        return <img className="error" src="/error.png" />
+        return <Error src="/error.png" />
     }
 
     return (
         <>
-            <Header />
-            <main className="details">
+            <Main>
                 <ProfileCard
                     name={actor.name}
                     image={actor.profile_path}
                     info1={actor.birthday}
                     info2={actor.place_of_birth}
                 />
+
                 <PersonInfo
                     person={actor}
                     filmography={filmography}
@@ -103,11 +104,10 @@ const DetailsPerson = () => {
                     topMoviesActor={topMoviesActor}
                     topMoviesProducer={topMoviesProducer}
                 />
-            </main >
-            <Footer />
+            </Main >
         </>
 
     );
 };
 
-export { DetailsPerson };
+export { ContainerPersonDetails };
