@@ -9,7 +9,7 @@ import { Loading } from "../components/loading";
 
 const ListMovies = () => {
 
-    const { id } = useParams();
+    const { id, genre } = useParams();
     const [listMovies, setListMovies] = useState([])
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -55,10 +55,14 @@ const ListMovies = () => {
         rating: movie.vote_average.toFixed(1),
     }));
 
+    const titlePage = genre.toUpperCase()
+
     return (
         <>
             <Header />
+
             <main className="list">
+                <h1>{titlePage}</h1>
                 <div className="list">
                     {list.map((movie, index) => (
                         <MovieCard key={index}
