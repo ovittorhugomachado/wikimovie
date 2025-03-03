@@ -1,20 +1,19 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchDetailsMovie } from "../services/getMovies";
-import { fetchCreditsMovie } from "../services/getMovies";
-import { fetchTrailerMovie } from "../services/getMovies";
+import { fetchDetailsMovie, fetchCreditsMovie, fetchTrailerMovie } from "../services/getMovies";
 import { ProfileCard } from "../components/profile-card";
 import { MovieInfo } from "../components/movie-info";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { Loading } from "../components/loading";
 
 const MovieDetails = () => {
     const { id } = useParams();
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [movieData, setMovieData] = useState(null);
-    const [trailerMovie, setTrailerMovie] = useState([])
-    const [movieCast, setMovieCast] = useState([]);
+    const [ loading, setLoading]  = useState(true);
+    const [ error, setError ] = useState(null);
+    const [ movieData, setMovieData ] = useState(null);
+    const [ trailerMovie, setTrailerMovie ] = useState([])
+    const [ movieCast, setMovieCast ] = useState([]);
 
     useEffect(() => {
         setLoading(true);
@@ -37,7 +36,7 @@ const MovieDetails = () => {
     }, [id]);
 
     if (loading) {
-        return <img className="loading" src="/loading.png" />
+        return <Loading />
     }
     if (error) {
         return <img className="error" src="/error.png" />

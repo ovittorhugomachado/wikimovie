@@ -45,6 +45,11 @@ export const Style = createGlobalStyle`
     }
 
     main {
+        &.home {
+            margin-top: 50px;
+            width: 100%;
+
+        }
         &.details {
             max-width: 1400px;
             display: flex;
@@ -67,7 +72,32 @@ export const Style = createGlobalStyle`
                     margin: 50px 120px 60px;
                 }
         }
+        &.list {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px auto;
+        }
     }   
+
+    div {
+        &.list {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        &.container-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 0 40px 20px;
+                @media (min-width: ${MediaSizes.tablet}) {
+                    flex-direction: row;
+        }
+    }
 
     h1 {
         font-size: 45px;
@@ -96,7 +126,6 @@ export const Style = createGlobalStyle`
     h5 {
         font-size: 25px;
         color: var(--text);
-
     }
 
     p {
@@ -125,6 +154,21 @@ export const Style = createGlobalStyle`
                     width: 110px; 
                     margin-top: 20px;
             }
+        &.button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 270px;
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--background-main);
+            background-color: var(--text);
+            padding: 10px 20px;
+            transition: 0.2s;
+                &:hover {
+                    transform: scale(1.05)
+        }
+        }
     }
     
     svg {
@@ -142,7 +186,7 @@ export const Style = createGlobalStyle`
             cursor: pointer;
         }
         &.button {
-            color: var(--text);
+            color: var(--background-main);
         }
         &.social-media {
             color: var(--text);

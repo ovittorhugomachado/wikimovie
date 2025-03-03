@@ -6,6 +6,7 @@ import { ProfileCard } from "../components/profile-card";
 import { PersonInfo } from "../components/person-info";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { Loading } from "../components/loading";
 
 const PersonDetails = () => {
     const { id } = useParams();
@@ -79,7 +80,7 @@ const PersonDetails = () => {
 
 
     if (loading) {
-        return <img className="loading" src="/loading.png" />
+        return <Loading />
     }
     if (error) {
         return <img className="error" src="/error.png" />

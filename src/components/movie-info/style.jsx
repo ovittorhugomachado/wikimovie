@@ -118,6 +118,9 @@ export const Actor = styled.div`
 export const Photo = styled.img`
     width: 84px;
     height: 120px;
+        &:hover {
+            box-shadow: 0px 0px 7px var(--secondary-color);
+        }
 `
 
 export const NameActor = styled.h3`

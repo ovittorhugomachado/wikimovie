@@ -1,14 +1,15 @@
-import { PageTitle, 
-         Title, 
-         TextBiography, 
-         Text, 
-         ContainerMovies, 
-         MovieCover, 
-         MovieName, 
-         MovieYear, 
-         ButtonFilmography, 
-         ListItem, 
-         List 
+import {
+    PageTitle,
+    Title,
+    TextBiography,
+    Text,
+    ContainerMovies,
+    MovieCover,
+    MovieName,
+    MovieYear,
+    ButtonFilmography,
+    ListItem,
+    List
 } from "./style";
 import { useState } from "react";
 import { Link } from "react-router-dom";

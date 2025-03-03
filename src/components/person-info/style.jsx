@@ -12,6 +12,29 @@ export const Title = styled.h2`
     margin-top: 30px;
 `
 
+export const TextBiography = styled.p`
+    font-size: 20px;
+    margin-bottom: 70px
+`
+
+export const Text = styled.p`
+`
+
+export const ContainerMovies = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+`
+
+export const MovieCover = styled.img`
+    width: 114px;
+    height: 180px;
+        &:hover {
+            box-shadow: 0px 0px 7px var(--secondary-color);
+        }
+`
+
 export const MovieName = styled.h3`
 `
 
@@ -20,21 +43,20 @@ export const MovieYear = styled.h3`
     border-right: 2px solid var(--secondary-color)
 `
 
-export const Text = styled.p`
-`
-
-export const TextBiography = styled.p`
-    font-size: 20px;
-    margin-bottom: 70px
-`
-
-export const List = styled.ul`
-    width: 100%;
-    flex-direction: column;
-    align-items: start;
-    list-style-type: none;
-    gap: 10px;
-    margin-top: 30px;
+export const ButtonFilmography = styled.button`
+    border: none;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--background-main);
+    background-color: var(--text);
+    cursor: pointer;
+    padding: 10px 30px;
+    transform: translateY(30px);
+    transition: 0.2s;
+        &:hover {
+            transform: scale(1.05) translateY(28px);
+        }
 `
 
 export const ListItem = styled.li`
@@ -54,45 +76,11 @@ export const ListItem = styled.li`
         }
 `
 
-export const ContainerMovies = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-`
-
-export const Movie = styled.div`
-    width: 110px; 
-    margin-top: 20px;
-`
-
-export const MovieCover = styled.img`
-    width: 114px;
-    height: 180px;
-`
-
-export const ButtonFilmography = styled.button`
-    border: none;
-    display: inline-block;
-    font-size: 25px;
-    font-weight: 700;
-    color: var(--background-main);
-    background-color: var(--text);
-    cursor: pointer;
-    padding: 10px 30px;
-    transform: translateY(30px);
-    transition: 0.2s;
-        &:hover {
-            transform: scale(1.05) translateY(28px);
-        }
-`
-
-export const Loading = styled.img`
-    width: 350px;
-    margin: auto;
-`
-
-export const Error = styled.img`
-    width: 350px;
-    margin: auto; 
+export const List = styled.ul`
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    list-style-type: none;
+    gap: 10px;
+    margin-top: 30px;
 `

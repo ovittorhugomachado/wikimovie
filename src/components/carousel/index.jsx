@@ -1,8 +1,20 @@
-import { ButtonLeft, ButtonRight, CarouselContainer, CategoryTitles, DivMovie, DivMovies, Image, InfoMovie, Year, MovieName, MovieReview } from "./style";
-import { BiSolidLeftArrow } from "react-icons/bi";
-import { BiSolidRightArrow } from "react-icons/bi";
+import {
+    ButtonLeft,
+    ButtonRight,
+    CarouselContainer,
+    CategoryTitles,
+    DivMovie, 
+    DivMovies,
+    Image,
+    InfoMovie,
+    Year,
+    MovieName,
+    MovieReview
+} from "./style";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { BiSolidLeftArrow } from "react-icons/bi";
+import { BiSolidRightArrow } from "react-icons/bi";
 
 const Carousel = ({ nameCarousel, listMovies }) => {
     const [currentMovie, setCurrentMovie] = useState(9);
@@ -21,8 +33,6 @@ const Carousel = ({ nameCarousel, listMovies }) => {
             setPositionCarousel((prevPosition) => prevPosition + 140);
         }
     };
-
-    console.log(listMovies)
 
     return (
         <CarouselContainer>
@@ -51,7 +61,6 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                             </InfoMovie>
                         </DivMovie>
                     </Link>
-
                 ))}
                 <ButtonRight
                     onClick={scrollRight}

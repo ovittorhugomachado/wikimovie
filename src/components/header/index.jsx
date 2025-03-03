@@ -1,4 +1,14 @@
-import { DivHeader, Logo, Nav, Ul, Li, Button, HamburgerContainer, HamburgerSpan, DivLogo } from "./style";
+import {
+    DivHeader,
+    Logo,
+    Nav,
+    Ul,
+    Li,
+    Button,
+    HamburgerContainer,
+    HamburgerSpan,
+    DivLogo
+} from "./style";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import genre from "../../../json/genre.json"
@@ -6,9 +16,8 @@ import genre from "../../../json/genre.json"
 const Header = () => {
 
     const { id } = useParams()
-
-    const [ menuActive, setMenuActive ] = useState(false);
-
+    const [menuActive, setMenuActive] = useState(false);
+    
     const handleClick = () => {
         setMenuActive(!menuActive);
     };

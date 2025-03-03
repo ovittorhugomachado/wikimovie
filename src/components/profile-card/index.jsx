@@ -1,4 +1,11 @@
-import { ContainerProfile, PageTitle, Image, Info1, Info2, Info3 } from "./style";
+import {
+    ContainerProfile,
+    PageTitle,
+    Image,
+    Info1,
+    Info2,
+    Info3
+} from "./style";
 
 const ProfileCard = ({ name, image, info1, info2, info3 }) => {
     return (
