@@ -20,7 +20,7 @@ const Footer = () => {
             </ContainerSocialMedia>
             <Info>Dados fornecidos por The Movie Database (TMDB)</Info>
             <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank">
-                <img src="../tmdb-logo.png" width={100} alt="" />
+                <img src="/tmdb-logo.png" width={100} alt="" />
             </a>
 
         </Container>

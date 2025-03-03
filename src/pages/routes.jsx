@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./home";
 import { ListMovie } from "./list";
-import { DetailsMovie } from "./Movie-details";
+import { MovieDetails } from "./movie-details"
 import { PersonDetails } from "./person-details";
 
 
@@ -11,7 +11,7 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/:genre/:id" element={<ListMovie />}/>
-                <Route path="/details/movie/:id" element={<DetailsMovie />}/>
+                <Route path="/details/movie/:id" element={<MovieDetails />}/>
                 <Route path="/details/person/:id" element={<PersonDetails />}/>
             </Routes>
         </BrowserRouter>

@@ -25,9 +25,20 @@ export const Image = styled.img`
     margin-bottom: 15px;
 `
 
-export const Birthday = styled.h5`
+export const Info1 = styled.h5`
 `
-export const City = styled.h5`
+export const Info2 = styled.h5`
     color: var(--subtitle);
     border-top: 2px solid var(--subtitle);
+`
+
+export const Info3 = styled.h3`
+    font-size: 35px;
+    font-weight: 600;
+    width: 110%;
+    color: var(--text);
+    border: 2px solid var(--secondary-color);
+    padding: 5px 20px;
+    margin-top: 20px;
+    max-width: 290px;
 `

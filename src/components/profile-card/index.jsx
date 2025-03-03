@@ -1,6 +1,6 @@
-import { ContainerProfile, PageTitle, Image, Birthday, City } from "./style";
+import { ContainerProfile, PageTitle, Image, Info1, Info2, Info3 } from "./style";
 
-const ProfileCard = ({ name, image, birthday, city }) => {
+const ProfileCard = ({ name, image, info1, info2, info3 }) => {
     return (
         <ContainerProfile>
             <PageTitle>{name}</PageTitle>
@@ -10,8 +10,9 @@ const ProfileCard = ({ name, image, birthday, city }) => {
                 alt={name}
                 onError={(e) => e.target.src = "/default-actor.png"}
             />
-            <Birthday>{birthday}</Birthday>
-            <City>{city}</City>
+            <Info1>{info1}</Info1>
+            <Info2>{info2}</Info2>
+            {info3 && <Info3>{info3}</Info3>}
         </ContainerProfile>
     )
 }

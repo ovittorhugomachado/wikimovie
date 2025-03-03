@@ -92,8 +92,9 @@ const PersonDetails = () => {
                 <ProfileCard
                     name={actor.name}
                     image={actor.profile_path}
-                    birthday={actor.birthday}
-                    city={actor.place_of_birth}
+                    info1={actor.birthday}
+                    info2={actor.place_of_birth}
+                    info3={null}
                 />
                 <PersonInfo
                     person={actor}

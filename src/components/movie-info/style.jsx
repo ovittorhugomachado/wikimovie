@@ -1,47 +1,23 @@
 import styled from "styled-components";
 import { MediaSizes } from "../../style/media-size";
 
-export const Main = styled.main`
-    max-width: 1400px;
+export const ContainerMovieInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 50px 20px 60px;
-        @media (min-width: ${MediaSizes.mobile}) {
-            margin: 50px 40px 60px;
-        }
-        @media (min-width: ${MediaSizes.tablet}) {
-            flex-direction: row;
-            align-items: start;
-            margin-top: 80px;
-        }
-        @media (min-width: ${MediaSizes.desktopSmall}) {
-            margin: 50px 60px 60px;
-        }
-        @media (min-width: ${MediaSizes.desktopLarge}) {
-            margin: 50px 120px 60px;
-        }
 `
 
-export const PageTitle = styled.h2`
-    background-color: var(--secondary-color);
+export const PageTitle = styled.h1`
     padding: 7px 20px;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
+    display: none;
     @media (min-width: ${MediaSizes.tablet}) {
             display: none;
         }
 `
 
-export const ContainerColumn = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-`
-
-export const TitleInfoMovie = styled.h2`
+export const TitleInfoMovie = styled.h1`
     background-color: var(--secondary-color);
     padding: 7px 20px;
     display: none;
@@ -51,43 +27,8 @@ export const TitleInfoMovie = styled.h2`
         }
 `
 
-export const ContainerMovie = styled.div`
-    width: 190px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-        @media (min-width: ${MediaSizes.tablet}) {
-            margin-right: 80px;
-        }
-`
-
-export const MovieCover = styled.img`
-    width: 213px;
-    height: 320px;
-    margin-bottom: 15px;
-`
-
-export const MovieTime = styled.h3`
-`
-
-export const ContainerCategory = styled.div`
-    margin-bottom: 20px;
-`
-
-export const Genre = styled.h4`
-    display: inline-block;
-    padding: 0 5px;
-    text-align: start;
-`
-
-export const MovieReview = styled.h2`
-    width: 213px;
-    border: 2px solid var(--secondary-color);
-    padding: 5px;
-    font-size: 30px;
-`
-
 export const PlayTrailer = styled.a`
+    max-width: 290px;
     color: var(--background-main);
     background-color: var(--text);
     padding: 10px;
@@ -103,15 +44,17 @@ export const PlayTrailer = styled.a`
         }
 `
 
-export const ContainerTrailer = styled.div`
-`
-
 export const ContainerSinopse = styled.div`
     margin-top: 20px;
     padding-bottom: 25px;
         @media (min-width: ${MediaSizes.desktopSmall}) {
             padding: 0 50px 25px
         }
+`
+
+export const ContainerCrew = styled.div`
+    display: flex;
+    gap: 10px;
 `
 
 export const Direction = styled.div`
@@ -131,9 +74,8 @@ export const Crew = styled.div`
     justify-content: center
 `
 
-export const Title = styled.h1`
-    font-size: 35px;
-    margin-bottom: 10px;
+export const Title = styled.h2`
+    margin-bottom: 20px;
 `
 
 export const Text = styled.p`
@@ -141,6 +83,7 @@ export const Text = styled.p`
     font-size: 20px;
     font-family: inter;
     font-weight: 300;
+    margin-bottom: 40px;
         &.sinopse {
             text-align: start;
         }
