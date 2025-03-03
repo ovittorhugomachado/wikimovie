@@ -179,6 +179,14 @@ export const Style = createGlobalStyle`
             &:hover {
                 transform: scale(1.2);     
             }
+        &.button-search {
+            color: var(--primary-color);
+            background-color: var(--text);
+            height: 100%;
+            border: 2px solid var(--text);
+            width: 60px;
+
+        }
         &.arrow-left {
             cursor: pointer;
         }

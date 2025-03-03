@@ -8,22 +8,22 @@ export const DivHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding-bottom: 10px;
+    padding: 0 10px 10px;
     top: 0;
     background-color: var(--primary-color);
     @media (min-width: ${MediaSizes.desktopSmall}) {
         padding-bottom: 30px;
     }
     &.headerSmall {
-            height: 110px;
+            height: 180px;
                 @media (min-width: ${MediaSizes.tablet}) {
-                    height: 150px;
+                    height: 190px;
                 }
                 @media (min-width: ${MediaSizes.desktopSmall}) {
-                    height: 290px;
+                    height: 325px;
                 }       
                 @media (min-width: 1441px) {
-                    height: 240px;
+                    height: 270px;
                 }       
     }
 `
@@ -52,7 +52,28 @@ export const Logo = styled.img`
             width: 165px;
         }
 `
+export const DivSearch = styled.div`
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--text);
+    height: 40px;
+`
 
+export const InputSearch = styled.input`
+    text-align: center;
+    padding: 5px 0;
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 25px;
+    width: 100%;
+        &:active {
+            border: none
+        }
+`
 export const Nav = styled.nav`
     width: 100%;
     top: 160px;
@@ -79,7 +100,6 @@ export const Ul = styled.ul`
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    padding: 0 10px;
 `
 
 export const Li = styled.li`

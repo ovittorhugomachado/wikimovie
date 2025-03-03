@@ -7,17 +7,21 @@ import {
     Button,
     HamburgerContainer,
     HamburgerSpan,
-    DivLogo
+    DivLogo,
+    InputSearch,
+    DivSearch,
 } from "./style";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import genre from "../../../json/genre.json"
+import { IoMdSearch } from "react-icons/io";
+
 
 const Header = () => {
 
     const { id } = useParams()
     const [menuActive, setMenuActive] = useState(false);
-    
+
     const handleClick = () => {
         setMenuActive(!menuActive);
     };
@@ -32,6 +36,14 @@ const Header = () => {
                     <HamburgerSpan className={`${menuActive ? 'active' : ''}`} />
                 </HamburgerContainer>
             </DivLogo>
+            <DivSearch>
+                
+                <InputSearch placeholder={"PESQUISAR"}></InputSearch>
+                <IoMdSearch className="button-search" />
+            </DivSearch>
+
+
+
             <Nav className={`${menuActive ? 'menuActive' : ''}`}>
                 <Ul>
                     {genre.map((genre, index) => (
