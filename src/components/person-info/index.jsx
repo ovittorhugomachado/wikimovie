@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ContainerProfile, ContainerMovies, Movie, } from "./style";
 import { Link } from "react-router-dom";
 
 const PersonInfo = ({ person, filmography, allMoviesActor, allMoviesProducer, topMoviesActor, topMoviesProducer }) => {
@@ -15,53 +14,49 @@ const PersonInfo = ({ person, filmography, allMoviesActor, allMoviesProducer, to
     };
 
     return (
-        <ContainerProfile>
+        <div className="container-profile">
             <h1 className="person-info">{person.name}</h1>
-            <h2>Biografia</h2>
-            <p className="biography">{person.biography || 'SEM BIOGRAFIA CADASTRADA'}</p>
+            {person.biography.length > 0 && (
+                <>
+                    <h2>Biografia</h2>
+                    <p className="biography">{person.biography}</p>
+                </>
+            )}
             <h2>Filmografia</h2>
-            <ContainerMovies>
+            <div className="container-movies">
                 {person.known_for_department == 'Acting' ? (
                     topMoviesActor.map((movie) => (
-                        <Movie >
-                            <Link key={movie.id} to={`/details/movie/${movie.id}`}>
-                                <img
-                                    className="cover-small"
-                                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                    alt={movie.title}
-                                    onError={(e) => e.target.src = "/default-cover.png"}
-                                />
-                                <h3>{movie.title}</h3>
-                            </Link>
-                        </Movie>
+                        <Link className="movie" key={movie.id} to={`/details/movie/${movie.id}`}>
+                            <img
+                                className="cover-small"
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                alt={movie.title}
+                                onError={(e) => e.target.src = "/default-cover.png"}
+                            />
+                            <h3>{movie.title}</h3>
+                        </Link>
                     ))
                 ) : (
                     topMoviesProducer.map((movie, index) => (
-                        <Movie key={index}>
-                            <Link to={`/details/movie/${movie.id}`}>
-                                <img
-                                    className="cover-small"
-                                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                    alt={movie.title}
-                                    onError={(e) => e.target.src = "/default-cover.png"}
-                                />
-                                <h3>{movie.title}</h3>
-                            </Link>
-                        </Movie>
+
+                        <Link className="movie" key={index} to={`/details/movie/${movie.id}`}>
+                            <img
+                                className="cover-small"
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                alt={movie.title}
+                                onError={(e) => e.target.src = "/default-cover.png"}
+                            />
+                            <h3>{movie.title}</h3>
+                        </Link>
                     ))
                 )
                 }
-            </ContainerMovies>
-            <ul className="container-list-movies" style={{ display: display }}>
+            </div>
+            <ul className="container-list-movies" style={{ width: '100%', display: display }}>
                 {allMoviesActor
-                    .sort((a, b) => {
-                        const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
-                        const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
-                        return yearB - yearA;
-                    })
                     .map((movie, index) => (
                         <Link key={index} className="movie" to={`/details/movie/${movie.id}`}>
-                            <li className="list-movies">
+                            <li className="list-item">
                                 <h3 className="movie-year">
                                     {movie.release_date ? movie.release_date.split("-")[0] : "----"}
                                 </h3>
@@ -78,14 +73,9 @@ const PersonInfo = ({ person, filmography, allMoviesActor, allMoviesProducer, to
                     <h2>Produção</h2>
                     <ul>
                         {allMoviesProducer
-                            .sort((a, b) => {
-                                const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
-                                const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
-                                return yearB - yearA;
-                            })
                             .map((movie, index) => (
                                 <Link key={index} className="movie" to={`/details/movie/${movie.id}`}>
-                                    <li className="list-movies">
+                                    <li className="list-item">
                                         <h3 className="movie-year">
                                             {movie.release_date ? movie.release_date.split("-")[0] : "----"}
                                         </h3>
@@ -100,11 +90,11 @@ const PersonInfo = ({ person, filmography, allMoviesActor, allMoviesProducer, to
                 </div>
             )}
             {display === 'none' ? (
-                <button onClick={showAllMovies}>filmografia completa</button>
+                <a className="button" onClick={showAllMovies}>filmografia completa</a>
             ) : (
-                <button onClick={showLess}>fechar lista</button>
+                <a className="button" onClick={showLess}>fechar lista</a>
             )}
-        </ContainerProfile>
+        </div>
     )
 }
 
