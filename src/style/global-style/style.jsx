@@ -190,7 +190,6 @@ export const Style = createGlobalStyle`
                 &:hover {
                     background-color: var(--secondary-color);
                     border: 2px solid var(--secondary-color); 
-                    color: var(--text);
                 }
         }
         &.arrow-left {
@@ -204,9 +203,6 @@ export const Style = createGlobalStyle`
         }
         &.social-media {
             color: var(--text);
-                &:hover {
-                    color: var(--secondary-color); 
-                }
         }
         &.youtube {
             width: 80px;

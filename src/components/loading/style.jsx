@@ -8,12 +8,11 @@ export const LoadingSymbol = styled.div`
     align-items: center;
     border-radius: 50%;
     margin: auto;
-    background: linear-gradient(
-        45deg,
-        var(--background-main),
-        var(--secondary-color)
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--secondary-color) var(--secondary-color) transparent;
     );
-    animation: spin 1s linear infinite;
+    animation: spin 1.5s linear infinite;
 
     @keyframes spin {
     0% {
@@ -25,10 +24,4 @@ export const LoadingSymbol = styled.div`
   }
 `
 
-export const CenterDiv = styled.div`
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: var(--background-main);
-`
 

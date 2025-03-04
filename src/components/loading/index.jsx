@@ -1,14 +1,9 @@
-import {
-    LoadingSymbol,
-    CenterDiv
-} from "./style"
+import { LoadingSymbol } from "./style"
 
 const Loading = () => {
     
     return (
-        <LoadingSymbol>
-            <CenterDiv />
-        </LoadingSymbol>
+        <LoadingSymbol />
     )
 }
 
