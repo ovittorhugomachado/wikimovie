@@ -17,7 +17,7 @@ import genre from "../../../json/genre.json"
 import { IoMdSearch } from "react-icons/io";
 
 const Header = () => {
-
+    
     const { id } = useParams()
     const [menuActive, setMenuActive] = useState(false);
 

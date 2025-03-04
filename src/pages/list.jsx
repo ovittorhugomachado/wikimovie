@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { fetchListByGenre } from "../services/getMovies";
 import { MovieCard } from "../components/movie-card";
 import { Loading } from "../components/loading";
+import jsonGenre from "../../json/genre.json"
 
 const ListMovies = () => {
 
@@ -14,6 +15,7 @@ const ListMovies = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1)
+    const currentGenre = jsonGenre.filter((genre) => genre.id == id)
 
     useEffect(() => {
 
@@ -55,14 +57,11 @@ const ListMovies = () => {
         rating: movie.vote_average.toFixed(1),
     }));
 
-    const titlePage = genre.toUpperCase()
-
     return (
         <>
             <Header />
-
             <main className="list">
-                <h1>{titlePage}</h1>
+                <h1>{currentGenre[0].name}</h1>
                 <div className="list">
                     {list.map((movie, index) => (
                         <MovieCard key={index}
