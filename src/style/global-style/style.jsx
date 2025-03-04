@@ -192,11 +192,21 @@ export const Style = createGlobalStyle`
                     border: 2px solid var(--secondary-color); 
                 }
         }
+        &.disable {
+            opacity: 0.2;
+                &:hover {
+                    transform: scale(1);
+                    cursor: auto;
+                }
+        }
         &.arrow-left {
             cursor: pointer;
+            color: var(--secondary-color);
+
         }
         &.arrow-right {
             cursor: pointer;
+            color: var(--secondary-color);
         }
         &.button {
             color: var(--background-main);
@@ -212,6 +222,7 @@ export const Style = createGlobalStyle`
                 transform: scale(1); 
             }
         }
+        
     }
 `
 

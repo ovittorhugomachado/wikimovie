@@ -23,16 +23,18 @@ const Carousel = ({ nameCarousel, listMovies }) => {
     const scrollRight = () => {
         if (currentMovie < listMovies.length - 1) {
             setCurrentMovie((prevMovie) => prevMovie + 1);
-            setPositionCarousel((prevPosition) => prevPosition - 140);
+            setPositionCarousel((prevPosition) => prevPosition - 152);
         }
     };
 
     const scrollLeft = () => {
         if (currentMovie > 0) {
             setCurrentMovie((prevMovie) => prevMovie - 1);
-            setPositionCarousel((prevPosition) => prevPosition + 140);
+            setPositionCarousel((prevPosition) => prevPosition + 152);
         }
     };
+
+    console.log(currentMovie)
 
     return (
         <CarouselContainer>
@@ -42,7 +44,9 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                     onClick={scrollLeft}
                     disabled={currentMovie === 0}
                 >
-                    <BiSolidLeftArrow className="arrow-left" />
+                    <BiSolidLeftArrow 
+                         className={`arrow-left ${currentMovie === 0 ? 'disable' : ''}`} 
+                    />
                 </ButtonLeft>
                 {listMovies.map((movie, index) => (
                     <Link to={`/details/movie/${movie.id}`} key={index}>
@@ -65,8 +69,11 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                 <ButtonRight
                     onClick={scrollRight}
                     disabled={currentMovie === listMovies.length - 1}
+                    className={listMovies.length === 19 ? 'disable' : ''}
                 >
-                    <BiSolidRightArrow className="arrow-right" />
+                    <BiSolidRightArrow
+                        className={`arrow-right ${currentMovie === 18 ? 'disable' : ''}`} 
+                    />
                 </ButtonRight>
             </DivMovies>
         </CarouselContainer>
