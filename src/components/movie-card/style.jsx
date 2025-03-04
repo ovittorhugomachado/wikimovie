@@ -10,7 +10,7 @@ export const Movie = styled.div`
     flex-direction: column;
     justify-content: start;
         &:hover {
-            box-shadow: 0px 0px 7px var(--secondary-color);
+            box-shadow: 0 0 0px 2px var(--secondary-color);
         }
 `
 

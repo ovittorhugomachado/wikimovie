@@ -71,14 +71,14 @@ export const Image = styled.img`
     transition: 0.3s;
     opacity: 0.3;
         &:hover {
-             box-shadow: 0 0 10px var(--secondary-color);
+            box-shadow: 0 0 0px 2px var(--secondary-color);
         }
         &.active {
             transform: scale(1.28);
             z-index: 2;
             opacity: 1;
                 &:hover {
-                    box-shadow: 0 0 5px var(--secondary-color);
+                    box-shadow: 0 0 0px 2px var(--secondary-color);
                 }
         }
 `

@@ -31,7 +31,7 @@ export const MovieCover = styled.img`
     width: 114px;
     height: 180px;
         &:hover {
-            box-shadow: 0px 0px 7px var(--secondary-color);
+            box-shadow: 0 0 0px 2px var(--secondary-color);
         }
 `
 
@@ -70,9 +70,9 @@ export const ListItem = styled.li`
     padding: 10px 0px 10px 20px;
     background-color: var(--primary-color);
     color: var(--text);
-    margin-bottom: 15px;
+    margin-bottom: 7px;
         &:hover {
-            box-shadow: 0px 0px 7px var(--secondary-color);
+            box-shadow: 0 0 0px 2px var(--secondary-color);
         }
 `
 
