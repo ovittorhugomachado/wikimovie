@@ -75,7 +75,7 @@ const ListMovies = () => {
                 </div>
                 <div className="container-buttons">
                     {page > 1 && (
-                        <a className="button" onClick={previousPage}><IoIosArrowBack className="button" />PÁGINA ANTERIOR</a>
+                        <a className="button previous-page" onClick={previousPage}><IoIosArrowBack className="button" />PÁGINA ANTERIOR</a>
                     )}
                     <a className="button" onClick={nextPage}>PRÓXIMA PÁGINA<IoIosArrowForward className="button" /></a>
                 </div>

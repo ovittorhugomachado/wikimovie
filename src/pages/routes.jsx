@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./home";
 import { ListMovies } from "./list";
-import { MovieDetails } from "./movie-details"
+import { MovieDetails } from "./Movie-details";
 import { PersonDetails } from "./person-details";
 
 const AppRoutes = () => {
