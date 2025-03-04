@@ -63,13 +63,14 @@ export const DivSearch = styled.div`
 `
 
 export const InputSearch = styled.input`
-    text-align: center;
+    text-align: start;
     padding: 5px 0;
     background-color: transparent;
     border: none;
     color: var(--text);
     font-size: 25px;
     width: 100%;
+    padding-left: 20px;
         &:active {
             border: none
         }
@@ -77,7 +78,17 @@ export const InputSearch = styled.input`
             outline: none; 
             box-shadow: none; 
             border-color: var(--primary-color);
-  }
+        }
+        @media (min-width: ${MediaSizes.mobile}) {
+            padding-right: 10%;
+
+        }
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+            text-align: center;
+            padding-right: 40px;
+            &::placeholder {
+            text-indent: 90px;
+        }
 }
 `
 export const Nav = styled.nav`
@@ -97,7 +108,6 @@ export const Nav = styled.nav`
                     visibility: visible;
                     transform: translateY(0);
         }
-
 `
 
 export const Ul = styled.ul`
