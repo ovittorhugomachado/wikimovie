@@ -225,7 +225,17 @@ export const Style = createGlobalStyle`
                 transform: scale(1); 
             }
         }
-        
+        &.filter-arrow {
+            color: var(--text);
+            cursor: pointer;
+            transition: 0.7s;
+                &:hover {
+                    color: var(--secondary-color);
+                }
+                &.active {
+                    transform: rotate(180deg)
+                }
+        }
     }
 `
 

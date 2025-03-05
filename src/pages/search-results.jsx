@@ -7,7 +7,9 @@ const SearchResults = () => {
     return (
         <>
             <Header />
-            <ListResults />
+            <main>
+                <ListResults />
+            </main>
             <Footer />
         </>
 
