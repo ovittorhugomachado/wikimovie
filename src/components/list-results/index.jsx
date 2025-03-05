@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Container, TitlePage, FilterContainer, Title, List, ListItem, TitleBold, Filter, FilterItemTitle, FilterItemSubtitle } from "./style";
+import { Container, TitlePage, FilterContainer, Title, List, ListItem, TitleBold, Filter, FilterItemTitle, FilterItemSubtitle, Cover, ItemName, JobAndMovies, Job, Movies, Info } from "./style";
 import { IoIosArrowDown } from "react-icons/io";
 
 const ListResults = () => {
 
-    const [ visibleFilter, setVisibleFilter ] = useState(false)
+    const [visibleFilter, setVisibleFilter] = useState(false)
 
     const OpenFilter = () => {
         setVisibleFilter(!visibleFilter)
@@ -26,7 +26,17 @@ const ListResults = () => {
                     </Filter>
                 </FilterContainer>
                 <List>
-                    <ListItem></ListItem>
+                    <ListItem>
+                        <Cover src="/default-actor.png" />
+                        <Info>
+                            <ItemName>Jack Nicholson</ItemName>
+                            <JobAndMovies>
+                                <Job>ator</Job>
+                                <Movies>wafafcasca,evg fefefwefw fwefwefwef</Movies>
+                            </JobAndMovies>
+                        </Info>
+                    </ListItem>
+
                 </List>
             </Container>
         </>

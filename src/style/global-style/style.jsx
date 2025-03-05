@@ -79,6 +79,11 @@ export const Style = createGlobalStyle`
             flex-wrap: wrap;
             margin: 40px auto;
         }
+        &.search-result {
+            width: 100%;
+            max-width: 1200px;
+            flex-grow: 1;
+        }
     }   
 
     div {
@@ -108,7 +113,7 @@ export const Style = createGlobalStyle`
     }
 
     h2 {
-        font-size: 45px;
+        font-size: 35px;
         color: var(--text);
     }
 
@@ -124,7 +129,7 @@ export const Style = createGlobalStyle`
     }
 
     h5 {
-        font-size: 25px;
+        font-size: 20px;
         color: var(--text);
     }
 
@@ -226,14 +231,20 @@ export const Style = createGlobalStyle`
             }
         }
         &.filter-arrow {
+            width: 30px;
+            font-size: 25px;
             color: var(--text);
             cursor: pointer;
             transition: 0.7s;
+            transform: translateY(10px);
+                @media(min-width: ${MediaSizes.desktopSmall}) {
+                    display: none;
+                }
                 &:hover {
                     color: var(--secondary-color);
                 }
                 &.active {
-                    transform: rotate(180deg)
+                    transform: rotate(180deg) translateY(-9px);
                 }
         }
     }
