@@ -36,7 +36,6 @@ const ListResults = () => {
                             </JobAndMovies>
                         </Info>
                     </ListItem>
-
                 </List>
             </Container>
         </>

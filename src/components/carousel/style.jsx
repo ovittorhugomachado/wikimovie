@@ -38,9 +38,7 @@ export const ButtonRight = styled.button`
 `
 
 export const CategoryTitles = styled.h1`
-    border-bottom: 2px solid var(--secondary-color);
     padding: 0 20px;
-    margin: 0 30px 25px
 `
 
 export const DivMovies = styled.div`

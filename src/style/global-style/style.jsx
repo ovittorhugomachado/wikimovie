@@ -105,11 +105,12 @@ export const Style = createGlobalStyle`
     }
 
     h1 {
-        font-size: 45px;
+        font-size: 50px;
         color: var(--text);
-        background-color: var(--secondary-color);
-        padding: 7px 20px;
-        margin-bottom: 30px;
+        -webkit-text-stroke: 1px black;
+        text-stroke: 1px black;
+        text-shadow: 2px 2px var(--secondary-color);
+
     }
 
     h2 {

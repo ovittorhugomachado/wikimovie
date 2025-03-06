@@ -18,7 +18,8 @@ export const PageTitle = styled.h1`
 `
 
 export const TitleInfoMovie = styled.h1`
-    background-color: var(--secondary-color);
+    font-size: 60px;
+    text-shadow: 2px 2px var(--subtitle);
     padding: 7px 20px;
     display: none;
         @media (min-width: ${MediaSizes.tablet}) {
