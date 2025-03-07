@@ -81,8 +81,9 @@ export const Style = createGlobalStyle`
         }
         &.search-result {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             flex-grow: 1;
+            padding: 20px
         }
     }   
 

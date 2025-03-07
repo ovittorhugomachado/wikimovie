@@ -21,11 +21,7 @@ export const TitleBold = styled.span`
 
 export const FilterContainer = styled.div`
     margin: 10px auto;
-    width: 220px;
-            @media(min-width: ${MediaSizes.desktopSmall}) {
-            width: 320px;
-            margin: 0 0 0 80px
-        }
+    width: 270px;
 `
 
 export const Filter = styled.div`

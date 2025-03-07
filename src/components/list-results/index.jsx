@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, TitlePage, FilterContainer, Title, List, ListItem, TitleBold, Filter, FilterItemTitle, FilterItemSubtitle, Cover, ItemName, JobAndMovies, Job, Movies, Info } from "./style";
+import { PersonCard } from "./person-card";
 import { IoIosArrowDown } from "react-icons/io";
 
 const ListResults = () => {
@@ -25,18 +26,14 @@ const ListResults = () => {
                         <FilterItemSubtitle>+ de 10.000 resultados</FilterItemSubtitle>
                     </Filter>
                 </FilterContainer>
-                <List>
-                    <ListItem>
-                        <Cover src="/default-actor.png" />
-                        <Info>
-                            <ItemName>Jack Nicholson</ItemName>
-                            <JobAndMovies>
-                                <Job>ator</Job>
-                                <Movies>wafafcasca,evg fefefwefw fwefwefwef</Movies>
-                            </JobAndMovies>
-                        </Info>
-                    </ListItem>
-                </List>
+                <PersonCard 
+                    image={'https://media.themoviedb.org/t/p/w600_and_h900_bestv2/6h12pZsgj3WWjMtykUgfLkLEBWz.jpg'}
+                    name={'Jack Nicholson'}
+                    job={'Actor'}
+                    topMovies={'O Iluminado, Um Estranho no Ninho, Marte Ataca'}
+                />
+
+
             </Container>
         </>
     )
