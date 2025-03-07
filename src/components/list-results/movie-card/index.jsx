@@ -1,20 +1,21 @@
-import { List, ListItem, Cover, Info, Name, JobAndMovies, Sinopse, Year } from "./style";
+import { ListItem, Cover, Info, Name, Year, Sinopse } from "./style";
 
 const MovieCard = ({ image, name, year, sinopse }) => {
 
     return (
-        <List>
             <ListItem>
-                <Cover src={image} />
+                <Cover 
+                    src={`https://image.tmdb.org/t/p/w500${image}`}
+                    alt={name}
+                    onError={(e) => e.target.src = "/default-cover.png"}
+    
+                />
                 <Info>
                     <Name>{name}</Name>
-                    <JobAndMovies>
                         <Year>{year}</Year>
                         <Sinopse>{sinopse}</Sinopse>
-                    </JobAndMovies>
                 </Info>
             </ListItem>
-        </List>
     )
 }
 
