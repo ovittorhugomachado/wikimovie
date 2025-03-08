@@ -87,9 +87,9 @@ export const InputSearch = styled.input`
         }
         @media (min-width: ${MediaSizes.desktopSmall}) {
             text-align: center;
-            padding-right: 40px;
+            padding-right: 70px;
             &::placeholder {
-            text-indent: 90px;
+            text-indent: 100px;
         }
 }
 `
