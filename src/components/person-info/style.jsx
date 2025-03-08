@@ -43,21 +43,6 @@ export const MovieYear = styled.h3`
     border-right: 2px solid var(--secondary-color)
 `
 
-export const ButtonFilmography = styled.button`
-    border: none;
-    display: inline-block;
-    font-size: 25px;
-    font-weight: 700;
-    color: var(--background-main);
-    background-color: var(--text);
-    cursor: pointer;
-    padding: 10px 30px;
-    transform: translateY(30px);
-    transition: 0.2s;
-        &:hover {
-            transform: scale(1.05) translateY(28px);
-        }
-`
 
 export const ListItem = styled.li`
     min-height: 50px;

@@ -11,28 +11,36 @@ import jsonGenre from "../../json/genre.json"
 const ListMovies = () => {
 
     const { id, genre } = useParams();
-    const [listMovies, setListMovies] = useState([])
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [page, setPage] = useState(1)
+    const [ listMovies, setListMovies ] = useState([])
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
+    const [ currentPage, setCurrentPage ] = useState(1)
+    const [ totalPages, setTotalPages ] = useState(1);
+    const [ isLoadingMore, setIsLoadingMore ] = useState(false);
     const currentGenre = jsonGenre.filter((genre) => genre.id == id)
 
     useEffect(() => {
 
         setLoading(true);
 
-        const getListMovies = async () => {
+        const getListMovies = async (page = currentPage) => {
             try {
+                setLoading(page === 1);
                 const data = await fetchListByGenre(id, page);
-                setListMovies(data.results);
+                setListMovies((prev) => ({
+                    ...data,
+                    results: page === 1 ? data.results : [...prev.results, ...data.results],
+                }));
+                setTotalPages(data.total_pages);
             } catch (err) {
                 setError(err);
             } finally {
                 setLoading(false);
+                setIsLoadingMore(false);
             }
         };
         getListMovies()
-    }, [id, page]);
+    }, [id, currentPage]);
 
     if (loading) {
         return <Loading />
@@ -41,21 +49,24 @@ const ListMovies = () => {
         return <img className="error" src="/error.png" />
     }
 
-    const nextPage = () => {
-        setPage((prevPage) => prevPage + 1)
-    }
+    const loadMore = () => {
+        if (currentPage < totalPages) {
+            setIsLoadingMore(true);
+            const nextPage = currentPage + 1;
+            setCurrentPage(nextPage);
+        }
+    };
 
-    const previousPage = () => {
-        setPage((prevPage) => prevPage - 1)
-    }
-
-    const list = listMovies.map((movie) => ({
+    const list = listMovies.results.map((movie) => ({
         id: movie.id,
         name: movie.title,
         date: movie.release_date.split('-')[0],
         image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         rating: movie.vote_average.toFixed(1),
     }));
+
+    console.log(totalPages)
+    console.log(currentPage)
 
     return (
         <>
@@ -72,12 +83,11 @@ const ListMovies = () => {
                         />
                     ))}
                 </div>
-                <div className="container-buttons">
-                    {page > 1 && (
-                        <a className="button previous-page" onClick={previousPage}><IoIosArrowBack className="button" />PÁGINA ANTERIOR</a>
-                    )}
-                    <a className="button" onClick={nextPage}>PRÓXIMA PÁGINA<IoIosArrowForward className="button" /></a>
-                </div>
+                {currentPage < totalPages && (
+                    <button onClick={loadMore} disabled={isLoadingMore}>
+                        {isLoadingMore ? "Carregando..." : "Carregar mais"}
+                    </button>
+                )}
             </main>
             <Footer />
         </>

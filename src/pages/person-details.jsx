@@ -10,14 +10,14 @@ import { Loading } from "../components/loading";
 
 const PersonDetails = () => {
     const { id } = useParams();
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [actor, setActor] = useState([]);
-    const [filmography, setFilmography] = useState([]);
-    const [topMoviesActor, setTopMoviesActor] = useState([]);
-    const [topMoviesProducer, setTopMoviesProducer] = useState([]);
-    const [allMoviesActor, setAllMoviesActor] = useState([]);
-    const [allMoviesProducer, setAllMoviesProducer] = useState([]);
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
+    const [ actor, setActor ] = useState([]);
+    const [ filmography, setFilmography ] = useState([]);
+    const [ topMoviesActor, setTopMoviesActor ] = useState([]);
+    const [ topMoviesProducer, setTopMoviesProducer ] = useState([]);
+    const [ allMoviesActor, setAllMoviesActor ] = useState([]);
+    const [ allMoviesProducer, setAllMoviesProducer ] = useState([]);
 
     const removeDuplicatesAndSortByYear = (array) => {
         const uniqueIds = new Set();
@@ -74,7 +74,6 @@ const PersonDetails = () => {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, [id]);
 

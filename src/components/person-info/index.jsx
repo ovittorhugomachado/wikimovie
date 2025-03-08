@@ -7,7 +7,6 @@ import {
     MovieCover,
     MovieName,
     MovieYear,
-    ButtonFilmography,
     ListItem,
     List
 } from "./style";
@@ -100,9 +99,9 @@ const PersonInfo = ({ person, filmography, allMoviesActor, allMoviesProducer, to
                 </div>
             )}
             {display === 'none' ? (
-                <ButtonFilmography onClick={showAllMovies}>filmografia completa</ButtonFilmography>
+                <button onClick={showAllMovies}>filmografia completa</button>
             ) : (
-                <ButtonFilmography onClick={showLess}>fechar lista</ButtonFilmography>
+                <button onClick={showLess}>fechar lista</button>
             )}
         </div>
     )

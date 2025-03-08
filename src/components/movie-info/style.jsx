@@ -40,6 +40,7 @@ export const PlayTrailer = styled.a`
     font-size: 30px;
     font-weight: 700;
     transition: 0.2s;
+    margin: auto;
         &:hover {
             transform: scale(1.05); 
         }
@@ -69,10 +70,12 @@ export const Direction = styled.div`
 `
 
 export const Crew = styled.div`
+    width: 195px;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: center
+    align-items: center;
+    justify-content: center;
+    margin: 0
 `
 
 export const Title = styled.h2`
@@ -95,20 +98,6 @@ export const ContainerActors = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-`
-
-export const ShowActors = styled.a`
-    display: inline-block;
-    font-size: 25px;
-    font-weight: 700;
-    color: var(--background-main);
-    background-color: var(--text);
-    padding: 10px 30px;
-    transform: translateY(30px);
-    transition: 0.2s;
-        &:hover {
-            transform: scale(1.05) translateY(28px);
-        }
 `
 
 export const Actor = styled.div`
