@@ -5,9 +5,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 285px;
-        @media(min-width: ${MediaSizes.desktopSmall}) {
-            flex-direction: row;
-        }
 `
 
 export const TitlePage = styled.h2`
@@ -20,15 +17,19 @@ export const TitleBold = styled.span`
 `
 
 export const FilterContainer = styled.div`
+    width: 100%; 
+    max-width: 400px;
+    height: 85px;  
+    display: flex; 
     margin: 10px auto;
-    width: 290px;
+    
 `
 
 export const Filter = styled.div`
+    flex: 1;
     border: 2px solid var(--text);
     padding: 5px 10px;
     margin: 10px auto;
-    display: none;
     cursor: pointer;
         &:hover {
             background-color: var(--secondary-color);

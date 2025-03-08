@@ -10,7 +10,7 @@ const SearchResults = () => {
             <Header />
             <main className="search-result">
                 <ListResults
-                    query={'Jack Quaid'}
+                    query={'Jack'}
                 />
             </main>
             <Footer />

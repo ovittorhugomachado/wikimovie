@@ -3,7 +3,6 @@ import { MediaSizes } from "../../../style/media-size";
 
 export const ListItem = styled.li`
     display: flex;
-    justify-content: center;
     padding: 15px;
     background-color: var(--primary-color);
     margin-bottom: 10px;
@@ -28,12 +27,13 @@ export const Cover = styled.img`
 export const Info = styled.div`
     margin: auto 0;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    align-items: start;
 `
 
 export const Name = styled.h3`
     font-size: 30px;
-    text-align: center;
+    text-align: start;
         @media(min-width: ${MediaSizes.mobile}) {
             text-align: start;
         }

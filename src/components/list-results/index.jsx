@@ -31,13 +31,10 @@ const ListResults = ({query}) => {
 
         const getList = async () => {
             try {
-                if (filter === 'movies') {
                     const moviesList = await fetchSearchMovie(query);
                     setMoviesList(moviesList);
-                } else if (filter === 'persons') {
                     const personsData = await fetchSearchPerson(query);
                     setPersonsList(personsData || { results: [] });
-                }
             } catch (err) {
                 setError(err);
             } finally {
@@ -64,14 +61,13 @@ const ListResults = ({query}) => {
             <TitlePage>RESULTADO DA BUSCA: <TitleBold>JACK</TitleBold></TitlePage>
             <Container>
                 <FilterContainer>
-                    <Title onClick={OpenFilter}>FILTRAR <IoIosArrowDown className={`filter-arrow ${visibleFilter ? 'active' : ''}`} /></Title>
                     <Filter onClick={() => toggleFilter('movies')} className={`${visibleFilter ? 'show' : ''} ${filter === 'movies' ? 'active' : ''}`}>
                         <FilterItemTitle>FILMES</FilterItemTitle>
-                        <FilterItemSubtitle>1.860 resultados</FilterItemSubtitle>
+                        <FilterItemSubtitle>{moviesList.total_results > 9999 ? '+ de 9999' : moviesList.total_results}</FilterItemSubtitle>
                     </Filter>
                     <Filter onClick={() => toggleFilter('persons')} className={`${visibleFilter ? 'show' : ''} ${filter === 'persons' ? 'active' : ''}`}>
                         <FilterItemTitle>PESSOAS</FilterItemTitle>
-                        <FilterItemSubtitle>+ de 10.000 resultados</FilterItemSubtitle>
+                        <FilterItemSubtitle>{personsList.total_results > 9999 ? '+ de 9999' : personsList.total_results}</FilterItemSubtitle>
                     </Filter>
                 </FilterContainer>
                 <List>

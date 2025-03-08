@@ -3,7 +3,6 @@ import { MediaSizes } from "../../../style/media-size";
 
 export const ListItem = styled.li`
     display: flex;
-    justify-content: center;
     padding: 15px;
     padding: 15px 0;
     background-color: var(--primary-color);
@@ -29,7 +28,8 @@ export const Cover = styled.img`
 export const Info = styled.div`
     margin: auto 0;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    align-items: start;
 `
 
 export const Name = styled.h3`
