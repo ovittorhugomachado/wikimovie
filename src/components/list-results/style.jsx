@@ -7,12 +7,16 @@ export const Container = styled.div`
     min-height: 285px;
 `
 
-export const TitlePage = styled.h2`
+export const TitlePage = styled.h5`
+    font-family: inter;
+    font-size: 23px;
     font-weight: 200;
-    margin-top: 20px;
+    margin-top: 12px;
 `
 
 export const TitleBold = styled.span`
+    font-family: inter;
+    font-size: 23px;
     font-weight: 700
 `
 
@@ -21,8 +25,8 @@ export const FilterContainer = styled.div`
     max-width: 400px;
     height: 85px;  
     display: flex; 
+    gap: 10px;
     margin: 10px auto;
-    
 `
 
 export const Filter = styled.div`
@@ -44,9 +48,6 @@ export const Filter = styled.div`
         &.show {
             display: block;
         }
-`
-
-export const Title = styled.h3`
 `
 
 export const FilterItemTitle = styled.h3`

@@ -60,6 +60,7 @@ export const DivSearch = styled.div`
     align-items: center;
     border: 2px solid var(--text);
     height: 40px;
+    position: relative
 `
 
 export const InputSearch = styled.input`
@@ -68,7 +69,8 @@ export const InputSearch = styled.input`
     background-color: transparent;
     border: none;
     color: var(--text);
-    font-size: 25px;
+    font-family: inter;
+    font-size: 16px;
     width: 100%;
     padding-left: 20px;
         &:active {
@@ -91,6 +93,38 @@ export const InputSearch = styled.input`
         }
 }
 `
+
+export const SearchOptions = styled.div`
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 93.5%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--text);
+    border-top: none;
+    z-index: 10;
+`;
+
+export const SearchOption = styled.div`
+    display: flex;
+    align-items: center;
+    font-family: inter;
+    font-size: 14px;
+    padding: 10px;
+    padding-left: 20px;
+    color: var(--text);
+    border-top: 2px solid var(--subtitle);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+        &:hover {
+            background-color: var(--subtitle);
+        }
+        @media(min-width: ${MediaSizes.desktopSmall}) {
+                justify-content: center;
+        }
+`;
+
+
 export const Nav = styled.nav`
     width: 100%;
     top: 160px;

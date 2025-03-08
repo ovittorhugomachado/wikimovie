@@ -143,6 +143,11 @@ export const Style = createGlobalStyle`
         color: var(--text);
     }
 
+    b {
+        font-family: inter;
+        margin: 0 10px;
+    }
+
     img {
             &.loading {
                 width: 350px;
@@ -201,6 +206,12 @@ export const Style = createGlobalStyle`
                     background-color: var(--secondary-color);
                     border: 2px solid var(--secondary-color); 
                 }
+        }
+        &.icon-input-search {
+            width: 20px;
+            height: 20px;
+            color: var(--text);
+            margin-left: 7px;
         }
         &.disable {
             opacity: 0.2;

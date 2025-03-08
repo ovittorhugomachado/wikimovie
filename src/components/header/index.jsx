@@ -12,17 +12,35 @@ import {
     DivSearch,
 } from "./style";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import genre from "../../../json/genre.json"
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { IoMdSearch } from "react-icons/io";
+import genre from "../../../json/genre.json"
 
 const Header = () => {
-    
+
     const { id } = useParams()
     const [menuActive, setMenuActive] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+    const navigate = useNavigate();
 
     const handleClick = () => {
         setMenuActive(!menuActive);
+    };
+
+    const handleInputChange = (event) => {
+        setSearchValue(event.target.value);
+    };
+
+    const handleSearch = () => {
+        if (searchValue.trim()) {
+            navigate(`/search?query=${searchValue}`);
+        }
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+            handleSearch();
+        }
     };
 
     return (
@@ -36,8 +54,14 @@ const Header = () => {
                 </HamburgerContainer>
             </DivLogo>
             <DivSearch>
-                <InputSearch placeholder={"PESQUISAR"}></InputSearch>
-                <IoMdSearch className="button-search" />
+                <InputSearch
+                    placeholder={"PESQUISAR"}
+                    value={searchValue}
+                    onChange={handleInputChange}
+                    onKeyDown={handleKeyPress}
+                >
+                </InputSearch>
+                <IoMdSearch className="button-search" onClick={handleSearch} />
             </DivSearch>
             <Nav className={`${menuActive ? 'menuActive' : ''}`}>
                 <Ul>
