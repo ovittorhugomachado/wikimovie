@@ -1,15 +1,15 @@
 import {
     DivHeader,
+    DivLogo,
     Logo,
+    HamburgerContainer,
+    HamburgerSpan,
+    DivSearch,
+    InputSearch,
     Nav,
     Ul,
     Li,
     Button,
-    HamburgerContainer,
-    HamburgerSpan,
-    DivLogo,
-    InputSearch,
-    DivSearch,
 } from "./style";
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -19,8 +19,8 @@ import genre from "../../../json/genre.json"
 const Header = () => {
 
     const { id } = useParams()
-    const [menuActive, setMenuActive] = useState(false);
-    const [searchValue, setSearchValue] = useState("");
+    const [ menuActive, setMenuActive ] = useState(false);
+    const [ searchValue, setSearchValue ] = useState("");
     const navigate = useNavigate();
 
     const handleClick = () => {

@@ -21,8 +21,8 @@ import { ImYoutube2 } from "react-icons/im";
 
 const MovieInfo = ({ name, sinopse, trailer, director, writer, cast }) => {
 
-    const [visibleActors, setVisibleActors] = useState(8);
-    const [showButton, SetShowButton] = useState(8);
+    const [ visibleActors, setVisibleActors ] = useState(8);
+    const [ showButton, SetShowButton ] = useState(8);
 
     const showAllActors = () => {
         setVisibleActors((prev) => prev + 42);

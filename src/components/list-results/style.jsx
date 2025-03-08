@@ -4,6 +4,7 @@ import { MediaSizes } from "../../style/media-size";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     min-height: 285px;
 `
 
@@ -62,9 +63,9 @@ export const FilterItemSubtitle = styled.p`
 
 export const List = styled.ul`
     width: 100%;
-    margin:  20px auto;
-        @media(min-width: ${MediaSizes.desktopSmall}) {
-            padding-left: 20px;
-        }
+    margin: 20px auto;
+`
+
+export const Button = styled.button`
 `
 

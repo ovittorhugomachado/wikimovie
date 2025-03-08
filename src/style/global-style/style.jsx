@@ -159,6 +159,24 @@ export const Style = createGlobalStyle`
             }
     }
 
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 270px;
+        height: 60px;
+        font-size: 25px;
+        font-weight: 700;
+        color: var(--background-main);
+        background-color: var(--text);
+        transition: 0.2s;
+        border: none;
+        cursor: pointer;
+            &:hover {
+                transform: scale(1.05)
+            }
+    }
+
     a {
         text-decoration: none;
         cursor: pointer;

@@ -17,8 +17,8 @@ import { BiSolidLeftArrow } from "react-icons/bi";
 import { BiSolidRightArrow } from "react-icons/bi";
 
 const Carousel = ({ nameCarousel, listMovies }) => {
-    const [currentMovie, setCurrentMovie] = useState(9);
-    const [positionCarousel, setPositionCarousel] = useState(0);
+    const [ currentMovie, setCurrentMovie ] = useState(9);
+    const [ positionCarousel, setPositionCarousel ] = useState(0);
 
     const scrollRight = () => {
         if (currentMovie < listMovies.length - 1) {
@@ -34,7 +34,6 @@ const Carousel = ({ nameCarousel, listMovies }) => {
         }
     };
 
-    console.log(currentMovie)
 
     return (
         <CarouselContainer>

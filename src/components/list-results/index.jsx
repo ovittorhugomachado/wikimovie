@@ -1,12 +1,13 @@
 import {
-    Container,
     TitlePage,
-    FilterContainer,
     TitleBold,
+    Container,
+    FilterContainer,
     Filter,
     FilterItemTitle,
     FilterItemSubtitle,
-    List
+    List,
+    Button
 } from "./style";
 import { fetchSearchMovie } from "../../services/getMovies";
 import { fetchSearchPerson } from "../../services/getMovies";
@@ -14,45 +15,64 @@ import { useState, useEffect } from "react";
 import { PersonCard } from "./person-card";
 import { MovieCard } from "./movie-card";
 import { Loading } from "../loading";
+import { Link } from "react-router-dom";
 
 const ListResults = ({ query }) => {
-
-    const [ filter, setFilter ] = useState('movies')
-    const [ moviesList, setMoviesList ] = useState([])
-    const [ personsList, setPersonsList ] = useState({ results: [] })
+    const [ filter, setFilter ] = useState('movies');
+    const [ moviesList, setMoviesList ] = useState({ results: [] });
+    const [ personsList, setPersonsList ] = useState({ results: [] });
     const [ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(null);
+    const [ currentPage, setCurrentPage ] = useState(1);
+    const [ totalPages, setTotalPages ] = useState(1);
+    const [ isLoadingMore, setIsLoadingMore ] = useState(false);
 
     const toggleFilter = (selectedFilter) => {
         setFilter(selectedFilter);
+        setCurrentPage(1);
+    };
+
+    const loadMore = () => {
+        if (currentPage < totalPages) {
+            setIsLoadingMore(true);
+            const nextPage = currentPage + 1;
+            setCurrentPage(nextPage);
+        }
+    };
+
+    const getList = async (page = currentPage) => {
+        try {
+            setLoading(page === 1);
+            const moviesData = await fetchSearchMovie(query, page);
+            setMoviesList((prev) => ({
+                ...moviesData,
+                results: page === 1 ? moviesData.results : [...prev.results, ...moviesData.results],
+            }));
+            setTotalPages(moviesData.total_pages);
+
+            const personsData = await fetchSearchPerson(query, page);
+            setPersonsList((prev) => ({
+                ...personsData,
+                results: page === 1 ? personsData.results : [...prev.results, ...personsData.results],
+            }));
+
+        } catch (err) {
+            setError(err);
+        } finally {
+            setLoading(false);
+            setIsLoadingMore(false);
+        }
     };
 
     useEffect(() => {
+        getList(currentPage);
+    }, [filter, query, currentPage]);
 
-        setLoading(true);
-
-        const getList = async () => {
-            try {
-                const moviesList = await fetchSearchMovie(query);
-                setMoviesList(moviesList);
-                const personsData = await fetchSearchPerson(query);
-                setPersonsList(personsData || { results: [] });
-            } catch (err) {
-                setError(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        getList()
-
-    }, [filter, query]);
-
-    if (loading) {
-        return <Loading />
+    if (loading && currentPage === 1) {
+        return <Loading />;
     }
     if (error) {
-        return <img className="error" src="/error.png" />
+        return <img className="error" src="/error.png" />;
     }
 
     return (
@@ -71,31 +91,38 @@ const ListResults = ({ query }) => {
                 </FilterContainer>
                 <List>
                     {filter === 'movies' && (
-                        moviesList.results.map((movie, index) => (
-                            <MovieCard
-                                key={index}
-                                image={movie.poster_path}
-                                name={movie.title}
-                                year={movie.release_date.split('-')[0]}
-                                sinopse={movie.overview}
-                            />
+                        moviesList.results.map((movie) => (
+                            <Link key={movie.id} to={`/details/movie/${movie.id}`}>
+                                <MovieCard
+                                    image={movie.poster_path}
+                                    name={movie.title}
+                                    year={movie.release_date.split('-')[0]}
+                                    sinopse={movie.overview}
+                                />
+                            </Link>
                         ))
                     )}
                     {filter === 'persons' && (
-                        personsList.results.map((person, index) => (
-                            <PersonCard
-                                key={index}
-                                image={person.profile_path}
-                                name={person.name}
-                                job={person.known_for_department}
-                                topMovies={person.known_for.map(movie => movie.title).join(" | ")}
-                            />
+                        personsList.results.map((person) => (
+                            <Link key={person.id} to={`/details/person/${person.id}`}>
+                                <PersonCard 
+                                    image={person.profile_path}
+                                    name={person.name}
+                                    job={person.known_for_department}
+                                    topMovies={person.known_for.map(movie => movie.title).join(" | ")}
+                                />
+                            </Link>
                         ))
                     )}
                 </List>
+                {currentPage < totalPages && (
+                    <Button onClick={loadMore} disabled={isLoadingMore}>
+                        {isLoadingMore ? "Carregando..." : "Carregar mais"}
+                    </Button>
+                )}
             </Container>
         </>
-    )
-}
+    );
+};
 
-export { ListResults }
+export { ListResults };

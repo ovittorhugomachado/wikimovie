@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 const PersonInfo = ({ person, filmography, allMoviesActor, allMoviesProducer, topMoviesActor, topMoviesProducer }) => {
 
-    const [display, setDisplay] = useState('none');
+    const [ display, setDisplay ] = useState('none');
 
     const showAllMovies = () => {
         setDisplay("block")

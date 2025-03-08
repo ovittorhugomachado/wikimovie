@@ -1,4 +1,8 @@
-import { Container, Info, ContainerSocialMedia } from "./style";
+import {
+    Container,
+    Info,
+    ContainerSocialMedia
+} from "./style";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";

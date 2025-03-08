@@ -208,7 +208,7 @@ const fetchActorFilmography = async (id) => {
     }
 };
 
-const fetchSearchMovie = async (query) => {
+const fetchSearchMovie = async (query, page) => {
     const options = {
         method: 'GET',
         headers: {
@@ -217,7 +217,7 @@ const fetchSearchMovie = async (query) => {
         }
     };
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=pt-BR&page=1`, options);
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=pt-BR&page=${page}`, options);
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
         }
@@ -229,7 +229,7 @@ const fetchSearchMovie = async (query) => {
     }
 };
 
-const fetchSearchPerson = async (query) => {
+const fetchSearchPerson = async (query, page) => {
     const options = {
         method: 'GET',
         headers: {
@@ -238,7 +238,7 @@ const fetchSearchPerson = async (query) => {
         }
     };
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/person?query=${query}&include_adult=false&language=pt-BR&page=1`, options);
+        const response = await fetch(`https://api.themoviedb.org/3/search/person?query=${query}&include_adult=false&language=pt-BR&page=${page}`, options);
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
         }

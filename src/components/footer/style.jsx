@@ -14,6 +14,15 @@ export const Container = styled.footer`
     padding-bottom: 10px;
 `
 
+export const Info = styled.h5`
+    font-size: 16px;
+    color: var(--text);
+    transform: translateY(20px);
+        @media (min-width:${MediaSizes.mobile}) {
+            font-size: 20px;
+        }
+`
+
 export const ContainerSocialMedia = styled.div`
     width: 200px;
     display: flex;
@@ -23,11 +32,3 @@ export const ContainerSocialMedia = styled.div`
     margin-top: 10px
 `
 
-export const Info = styled.h5`
-    font-size: 16px;
-    color: var(--text);
-    transform: translateY(20px);
-        @media (min-width:${MediaSizes.mobile}) {
-            font-size: 20px;
-        }
-`
