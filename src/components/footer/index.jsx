@@ -18,7 +18,7 @@ const Footer = () => {
                 <a href="https://github.com/ovittorhugomachado" target="_blank">
                     <FaGithubSquare className="social-media" />
                 </a>
-                <a href="https://portfolio-vitor-hugo.onrender.com/#" target="_blank">
+                <a href="https://wa.me/+5551980560089" target="_blank">
                     <FaWhatsappSquare className="social-media" />
                 </a>
             </ContainerSocialMedia>

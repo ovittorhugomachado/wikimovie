@@ -4,8 +4,8 @@ import { AppRoutes } from './pages/routes'
 function App() {
     return (
         <>
-                <GlobalStyle />
-                <AppRoutes />
+            <GlobalStyle />
+            <AppRoutes />
         </>
     )
 }

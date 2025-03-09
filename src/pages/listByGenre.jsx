@@ -43,6 +43,10 @@ const ListMovies = () => {
 
     }, [id, currentPage]);
 
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [id])
+
     if (loading) {
         return <Loading />
     }
