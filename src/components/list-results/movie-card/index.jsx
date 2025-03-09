@@ -15,7 +15,6 @@ const MovieCard = ({ image, name, year, sinopse }) => {
                 src={`https://image.tmdb.org/t/p/w500${image}`}
                 alt={name}
                 onError={(e) => e.target.src = "/default-cover.png"}
-
             />
             <Info>
                 <Name>{name}</Name>

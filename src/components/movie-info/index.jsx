@@ -1,23 +1,18 @@
 import {
-    ContainerMovieInfo,
     TitleInfoMovie,
     ContainerSinopse,
     Title,
     Text,
     PlayTrailer,
-    ContainerCrew,
-    Direction,
     Photo,
-    Crew,
-    ContainerActors,
-    Actor,
+    ContainerPersons,
+    Person,
     NameActor,
     Charactername,
 } from "./style"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ImYoutube2 } from "react-icons/im";
-import { Navigate } from "react-router-dom";
 
 const MovieInfo = ({ name, sinopse, trailer, director, writer, cast }) => {
 
@@ -48,47 +43,36 @@ const MovieInfo = ({ name, sinopse, trailer, director, writer, cast }) => {
                 <ImYoutube2 className="youtube" />
                 Assistir trailer
             </PlayTrailer>
-            <ContainerCrew>
-                <Direction>
-                    <Crew>
-                        
-                        <Link className="crew" to={`/details/person/${director.id}`}>
+            <ContainerPersons>
+                <Person>
+                    <Title>Diretor</Title>
+                    <Link to={`/details/person/${director.id}`}>
+                        <Photo
+                            src={`https://image.tmdb.org/t/p/w500${director.profile_path}`}
+                            alt={director.name}
+                            onError={(e) => e.target.src = "/default-actor.png"}
+                        />
+                    </Link>
+                    <NameActor>{director.name}</NameActor>
+                </Person>
+                {writer.length > 0 && (
+                    <Person>
+                        <Title>Escritor</Title>
+                        <Link to={`/details/person/${writer[0].id}`}>
                             <Photo
-                                src={`https://image.tmdb.org/t/p/w500${director.profile_path}`}
-                                alt={director.name}
+                                src={`https://image.tmdb.org/t/p/w500${writer[0].profile_path}`}
+                                alt={writer[0].name}
                                 onError={(e) => e.target.src = "/default-actor.png"}
                             />
                         </Link>
-                        <div>
-                            <Title>Direção</Title>
-                            <Text>{director.name}</Text>
-                        </div>
-
-                    </Crew>
-                    {writer.length > 0 && (
-                        <>
-                            <Crew>
-                                <Link className="crew" to={`/details/person/${writer[0].id}`} style={{ marginLeft: '30px' }}>
-                                    <Photo
-                                        src={`https://image.tmdb.org/t/p/w500${writer[0].profile_path}`}
-                                        alt={writer.name}
-                                        onError={(e) => e.target.src = "/default-actor.png"}
-                                    />
-                                </Link>
-                                <div>
-                                    <Title>Escritor</Title>
-                                    <Text>{writer[0].name}</Text>
-                                </div>
-
-                            </Crew>
-                        </>
-                    )}
-                </Direction>
-            </ContainerCrew>
+                        <NameActor>{writer[0].name}</NameActor>
+                    </Person>
+                )}
+            </ContainerPersons>
             <Title>Elenco</Title>
-            <ContainerActors>
+            <ContainerPersons>
                 {cast.slice(0, visibleActors).map((actor, index) => (
-                    <Actor key={index}>
+                    <Person key={index}>
                         <Link to={`/details/person/${actor.id}`}>
                             <Photo
                                 src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
@@ -98,9 +82,9 @@ const MovieInfo = ({ name, sinopse, trailer, director, writer, cast }) => {
                             <NameActor>{actor.name}</NameActor>
                             <Charactername>{actor.character}</Charactername>
                         </Link>
-                    </Actor>
+                    </Person>
                 ))}
-            </ContainerActors>
+            </ContainerPersons>
             {showButton ? (
                 <button onClick={showAllActors}>Ver elenco completo</button>
             ) : (

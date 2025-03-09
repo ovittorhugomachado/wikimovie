@@ -14,6 +14,7 @@ export const ContainerProfile = styled.div`
 `
 
 export const PageTitle = styled.h1`
+    margin-bottom: 20px;
     @media(min-width: ${MediaSizes.tablet}) {
                     display: none  ;  
                 }

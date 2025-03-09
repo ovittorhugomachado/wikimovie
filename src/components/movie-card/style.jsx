@@ -31,7 +31,6 @@ export const MovieName = styled.h3`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    
 `
 
 export const MovieScore = styled.span`

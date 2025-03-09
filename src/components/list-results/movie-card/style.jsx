@@ -21,7 +21,7 @@ export const Cover = styled.img`
     width: 80px;
     height: 114px;
     object-fit: cover;
-    margin-right: 10px;
+    margin-right: 15px;
 `
 
 export const Info = styled.div`

@@ -7,17 +7,19 @@ import {
     FilterItemTitle,
     FilterItemSubtitle,
     List,
-    Button
 } from "./style";
-import { fetchSearchMovie } from "../../services/getMovies";
-import { fetchSearchPerson } from "../../services/getMovies";
+import {
+    fetchSearchMovie,
+    fetchSearchPerson
+} from "../../services/getMovies";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Loading } from "../loading";
 import { PersonCard } from "./person-card";
 import { MovieCard } from "./movie-card";
-import { Loading } from "../loading";
-import { Link } from "react-router-dom";
 
 const ListResults = ({ query }) => {
+    
     const [ filter, setFilter ] = useState('movies');
     const [ moviesList, setMoviesList ] = useState({ results: [] });
     const [ personsList, setPersonsList ] = useState({ results: [] });
@@ -105,7 +107,7 @@ const ListResults = ({ query }) => {
                     {filter === 'persons' && (
                         personsList.results.map((person) => (
                             <Link key={person.id} to={`/details/person/${person.id}`}>
-                                <PersonCard 
+                                <PersonCard
                                     image={person.profile_path}
                                     name={person.name}
                                     job={person.known_for_department}
@@ -116,9 +118,9 @@ const ListResults = ({ query }) => {
                     )}
                 </List>
                 {currentPage < totalPages && (
-                    <Button onClick={loadMore} disabled={isLoadingMore}>
+                    <button onClick={loadMore} disabled={isLoadingMore}>
                         {isLoadingMore ? "Carregando..." : "Carregar mais"}
-                    </Button>
+                    </button>
                 )}
             </Container>
         </>

@@ -1,10 +1,7 @@
 import { LoadingSymbol } from "./style"
 
 const Loading = () => {
-    
-    return (
-        <LoadingSymbol />
-    )
+    return <LoadingSymbol />
 }
 
 export { Loading }

@@ -10,37 +10,9 @@ export const CarouselContainer = styled.div`
     user-select: none;
 `
 
-export const ButtonLeft = styled.button`
-    height: 220px;
-    width: 40px;
-    border: none;
-    background-color: var(--background-main);
-    position: absolute;
-    left: 0px;
-    z-index: 2;
-    transition: 0.3s;
-    display: flex
-    justify-content: start;
-    align-items: center;
-`
-export const ButtonRight = styled.button`
-    height: 220px;
-    width: 40px;
-    border: none;
-    background-color: var(--background-main);
-    position: absolute;
-    right: 0px;
-    z-index: 2;
-    transition: 0.3s;
-    display: flex
-    justify-content: start;
-    align-items: center;
-`
-
 export const CategoryTitles = styled.h1`
-    padding: 0 20px;
+    padding: 0 20px 15px;
 `
-
 export const DivMovies = styled.div`
     width: 95%;
     padding-top: 30px;
@@ -49,6 +21,37 @@ export const DivMovies = styled.div`
     gap: 12px;
     overflow: hidden;
     position: relative;
+`
+
+export const ButtonLeft = styled.button`
+    height: 220px;
+    border: none;
+    background-color: var(--background-main);
+    position: absolute;
+    left: 0px;
+    z-index: 2;
+    transition: 0.3s;
+    padding: 0;
+    cursor: default;
+    transform: translateY(-5px);
+        &:hover {
+            transform: translateY(-5px)
+        }
+`
+export const ButtonRight = styled.button`
+    height: 220px;
+    border: none;
+    background-color: var(--background-main);
+    position: absolute;
+    right: 0px;
+    z-index: 2;
+    transition: 0.3s;
+    padding: 0;
+    cursor: default;
+    transform: translateY(-5px);
+        &:hover {
+            transform: translateY(-5px)
+        }
 `
 
 export const DivMovie = styled.div`
@@ -68,6 +71,7 @@ export const Image = styled.img`
     height: 200px;
     transition: 0.3s;
     opacity: 0.3;
+    cursor: pointer;
         &:hover {
             box-shadow: 0 0 0px 2px var(--secondary-color);
         }
@@ -111,7 +115,7 @@ export const Year = styled.h3`
 
 export const MovieReview = styled.h2`
     width: 168px;
-    border: 2px solid var(--text);
+    border: 2px solid var(--secondary-color);
     padding: 5px;
     font-size: 25px;
 `

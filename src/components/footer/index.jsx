@@ -26,7 +26,6 @@ const Footer = () => {
             <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank">
                 <img src="/tmdb-logo.png" width={100} alt="" />
             </a>
-
         </Container>
     )
 }

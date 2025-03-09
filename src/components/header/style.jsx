@@ -33,7 +33,7 @@ export const DivLogo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px 0;
+    padding: 20px 20px 0;
         @media (min-width: ${MediaSizes.tablet}) {
                     padding-top: 30px;  
                 }
@@ -43,7 +43,6 @@ export const DivLogo = styled.div`
 `
 
 export const Logo = styled.img`
-
     width: 105px;
         @media (min-width: ${MediaSizes.tablet}) {
             width: 135px;

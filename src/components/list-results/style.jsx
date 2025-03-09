@@ -66,6 +66,4 @@ export const List = styled.ul`
     margin: 20px auto;
 `
 
-export const Button = styled.button`
-`
 

@@ -1,18 +1,20 @@
-import { useParams } from "react-router-dom";
+import {
+    fetchActorDetails,
+    fetchActorFilmography
+} from "../services/getMovies";
 import { useEffect, useState } from "react";
-import { fetchActorDetails } from "../services/getMovies";
-import { fetchActorFilmography } from "../services/getMovies";
-import { ProfileCard } from "../components/profile-card";
-import { PersonInfo } from "../components/person-info";
+import { useParams } from "react-router-dom";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { Loading } from "../components/loading";
+import { ProfileCard } from "../components/profile-card";
+import { PersonInfo } from "../components/person-info";
 
 const PersonDetails = () => {
     const { id } = useParams();
     const [ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(null);
-    const [ actor, setActor ] = useState([]);
+    const [ person, setPerson ] = useState([]);
     const [ filmography, setFilmography ] = useState([]);
     const [ topMoviesActor, setTopMoviesActor ] = useState([]);
     const [ topMoviesProducer, setTopMoviesProducer ] = useState([]);
@@ -22,11 +24,11 @@ const PersonDetails = () => {
     const removeDuplicatesAndSortByYear = (array) => {
         const uniqueIds = new Set();
         return array
-            .filter(item => !uniqueIds.has(item.id) && uniqueIds.add(item.id)) // Remove duplicatas
+            .filter(item => !uniqueIds.has(item.id) && uniqueIds.add(item.id)) 
             .sort((a, b) => {
                 const yearA = a.release_date ? parseInt(a.release_date.split("-")[0]) : 0;
                 const yearB = b.release_date ? parseInt(b.release_date.split("-")[0]) : 0;
-                return yearB - yearA; // Ordena em ordem decrescente
+                return yearB - yearA; 
             });
     };
 
@@ -46,17 +48,16 @@ const PersonDetails = () => {
     };
 
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            setError(null);
 
+        setLoading(true);
+
+        const fetchData = async () => {
             try {
                 const [actorData, filmographyData] = await Promise.all([
                     fetchActorDetails(id),
                     fetchActorFilmography(id),
                 ]);
-
-                setActor(actorData);
+                setPerson(actorData);
                 setFilmography(filmographyData);
 
                 const uniqueCast = removeDuplicatesAndSortByYear(filmographyData.cast || []);
@@ -66,15 +67,15 @@ const PersonDetails = () => {
                 const uniqueCrew = removeDuplicatesAndSortByYear(filmographyData.crew || []);
                 setTopMoviesProducer(getTopMovies(uniqueCrew));
                 setAllMoviesProducer(sortByReleaseDate(uniqueCrew));
-
             } catch (err) {
-                console.error("Erro ao buscar dados:", err);
                 setError(true);
             } finally {
                 setLoading(false);
             }
         };
+
         fetchData();
+
     }, [id]);
 
 
@@ -85,19 +86,21 @@ const PersonDetails = () => {
         return <img className="error" src="/error.png" />
     }
 
+    document.title = person.name;
+
     return (
         <>
             <Header />
             <main className="details">
                 <ProfileCard
-                    name={actor.name}
-                    image={actor.profile_path}
-                    info1={actor.birthday}
-                    info2={actor.place_of_birth}
+                    name={person.name}
+                    image={person.profile_path}
+                    info1={person.birthday}
+                    info2={person.place_of_birth}
                     info3={null}
                 />
                 <PersonInfo
-                    person={actor}
+                    person={person}
                     filmography={filmography}
                     allMoviesActor={allMoviesActor}
                     allMoviesProducer={allMoviesProducer}

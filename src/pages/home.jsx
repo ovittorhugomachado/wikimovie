@@ -4,26 +4,34 @@ import {
     fetchComingSoonMovies,
     fetchBestRated
 } from "../services/getMovies";
-import { Carousel } from "../components/carousel";
 import { useEffect, useState } from "react";
-
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { Loading } from "../components/loading";
+import { Carousel } from "../components/carousel";
 
 const Home = () => {
-    const [popularMovies, setPopularMovies] = useState([]);
-    const [showingMovies, setShowingMovies] = useState([]);
-    const [comingSoonMovies, setComingSoonMovies] = useState([]);
-    const [bestRatedMovies, setBestRatedMovies] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [ popularMovies, setPopularMovies ] = useState([]);
+    const [ showingMovies, setShowingMovies ] = useState([]);
+    const [ comingSoonMovies, setComingSoonMovies ] = useState([]);
+    const [ bestRatedMovies, setBestRatedMovies ] = useState([]);
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
 
     useEffect(() => {
-        const getPopularMovies = async () => {
+
+        setLoading(true);
+
+        const getListMovies = async () => {
             try {
-                const data = await fetchPopularMovies();
-                setPopularMovies(data.results);
+                const popularMovies = await fetchPopularMovies();
+                setPopularMovies(popularMovies.results);
+                const showingMovies = await fetchShowingMovies();
+                setShowingMovies(showingMovies.results);
+                const comingSoonMovies = await fetchComingSoonMovies();
+                setComingSoonMovies(comingSoonMovies.results);
+                const bestRated = await fetchBestRated();
+                setBestRatedMovies(bestRated.results);
             } catch (err) {
                 setError(err);
             } finally {
@@ -31,40 +39,8 @@ const Home = () => {
             }
         };
 
-        const getShowingMovies = async () => {
-            try {
-                const data = await fetchShowingMovies();
-                setShowingMovies(data.results);
-            } catch (err) {
-                setError(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        const getComingSoonMovies = async () => {
-            try {
-                const data = await fetchComingSoonMovies();
-                setComingSoonMovies(data.results);
-            } catch (err) {
-                setError(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        const getBestRatedMovies = async () => {
-            try {
-                const data = await fetchBestRated();
-                setBestRatedMovies(data.results);
-            } catch (err) {
-                setError(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        getPopularMovies();
-        getShowingMovies();
-        getComingSoonMovies();
-        getBestRatedMovies();
+        getListMovies();
+
     }, []);
 
     if (loading) {
@@ -81,7 +57,6 @@ const Home = () => {
         image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         rating: movie.vote_average.toFixed(1),
     }));
-    const bestRatedMoviesSlice = listBestRatedMovies.slice(0, 19)
 
     const listShowingMovies = showingMovies.map((movie) => ({
         id: movie.id,
@@ -90,7 +65,6 @@ const Home = () => {
         image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         rating: movie.vote_average.toFixed(1),
     }));
-    const showingMoviesSlice = listShowingMovies.slice(0, 19)
 
     const listComingSoonMovies = comingSoonMovies.map((movie) => ({
         id: movie.id,
@@ -99,7 +73,6 @@ const Home = () => {
         image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         rating: movie.vote_average.toFixed(1),
     }));
-    const comingSoonMoviesSlice = listComingSoonMovies.slice(0, 19)
 
     const listPopularMovies = popularMovies.map((movie) => ({
         id: movie.id,
@@ -108,16 +81,29 @@ const Home = () => {
         image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         rating: movie.vote_average.toFixed(1),
     }));
-    const popularMoviesSlice = listPopularMovies.slice(0, 19)
+    
+    document.title = "Wiki Movie";
 
     return (
         <>
             <Header />
             <main className="home">
-                <Carousel nameCarousel={"MELHORES FILMES"} listMovies={bestRatedMoviesSlice} />
-                <Carousel nameCarousel={"EM CARTAZ"} listMovies={showingMoviesSlice} />
-                <Carousel nameCarousel={"PRÓXIMOS LANÇAMENTOS"} listMovies={comingSoonMoviesSlice} />
-                <Carousel nameCarousel={"EM ALTA"} listMovies={popularMoviesSlice} />
+                <Carousel
+                    nameCarousel={"MELHORES FILMES"}
+                    listMovies={listBestRatedMovies.slice(0, 19)}
+                />
+                <Carousel
+                    nameCarousel={"EM CARTAZ"}
+                    listMovies={listShowingMovies.slice(0, 19)}
+                />
+                <Carousel
+                    nameCarousel={"PRÓXIMOS LANÇAMENTOS"}
+                    listMovies={listComingSoonMovies.slice(0, 19)}
+                />
+                <Carousel
+                    nameCarousel={"EM ALTA"}
+                    listMovies={listPopularMovies.slice(0, 19)}
+                />
             </main>
             <Footer />
         </>

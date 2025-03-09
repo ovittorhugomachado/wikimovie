@@ -47,8 +47,11 @@ export const Style = createGlobalStyle`
     main {
         width: 100%;
         max-width: 1400px;
-        padding: 20px 50px;
+        padding: 20px;
         &.home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             max-width: 1800px;
             padding: 50px 0
         }
@@ -60,6 +63,7 @@ export const Style = createGlobalStyle`
                 @media (min-width: ${MediaSizes.tablet}) {
                     flex-direction: row;
                     align-items: start;
+                    padding: 20px 50px;
                 }
         }
         &.list {
@@ -126,32 +130,26 @@ export const Style = createGlobalStyle`
 
     img {
             &.error {
-                width: 300px;
+                width: 230px;
                 margin: auto;
             }
     }
 
     button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 270px;
-        height: 60px;
-        font-size: 25px;
-        font-weight: 700;
-        color: var(--background-main);
-        background-color: var(--text);
-        transition: 0.2s;
         border: none;
+        font-size: 25px;
+        font-weight: 800;
+        background-color: var(--text);
+        transition: 0.3s;
+        padding: 10px 20px;
         cursor: pointer;
-        margin:  15px auto;
+        margin: 20px 0;
             &:hover {
-                transform: scale(1.05)
+                transform: scale(1.05);
             }
     }
 
     a {
-        margin: auto;
         text-decoration: none;
         cursor: pointer;
             &.movie {

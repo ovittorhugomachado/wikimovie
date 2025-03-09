@@ -1,16 +1,15 @@
+import { fetchListByGenre } from "../services/getMovies";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useParams } from "react-router-dom";
-import { fetchListByGenre } from "../services/getMovies";
 import { MovieCard } from "../components/movie-card";
 import { Loading } from "../components/loading";
 import jsonGenre from "../../json/genre.json"
 
 const ListMovies = () => {
 
-    const { id, genre } = useParams();
+    const { id } = useParams();
     const [ listMovies, setListMovies ] = useState([])
     const [ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(null);
@@ -39,7 +38,9 @@ const ListMovies = () => {
                 setIsLoadingMore(false);
             }
         };
+
         getListMovies()
+
     }, [id, currentPage]);
 
     if (loading) {
@@ -65,8 +66,7 @@ const ListMovies = () => {
         rating: movie.vote_average.toFixed(1),
     }));
 
-    console.log(totalPages)
-    console.log(currentPage)
+    document.title = currentGenre[0].title;
 
     return (
         <>

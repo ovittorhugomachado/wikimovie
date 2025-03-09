@@ -1,13 +1,6 @@
 import styled from "styled-components";
 import { MediaSizes } from "../../style/media-size";
 
-export const ContainerMovieInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`
-
 export const PageTitle = styled.h1`
     padding: 7px 20px;
     margin-bottom: 30px;
@@ -18,8 +11,6 @@ export const PageTitle = styled.h1`
 `
 
 export const TitleInfoMovie = styled.h1`
-    font-size: 60px;
-    text-shadow: 2px 2px var(--subtitle);
     padding: 7px 20px;
     display: none;
         @media (min-width: ${MediaSizes.tablet}) {
@@ -40,7 +31,7 @@ export const PlayTrailer = styled.a`
     font-size: 30px;
     font-weight: 700;
     transition: 0.2s;
-    margin: auto;
+    margin: 0 auto 20px;
         &:hover {
             transform: scale(1.05); 
         }
@@ -52,30 +43,6 @@ export const ContainerSinopse = styled.div`
         @media (min-width: ${MediaSizes.desktopSmall}) {
             padding: 0 50px 25px
         }
-`
-
-export const ContainerCrew = styled.div`
-    display: flex;
-    gap: 10px;
-`
-
-export const Direction = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    border-bottom: 2px solid rgb(30, 30, 30);
-    padding: 20px 0;
-    margin: 30px auto 20px;
-`
-
-export const Crew = styled.div`
-    width: 195px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0
 `
 
 export const Title = styled.h2`
@@ -93,21 +60,23 @@ export const Text = styled.p`
         }
 `
 
-export const ContainerActors = styled.div`
+export const ContainerPersons = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 20px;
 `
 
-export const Actor = styled.div`
+export const Person = styled.div`
     margin-top: 20px;
-    width: 110px
+    width: 110px;
 `
 
 export const Photo = styled.img`
     width: 84px;
     height: 120px;
+    margin: auto;
         &:hover {
             box-shadow: 0 0 0px 2px var(--secondary-color);
         }

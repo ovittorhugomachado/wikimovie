@@ -18,10 +18,10 @@ import genre from "../../../json/genre.json"
 
 const Header = () => {
 
-    const { id } = useParams()
-    const [ menuActive, setMenuActive ] = useState(false);
-    const [ searchValue, setSearchValue ] = useState("");
+    const {id} = useParams()
     const navigate = useNavigate();
+    const [menuActive, setMenuActive] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
 
     const handleClick = () => {
         setMenuActive(!menuActive);
@@ -31,7 +31,7 @@ const Header = () => {
         setSearchValue(event.target.value);
     };
 
-    const handleSearch = () => {
+    const submitSearch = () => {
         if (searchValue.trim()) {
             navigate(`/search?query=${searchValue}`);
         }
@@ -39,7 +39,7 @@ const Header = () => {
 
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
-            handleSearch();
+            submitSearch();
         }
     };
 
@@ -61,7 +61,7 @@ const Header = () => {
                     onKeyDown={handleKeyPress}
                 >
                 </InputSearch>
-                <IoMdSearch className="button-search" onClick={handleSearch} />
+                <IoMdSearch className="button-search" onClick={submitSearch} />
             </DivSearch>
             <Nav className={`${menuActive ? 'menuActive' : ''}`}>
                 <Ul>

@@ -1,61 +1,73 @@
 [
     {
       "name": "AÇÃO",
+      "title": "Ação",
       "slug": "acao",
       "id": 28
     },
     {
       "name": "AVENTURA",
+      "title": "Aventura",
       "slug": "aventura",
       "id": 12
     },
     {
       "name": "ANIMAÇÃO",
+      "title": "Animação",
       "slug": "animacao",
       "id": 16
     },
     {
       "name": "COMÉDIA",
+      "title": "Comédia",
       "slug": "comedia",
       "id": 35
     },
     {
       "name": "FAMÍLIA",
+      "title": "Família",
       "slug": "familia",
       "id": 10751
     },
     {
       "name": "DRAMA",
+      "title": "Drama",
       "slug": "drama",
       "id": 18
     },
     {
       "name": "FICÇÃO CIENTÍFICA",
+      "title": "Ficção científica",
       "slug": "ficcao-cientifica",
       "id": 878
     },
     {
       "name": "CRIME",
+      "title": "Crime",
       "slug": "crime",
       "id": 80
     },
     {
       "name": "GUERRA",
+      "title": "Guerra",
       "slug": "guerra",
       "id": 10752
     },
     {
       "name": "MISTÉRIO",
+      "title": "Mistério",
       "slug": "misterio",
       "id": 9648
     },
     {
       "name": "TERROR",
+      "title": "Terror",
       "slug": "terror",
       "id": 27
     },
     {
       "name": "THRILLER",
+      "title": "Thriller",
       "slug": "thriller",
       "id": 53
     }

@@ -1,21 +1,26 @@
-import { useParams } from "react-router-dom";
+import {
+    fetchDetailsMovie,
+    fetchCreditsMovie,
+    fetchTrailerMovie
+} from "../services/getMovies";
 import { useEffect, useState } from "react";
-import { fetchDetailsMovie, fetchCreditsMovie, fetchTrailerMovie } from "../services/getMovies";
-import { ProfileCard } from "../components/profile-card";
-import { MovieInfo } from "../components/movie-info";
+import { useParams } from "react-router-dom";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { Loading } from "../components/loading";
+import { ProfileCard } from "../components/profile-card";
+import { MovieInfo } from "../components/movie-info";
 
 const MovieDetails = () => {
     const { id } = useParams();
-    const [ loading, setLoading]  = useState(true);
+    const [ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(null);
     const [ movieData, setMovieData ] = useState(null);
     const [ trailerMovie, setTrailerMovie ] = useState([])
     const [ movieCast, setMovieCast ] = useState([]);
 
     useEffect(() => {
+
         setLoading(true);
 
         const getDetailsMovie = async () => {
@@ -32,7 +37,10 @@ const MovieDetails = () => {
                 setLoading(false);
             }
         };
+
         getDetailsMovie()
+        
+
     }, [id]);
 
     if (loading) {
@@ -47,6 +55,7 @@ const MovieDetails = () => {
         const remainingMinutes = minutes % 60;
         return `${hours}h ${remainingMinutes}min`;
     };
+
     const name = movieData.title;
     const image = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`;
     const sinopse = movieData.overview
@@ -61,6 +70,8 @@ const MovieDetails = () => {
         )
     );
 
+    document.title = name;
+
     return (
         <>
             <Header />
@@ -70,7 +81,7 @@ const MovieDetails = () => {
                     image={image}
                     info1={movieTime}
                     info2={movieData.genres.map(item => item.name).join(", ")}
-                    info3={`avaliação ${rating}`}
+                    info3={`avaliação ${rating > 0 ? rating : '-'}`}
                 />
                 <MovieInfo
                     name={name}

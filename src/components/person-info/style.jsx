@@ -9,7 +9,7 @@ export const PageTitle = styled.h1`
 `
 
 export const Title = styled.h2`
-    margin-top: 30px;
+    margin: 30px auto;
 `
 
 export const TextBiography = styled.p`
