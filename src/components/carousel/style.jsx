@@ -33,6 +33,7 @@ export const ButtonLeft = styled.button`
     transition: 0.3s;
     padding: 0;
     cursor: default;
+    margin: 0;
     transform: translateY(-5px);
         &:hover {
             transform: translateY(-5px)
@@ -48,6 +49,7 @@ export const ButtonRight = styled.button`
     transition: 0.3s;
     padding: 0;
     cursor: default;
+    margin: 0;
     transform: translateY(-5px);
         &:hover {
             transform: translateY(-5px)

@@ -85,11 +85,14 @@ const MovieInfo = ({ name, sinopse, trailer, director, writer, cast }) => {
                     </Person>
                 ))}
             </ContainerPersons>
-            {showButton ? (
-                <button onClick={showAllActors}>Ver elenco completo</button>
-            ) : (
-                <button onClick={showLess}>Ver menos</button>
+            {cast.length > 8 && (
+                showButton ? (
+                    <button onClick={showAllActors}>Ver elenco completo</button>
+                ) : (
+                    <button onClick={showLess}>Ver menos</button>
+                )
             )}
+            { }
         </div>
     )
 }
