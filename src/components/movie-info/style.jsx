@@ -15,7 +15,6 @@ export const TitleInfoMovie = styled.h1`
     display: none;
         @media (min-width: ${MediaSizes.tablet}) {
             display: inline-block;
-            margin-bottom: 30px; 
         }
 `
 
@@ -47,6 +46,15 @@ export const ContainerSinopse = styled.div`
 
 export const Title = styled.h2`
     margin-bottom: 20px;
+`
+
+export const Year = styled.h2`
+    display: none;
+    font-size: 25px;
+    color: var(--subtitle);
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+            display: block;
+        }
 `
 
 export const Text = styled.p`

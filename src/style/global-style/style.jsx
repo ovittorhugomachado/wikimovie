@@ -8,9 +8,6 @@ export const Style = createGlobalStyle`
         box-sizing: border-box;
         font-family: big shoulders display, sans-serif;
         letter-spacing: 1px;
-        overflow-wrap: break-word;
-        word-break: break-word;
-        white-space: normal; 
         transition: background-color 0.3s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         --primary-color: #0C0C0C;
         --secondary-color: #005AF2;
@@ -124,6 +121,9 @@ export const Style = createGlobalStyle`
         font-weight: 300;
         text-align: start;
         color: var(--text);
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: normal; 
     }
 
     b {

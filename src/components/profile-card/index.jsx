@@ -1,16 +1,18 @@
 import {
     ContainerProfile,
     PageTitle,
+    Year,
     Image,
     Info1,
     Info2,
     Info3
 } from "./style";
 
-const ProfileCard = ({ name, image, info1, info2, info3 }) => {
+const ProfileCard = ({ name, year, image, info1, info2, info3 }) => {
     return (
         <ContainerProfile>
             <PageTitle>{name}</PageTitle>
+            <Year>{year}</Year>
             <Image
                 className="profile-card"
                 src={`https://image.tmdb.org/t/p/w500${image}`}

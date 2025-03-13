@@ -2,6 +2,7 @@ import {
     TitleInfoMovie,
     ContainerSinopse,
     Title,
+    Year,
     Text,
     PlayTrailer,
     Photo,
@@ -14,7 +15,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ImYoutube2 } from "react-icons/im";
 
-const MovieInfo = ({ name, sinopse, trailer, director, writer, cast }) => {
+const MovieInfo = ({ name, year, sinopse, trailer, director, writer, cast }) => {
 
     const [visibleActors, setVisibleActors] = useState(8);
     const [showButton, SetShowButton] = useState(8);
@@ -31,6 +32,7 @@ const MovieInfo = ({ name, sinopse, trailer, director, writer, cast }) => {
     return (
         <div>
             <TitleInfoMovie>{name}</TitleInfoMovie>
+            <Year>{year}</Year>
             {sinopse.length > 0 && (
                 <ContainerSinopse>
                     <Title>Sinopse</Title>

@@ -50,6 +50,8 @@ const MovieDetails = () => {
         return <img className="error" src="/error.png" />
     }
 
+    console.log(movieData)
+
     const formatRuntime = (minutes) => {
         const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;
@@ -57,6 +59,7 @@ const MovieDetails = () => {
     };
 
     const name = movieData.title;
+    const year = movieData.release_date.split('-')[0]
     const image = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`;
     const sinopse = movieData.overview
     const movieTime = formatRuntime(movieData.runtime)
@@ -78,6 +81,7 @@ const MovieDetails = () => {
             <main className="details">
                 <ProfileCard
                     name={name}
+                    year={year}
                     image={image}
                     info1={movieTime}
                     info2={movieData.genres.map(item => item.name).join(", ")}
@@ -85,6 +89,7 @@ const MovieDetails = () => {
                 />
                 <MovieInfo
                     name={name}
+                    year={year}
                     sinopse={sinopse}
                     trailer={pathTrailer}
                     director={director}

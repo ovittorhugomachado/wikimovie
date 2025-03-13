@@ -14,10 +14,19 @@ export const ContainerProfile = styled.div`
 `
 
 export const PageTitle = styled.h1`
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     @media(min-width: ${MediaSizes.tablet}) {
                     display: none  ;  
                 }
+`
+
+export const Year = styled.h2`
+    font-size: 25px;
+    color: var(--subtitle);
+    margin-bottom: 10px;
+        @media (min-width: ${MediaSizes.desktopSmall}) {
+            display: none;
+        }
 `
 
 export const Image = styled.img`
