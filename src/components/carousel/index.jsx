@@ -62,6 +62,7 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                             className={index === currentMovie ? 'active' : ''}
                             alt={movie.name}
                             onClick={() => goDetails(movie.id)}
+                            onError={(e) => e.target.src = "/default-cover.png"}
                         />
                         <InfoMovie className={index === currentMovie ? 'active' : ''}>
                             <MovieName>{movie.name}</MovieName>
