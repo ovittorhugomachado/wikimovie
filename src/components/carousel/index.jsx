@@ -66,7 +66,7 @@ const Carousel = ({ nameCarousel, listMovies }) => {
                         <InfoMovie className={index === currentMovie ? 'active' : ''}>
                             <MovieName>{movie.name}</MovieName>
                             <Year>{movie.date}</Year>
-                            <MovieReview>{`AVALIAÇÃO: ${movie.rating}`}</MovieReview>
+                            <MovieReview>{`AVALIAÇÃO: ${movie.rating > 0 ? movie.rating : '-'}`}</MovieReview>
                         </InfoMovie>
                     </DivMovie>
                 ))}
