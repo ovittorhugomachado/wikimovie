@@ -50,8 +50,6 @@ const MovieDetails = () => {
         return <img className="error" src="/error.png" />
     }
 
-    console.log(movieData)
-
     const formatRuntime = (minutes) => {
         const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;
