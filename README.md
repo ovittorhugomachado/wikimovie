@@ -3,7 +3,8 @@
 ## 🎯Objetivo :
 Nesse projeto, eu quis criar uma página completa que me desafiasse, algo prático, funcional e responsivo, integrando conceitos mais avançados e exercitando minhas habilidades, principalmente em consumo de APIs. A ideia principal foi desenvolver uma plataforma que permitisse ao usuário buscar, filtrar e explorar informações detalhadas sobre filmes, como elenco, sinopse e trailers, consumindo dados da API **The Movie Database (TMDb)**.
 
-Referência da API: https://developer.themoviedb.org/docs/getting-started
+Referência da API: <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank">Ir para The Movie Database (TMDb)</a>
+
 
 ---
 
