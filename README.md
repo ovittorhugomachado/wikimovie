@@ -14,22 +14,32 @@ Como me propus a criar algo maior do que os projetos que fiz antes, alguns erros
 <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/html.png" width="40px" > <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/css.png" width="40px" > <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/javascript.png" width="32px" > <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/react.png" width="32px" >
 
 - **HTML5**: Estrutura.
+
 - **CSS3**: Aplicação de estilos e transições.
-- **JavaScript**: Criação de arrays e condicionais.
+
+- **JavaScript**: Criação de funções, arrays e condicionais. Consumo de API com o fetch.
+
 - **React**: Criação da interface, com uso de componentes e hooks (`useState, useEffect`).
+
 - **Styled Components**: Criação de estilo global, podendo assim precisar reescrever as propriedades e estilos.
-- **Fetch API**: Consumir dados de APIs externas, realizando requisições HTTP e processando os retornos no formato JSON.
+
 - **React Router Dom**: Criação de rotas e uso dos parâmetros da URL.
+
 - **Vite**: Ferramenta para build e desenvolvimento, deixando o processo mais rápido.
-- **ESLint**: Pré-instalado com o Vite, ele serve para definir regras e deixar o código mais conciso.
+
+- **ESLint**: Pré-instalado com o Vite, usado para definir regras e deixar o código mais conciso.
 
 ---
 
 ## 🎯 Funcionalidades
 - **Listas de filmes**: Na página inicial, são renderizados carrosséis com os principais filmes de cada categoria.
+
 - **Filtros por gênero**: O menu conta com uma lista de links para cada gênero, que leva para uma página do gênero selecionado.
+
 - **Detalhes do filme**: Todas as capas de filmes contam com links que direcionam para uma página com detalhes do filme (elenco, sinopse, trailer).
+
 - **Detalhes de pessoas**: Além da página de detalhes do filme, existe uma página semelhante, mas com dados das pessoas do elenco ou da equipe do filme. O link para essa página fica na imagem de cada pessoa.
+
 - **Boas práticas de código**: Uso de tags semânticas para melhor estruturação da página.
 
 
