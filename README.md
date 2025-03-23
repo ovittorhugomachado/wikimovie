@@ -31,7 +31,7 @@ Como me propus a criar algo maior do que os projetos que fiz antes, alguns erros
 
 ---
 
-## 🎯 Funcionalidades
+## ⚙️ Funcionalidades
 - **Listas de filmes**: Na página inicial, são renderizados carrosséis com os principais filmes de cada categoria.
 
 - **Filtros por gênero**: O menu conta com uma lista de links para cada gênero, que leva para uma página do gênero selecionado.
