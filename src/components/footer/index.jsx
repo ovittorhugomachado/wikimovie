@@ -12,7 +12,7 @@ const Footer = () => {
         <Container>
             <Info>Desenvolvido por Vitor Hugo Machado</Info>
             <ContainerSocialMedia>
-                <a href="https://www.linkedin.com/in/vitor-hugo-alves-machado-1621bb156/" target="_blank">
+                <a href="https://www.linkedin.com/in/vitor-hugo-machado-1621bb156/" target="_blank">
                     <FaLinkedin className="social-media" />
                 </a>
                 <a href="https://github.com/ovittorhugomachado" target="_blank">
