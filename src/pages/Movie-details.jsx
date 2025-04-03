@@ -8,8 +8,8 @@ import { useParams } from "react-router-dom";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { Loading } from "../components/loading";
-import { ProfileCard } from "../components/profile-card";
 import { MovieInfo } from "../components/movie-info";
+import { ProfileCardMovie } from "../components/profile-card-movie";
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -56,6 +56,8 @@ const MovieDetails = () => {
         return `${hours}h ${remainingMinutes}min`;
     };
 
+    console.log(movieData)
+
     const name = movieData.title;
     const year = movieData.release_date.split('-')[0]
     const image = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`;
@@ -77,10 +79,11 @@ const MovieDetails = () => {
         <>
             <Header />
             <main className="details">
-                <ProfileCard
+                <ProfileCardMovie
                     name={name}
                     year={year}
                     image={image}
+                    errImage='default-cover.png'
                     info1={movieTime}
                     info2={movieData.genres.map(item => item.name).join(", ")}
                     info3={`avaliação ${rating > 0 ? rating : '-'}`}
